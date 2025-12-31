@@ -20,7 +20,7 @@ import Image from "next/image"
 
 // All testimonial images from Nrf2_Testimonial folder
 const testimonials = [
-  { id: 1, image: "/assets/images/Nrf2_Testimonial/energy_ back pain, migraines.png" },
+  { id: 1, image: "/assets/images/Nrf2_Testimonial/energy-back-pain-migraines.png" },
   { id: 2, image: "/assets/images/Nrf2_Testimonial/energy_ sleep.png" },
   { id: 3, image: "/assets/images/Nrf2_Testimonial/energy-back-pain-migraines-AzGMLa8Gl7HoWZqb.png" },
   { id: 4, image: "/assets/images/Nrf2_Testimonial/energy-sleep-A1azxVQaJeF56R2b.png" },
