@@ -51,9 +51,19 @@ export function Header() {
           </Button>
         </nav>
 
-        {/* Mobile Menu */}
-        <div className="xl:hidden">
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+        {/* Tablet Button and Mobile Menu */}
+        <div className="flex items-center gap-3 xl:hidden">
+          {/* Tablet Button - Visible on md and lg */}
+          <div className="hidden md:flex items-center">
+            <Button asChild className="bg-primary hover:bg-secondary text-primary-foreground rounded-md px-4 md:px-6 text-sm">
+              <Link href="https://relatyv.formstack.com/forms/insurance_details" target="_blank">
+                Verify My Insurance Benefits
+              </Link>
+            </Button>
+          </div>
+          
+          {/* Mobile Menu */}
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="text-foreground">
                 <Menu className="h-6 w-6" />
@@ -61,7 +71,7 @@ export function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="bg-white p-6">
-                <SheetTitle className="sr-only">Mobile Navigation</SheetTitle>
+              <SheetTitle className="sr-only">Mobile Navigation</SheetTitle>
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between mb-8">
                   <span className="text-lg font-heading text-primary">Menu</span>
@@ -77,7 +87,8 @@ export function Header() {
                       {link.name}
                     </Link>
                   ))}
-                  <Button asChild className="bg-primary hover:bg-secondary text-primary-foreground w-full mt-4">
+                  {/* Button only shown in mobile menu on small screens (below md) */}
+                  <Button asChild className="bg-primary hover:bg-secondary text-primary-foreground w-full mt-4 md:hidden">
                     <Link href="https://relatyv.formstack.com/forms/insurance_details" target="_blank" onClick={() => setIsOpen(false)}>
                       Verify My Insurance Benefits
                     </Link>

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { NFPMHero } from "@/components/nfpm/nfpm-hero"
 import { WhatIsNFPM } from "@/components/nfpm/what-is-nfpm"
 import { HowNFPMWorks } from "@/components/nfpm/how-nfpm-works"
@@ -10,6 +11,44 @@ import { NFPMFAQ } from "@/components/nfpm/nfpm-faq"
 import { NFPMTestimonials } from "@/components/nfpm/nfpm-testimonials"
 import { NFPMFinalCTA } from "@/components/nfpm/nfpm-final-cta"
 import { SupportingProducts } from "@/components/nfpm/supporting-products"
+
+export const metadata: Metadata = {
+  title: "Neurofunctional Pain Management (NFPM) | Non-Invasive Pain Relief",
+  description: "Drug-free, non-invasive, nurse-led pain relief in the comfort of your home. NFPM uses FDA-cleared electroanalgesia to calm overactive pain pathways, promote circulation, and support healing. Covered by Medicare and most major PPOs.",
+  keywords: [
+    "NFPM",
+    "neurofunctional pain management",
+    "electroanalgesia",
+    "non-invasive pain treatment",
+    "FDA-cleared pain therapy",
+    "Medicare pain treatment",
+    "in-home NFPM",
+    "chronic pain treatment",
+    "neuromodulation",
+    "pain pathway treatment",
+    "drug-free pain relief",
+    "East Bay NFPM",
+    "Relatyv NFPM",
+  ],
+  openGraph: {
+    title: "Neurofunctional Pain Management (NFPM) | Non-Invasive Pain Relief",
+    description: "Drug-free, non-invasive, nurse-led pain relief in the comfort of your home. NFPM uses FDA-cleared electroanalgesia. Covered by Medicare and most major PPOs.",
+    url: "/nfpm",
+    images: [
+      {
+        url: "/assets/images/rpt-logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Relief Point Therapy - NFPM Pain Relief",
+      },
+    ],
+  },
+  twitter: {
+    title: "Neurofunctional Pain Management (NFPM) | Non-Invasive Pain Relief",
+    description: "Drug-free, non-invasive, nurse-led pain relief in the comfort of your home. Covered by Medicare and most major PPOs.",
+    images: ["/assets/images/rpt-logo.png"],
+  },
+};
 
 export default function NFPMPage() {
   return (

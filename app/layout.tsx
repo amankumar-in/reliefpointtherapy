@@ -17,8 +17,95 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Relief Point Therapy",
-  description: "Non-invasive, nurse-led pain relief in the East Bay.",
+  metadataBase: new URL('https://reliefpointtherapy.com'),
+  title: {
+    default: "Relief Point Therapy | Non-Invasive Pain Relief in the East Bay",
+    template: "%s | Relief Point Therapy",
+  },
+  description: "Non-invasive, nurse-led pain relief in the East Bay. NFPM treatments covered by Medicare. In-home care for chronic pain, knee pain, back pain, and nerve-related conditions.",
+  keywords: [
+    "pain relief",
+    "non-invasive pain treatment",
+    "NFPM",
+    "neurofunctional pain management",
+    "East Bay pain relief",
+    "Medicare pain treatment",
+    "in-home pain therapy",
+    "nurse-led pain care",
+    "chronic pain treatment",
+    "drug-free pain relief",
+    "cellular activation",
+    "Nrf2",
+    "Relief Point Therapy",
+  ],
+  authors: [{ name: "Genis Matel, RN" }],
+  creator: "Relief Point Therapy",
+  publisher: "Relief Point Therapy",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  icons: {
+    icon: [
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      {
+        rel: 'android-chrome-192x192',
+        url: '/android-chrome-192x192.png',
+        sizes: '192x192',
+        type: 'image/png',
+      },
+      {
+        rel: 'android-chrome-512x512',
+        url: '/android-chrome-512x512.png',
+        sizes: '512x512',
+        type: 'image/png',
+      },
+    ],
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: '/',
+    siteName: 'Relief Point Therapy',
+    title: 'Relief Point Therapy | Non-Invasive Pain Relief in the East Bay',
+    description: 'Non-invasive, nurse-led pain relief in the East Bay. NFPM treatments covered by Medicare. In-home care for chronic pain, knee pain, back pain, and nerve-related conditions.',
+    images: [
+      {
+        url: '/assets/images/rpt-logo.png',
+        width: 180,
+        height: 60,
+        alt: 'Relief Point Therapy Logo',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Relief Point Therapy | Non-Invasive Pain Relief',
+    description: 'Non-invasive, nurse-led pain relief in the East Bay. NFPM treatments covered by Medicare.',
+    images: ['/assets/images/rpt-logo.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    // Add verification codes here if needed
+    // google: 'your-google-verification-code',
+    // yandex: 'your-yandex-verification-code',
+  },
 };
 
 export default function RootLayout({
