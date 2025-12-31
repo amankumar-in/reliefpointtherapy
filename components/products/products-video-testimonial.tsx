@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Play } from "lucide-react"
 import { Card } from "@/components/ui/card"
 import {
@@ -32,15 +33,28 @@ export function ProductsVideoTestimonial() {
               className="cursor-pointer hover:shadow-xl transition-all border border-border rounded-lg overflow-hidden"
               onClick={() => setIsVideoOpen(true)}
             >
-              <div className="relative aspect-video bg-gradient-to-br from-primary/20 via-primary/10 to-secondary/10 flex items-center justify-center group">
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors" />
-                <div className="relative z-10 text-center space-y-6 p-8">
-                  <div className="bg-primary/95 rounded-full p-5 w-fit mx-auto group-hover:bg-primary group-hover:scale-110 transition-all shadow-lg">
-                    <Play className="h-10 w-10 text-white fill-white ml-1" />
+              <div className="relative aspect-video group">
+                <Image
+                  src="/assets/images/firefighter-story-1.png"
+                  alt="A Firefighter's Recovery Story"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 1024px"
+                />
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
+                
+                {/* Play Button - Centered */}
+                <div className="absolute inset-0 z-10 flex items-center justify-center">
+                  <div className="bg-primary/95 rounded-full p-4 md:p-5 w-fit mx-auto group-hover:bg-primary group-hover:scale-110 transition-all shadow-lg">
+                    <Play className="h-8 w-8 md:h-10 md:w-10 text-white fill-white ml-1" />
                   </div>
-                  <div className="space-y-2">
-                    <h3 className="text-2xl md:text-3xl font-heading text-primary">A Firefighter&apos;s Recovery Story</h3>
-                    <p className="text-foreground/80 text-lg max-w-2xl mx-auto">
+                </div>
+                
+                {/* Text - Bottom */}
+                <div className="absolute bottom-0 left-0 right-0 z-10 text-center p-4 md:p-8">
+                  <div className="space-y-1 md:space-y-2">
+                    <h3 className="text-base md:text-3xl font-heading text-white drop-shadow-lg">A Firefighter&apos;s Recovery Story</h3>
+                    <p className="text-white/90 text-xs md:text-lg max-w-2xl mx-auto drop-shadow-md hidden md:block">
                       After falling three stories on duty, a local firefighter struggled with pain and mobility issues. After beginning NFPM, Protandim Nrf2, and liquid collagen, he experienced meaningful improvements in recovery and daily function.
                     </p>
                   </div>

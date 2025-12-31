@@ -175,7 +175,7 @@ function ProductImageGallery({ images, productName }: { images: string[]; produc
 
 export function ProductsGrid() {
   return (
-    <section className="py-20 md:py-32 bg-background">
+    <section id="products-services" className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="space-y-12">
           <div className="text-center space-y-4">

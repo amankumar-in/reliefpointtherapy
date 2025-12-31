@@ -14,7 +14,7 @@ export function Nrf2Hero() {
           </p>
           <div className="pt-4">
             <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded shadow-lg hover:shadow-xl transition-all h-12 px-8">
-              <Link href="#products">
+              <Link href="/products#products-services">
                 Shop Products
               </Link>
             </Button>

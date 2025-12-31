@@ -10,38 +10,14 @@ import {
 import { Card } from "@/components/ui/card"
 import Image from "next/image"
 
-// Placeholder testimonials - replace with actual images from the Google Drive folder
+// All testimonial images from product-testimonial folder
 const testimonials = [
-  {
-    id: 1,
-    image: "/assets/images/placeholder-image-landscape.avif",
-    text: "Testimonial text will appear here. Last names will be blurred.",
-    name: "First Name",
-  },
-  {
-    id: 2,
-    image: "/assets/images/placeholder-image-landscape.avif",
-    text: "Testimonial text will appear here. Last names will be blurred.",
-    name: "First Name",
-  },
-  {
-    id: 3,
-    image: "/assets/images/placeholder-image-landscape.avif",
-    text: "Testimonial text will appear here. Last names will be blurred.",
-    name: "First Name",
-  },
-  {
-    id: 4,
-    image: "/assets/images/placeholder-image-landscape.avif",
-    text: "Testimonial text will appear here. Last names will be blurred.",
-    name: "First Name",
-  },
-  {
-    id: 5,
-    image: "/assets/images/placeholder-image-landscape.avif",
-    text: "Testimonial text will appear here. Last names will be blurred.",
-    name: "First Name",
-  },
+  { id: 1, image: "/assets/images/product-testimonial/collagen back injections.png" },
+  { id: 2, image: "/assets/images/product-testimonial/collagen back pain_ injections.png" },
+  { id: 3, image: "/assets/images/product-testimonial/collagen back pain.png" },
+  { id: 4, image: "/assets/images/product-testimonial/collagen fibromyalgia.png" },
+  { id: 5, image: "/assets/images/product-testimonial/collagen, post op knee.png" },
+  { id: 6, image: "/assets/images/product-testimonial/nrf1 nrf2 collagen; knees.png" },
 ]
 
 export function ProductsTestimonials() {
@@ -58,7 +34,8 @@ export function ProductsTestimonials() {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
+          {/* Testimonials Carousel - Full Width */}
+          <div className="w-full">
             <Carousel
               opts={{
                 align: "start",
@@ -68,31 +45,21 @@ export function ProductsTestimonials() {
             >
               <CarouselContent className="-ml-2 md:-ml-4">
                 {testimonials.map((testimonial) => (
-                  <CarouselItem key={testimonial.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                    <Card className="border border-[#E2E8E8] rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden">
-                      <div className="relative aspect-[4/3] bg-muted">
-                        <Image
-                          src={testimonial.image}
-                          alt={`Testimonial from ${testimonial.name}`}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        />
-                      </div>
-                      <div className="p-4 space-y-2">
-                        <p className="text-sm text-foreground/80 leading-relaxed">
-                          {testimonial.text}
-                        </p>
-                        <p className="text-sm font-semibold text-primary">
-                          — {testimonial.name}
-                        </p>
-                      </div>
+                  <CarouselItem key={testimonial.id} className="pl-2 md:pl-4 basis-[85%] sm:basis-[70%] md:basis-1/2 lg:basis-1/3 xl:basis-1/3">
+                    <Card className="relative border border-[#E2E8E8] rounded-lg shadow-sm hover:shadow-lg transition-shadow overflow-hidden aspect-[2/1]">
+                      <Image
+                        src={testimonial.image}
+                        alt={`Product Testimonial ${testimonial.id}`}
+                        fill
+                        className="object-contain"
+                        sizes="(max-width: 640px) 85vw, (max-width: 768px) 70vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
+                      />
                     </Card>
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="left-0 md:-left-12" />
-              <CarouselNext className="right-0 md:-right-12" />
+              <CarouselPrevious className="left-2 md:left-4 bg-primary text-white border-primary hover:bg-primary/90 hover:text-white" />
+              <CarouselNext className="right-2 md:right-4 bg-primary text-white border-primary hover:bg-primary/90 hover:text-white" />
             </Carousel>
           </div>
         </div>

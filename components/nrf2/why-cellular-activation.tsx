@@ -1,4 +1,5 @@
 import { Sparkles, Heart, Zap, TrendingUp } from "lucide-react"
+import Image from "next/image"
 
 export function WhyCellularActivation() {
   const benefits = [
@@ -51,15 +52,14 @@ export function WhyCellularActivation() {
 
           {/* Right Column: Image/Visual */}
           <div className="flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-md aspect-square bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20 p-8 flex items-center justify-center">
-              <div className="text-center space-y-4">
-                <div className="w-24 h-24 mx-auto bg-primary/20 rounded-full flex items-center justify-center">
-                  <Sparkles className="h-12 w-12 text-primary" />
-                </div>
-                <p className="text-foreground/60 text-sm italic">
-                  Cellular activation at work
-                </p>
-              </div>
+            <div className="relative w-full max-w-md aspect-square rounded-lg overflow-hidden">
+              <Image
+                src="/assets/images/subtle-wellness.avif"
+                alt="Cellular activation and wellness"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
           </div>
         </div>

@@ -38,14 +38,15 @@ export function MyStoryNrf2() {
             </div>
           </div>
 
-          {/* Right Column: Image */}
+          {/* Right Column: Image Card */}
           <div className="flex justify-center lg:justify-end">
-            <div className="relative aspect-[3/4] w-full max-w-sm rounded-lg overflow-hidden shadow-lg ring-1 ring-border">
+            {/* Teal card with 4:5 portrait ratio and rounded corners */}
+            <div className="relative w-full max-w-xs md:max-w-md aspect-[4/5] bg-primary/50 rounded-lg overflow-hidden p-0">
               <Image
-                src="/assets/images/placeholder-image-portrait.jpeg"
+                src="/assets/images/genis-headshot-transparent-bg.png"
                 alt="Genis Matel, RN - Relief Point Therapy"
                 fill
-                className="object-cover"
+                className="object-contain object-bottom"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
