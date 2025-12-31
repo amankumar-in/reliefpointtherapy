@@ -17,18 +17,11 @@ export function LeadMagnetPopup() {
   const [isSubmitted, setIsSubmitted] = useState(false)
 
   useEffect(() => {
-    // Check if popup has been shown before (using localStorage)
-    const hasShownBefore = localStorage.getItem("leadMagnetShown")
-    if (hasShownBefore === "true") {
-      return
-    }
-
     // Time delay trigger: 60-90 seconds (using 75 seconds as middle)
     const timeDelay = setTimeout(() => {
       if (!hasShown) {
         setIsOpen(true)
         setHasShown(true)
-        localStorage.setItem("leadMagnetShown", "true")
       }
     }, 75000) // 75 seconds
 
@@ -40,7 +33,6 @@ export function LeadMagnetPopup() {
         if (e.clientY <= 0 && !hasShown) {
           setIsOpen(true)
           setHasShown(true)
-          localStorage.setItem("leadMagnetShown", "true")
         }
       }
     }
