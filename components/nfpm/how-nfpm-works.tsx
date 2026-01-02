@@ -83,7 +83,7 @@ export function HowNFPMWorks() {
           </p>
           <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 rounded h-14 px-10 text-lg shadow-lg">
             <Link 
-              href="https://drive.google.com/file/d/1yajdZCW-UA0bMiRje4-H41-MbUFVE4Tf/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1zeX9QeI9dDtGTTTgp9feqb_0MEoSSWU5/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
             >

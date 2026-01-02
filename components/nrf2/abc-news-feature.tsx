@@ -6,14 +6,19 @@ import { Play } from "lucide-react"
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
-  DialogTitle,
 } from "@/components/ui/dialog"
-import { Card } from "@/components/ui/card"
+
+// Helper function to convert YouTube URL to embed format
+function getYouTubeEmbedUrl(youtubeUrl: string): string {
+  const videoId = youtubeUrl.includes("youtu.be/")
+    ? youtubeUrl.split("youtu.be/")[1].split("?")[0]
+    : youtubeUrl.split("v=")[1]?.split("&")[0]
+  return `https://www.youtube.com/embed/${videoId}`
+}
 
 export function ABCNewsFeature() {
   const [isVideoOpen, setIsVideoOpen] = useState(false)
-  const videoUrl = "https://lfvn.co/qvnr9dgymi/"
+  const youtubeUrl = "https://youtu.be/6Wqbl1hxOso?si=Nt3P4zIp5a8I1YVA"
 
   return (
     <>
@@ -30,11 +35,11 @@ export function ABCNewsFeature() {
             </div>
 
             <div className="max-w-4xl mx-auto">
-              <Card 
-                className="cursor-pointer hover:shadow-xl transition-all border border-border rounded-lg overflow-hidden"
+              <div
+                className="cursor-pointer group"
                 onClick={() => setIsVideoOpen(true)}
               >
-                <div className="relative aspect-video flex items-center justify-center group">
+                <div className="relative aspect-video flex items-center justify-center rounded-lg overflow-hidden">
                   <Image
                     src="/assets/images/abc-news-thumb.png"
                     alt="ABC News Feature on Protandim Nrf2"
@@ -42,44 +47,33 @@ export function ABCNewsFeature() {
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                     sizes="(max-width: 768px) 100vw, 1024px"
                   />
-                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
-                  <div className="absolute inset-0 z-10 flex items-center justify-center">
-                    <div className="bg-primary/95 rounded-full p-5 w-fit mx-auto group-hover:bg-primary group-hover:scale-110 transition-all shadow-lg">
-                      <Play className="h-10 w-10 text-white fill-white ml-1" />
-                    </div>
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 z-10 text-center p-6 md:p-8">
-                    <div className="space-y-2">
-                      <h3 className="text-xl md:text-3xl font-heading text-white drop-shadow-lg">ABC News Investigative Report</h3>
-                      <p className="text-white/90 text-base md:text-lg max-w-2xl mx-auto drop-shadow-md">
-                        Watch the segment that brought Protandim Nrf2 to national attention
-                      </p>
-                    </div>
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
+                  <div className="relative z-10 bg-primary/95 rounded-full p-4 group-hover:bg-primary group-hover:scale-110 transition-all shadow-lg">
+                    <Play className="h-8 w-8 text-white fill-white ml-1" />
                   </div>
                 </div>
-              </Card>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Video Modal */}
-      <Dialog open={isVideoOpen} onOpenChange={setIsVideoOpen}>
-        <DialogContent className="max-w-4xl">
-          <DialogHeader>
-            <DialogTitle>ABC News Feature: Protandim Nrf2</DialogTitle>
-          </DialogHeader>
-          <div className="aspect-video w-full">
-            <iframe
-              src={videoUrl}
-              className="w-full h-full rounded-lg"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title="ABC News Feature on Protandim Nrf2"
-            />
-          </div>
-        </DialogContent>
-      </Dialog>
+      {isVideoOpen && (
+        <Dialog open={isVideoOpen} onOpenChange={setIsVideoOpen}>
+          <DialogContent className="max-w-4xl p-0 [&>button]:left-4 [&>button]:top-4 [&>button]:right-auto [&>button]:z-50 [&>button]:bg-white/95 [&>button]:backdrop-blur-sm [&>button]:rounded-full [&>button]:p-2 [&>button]:shadow-lg [&>button]:hover:bg-white [&>button]:opacity-100 [&>button>svg]:stroke-[3] [&>button>svg]:h-5 [&>button>svg]:w-5">
+            <div className="aspect-video w-full relative">
+              <iframe
+                src={getYouTubeEmbedUrl(youtubeUrl)}
+                className="w-full h-full rounded-lg"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+                title="ABC News Feature on Protandim Nrf2"
+              />
+            </div>
+          </DialogContent>
+        </Dialog>
+      )}
     </>
   )
 }

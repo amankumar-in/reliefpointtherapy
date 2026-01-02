@@ -3,7 +3,6 @@
 import { useState } from "react"
 import Image from "next/image"
 import { Play } from "lucide-react"
-import { Card } from "@/components/ui/card"
 import {
   Dialog,
   DialogContent,
@@ -15,47 +14,28 @@ const testimonials = [
     vimeoUrl: "https://vimeo.com/937856275",
     thumbnail: "/assets/images/ed-video-thumb.png",
     title: "Ed – Peripheral Neuropathy",
-    conditions: [
-      "Peripheral neuropathy (DBN, DB2)",
-      "Pain in hands and feet",
-      "Symptom reduction and improved function",
-    ],
+    caption: "Ed's Story: Peripheral neuropathy (DBN, DB2)",
   },
   {
     name: "Robert",
     vimeoUrl: "https://vimeo.com/937943380",
     thumbnail: "/assets/images/robert-video-thumb.png",
     title: "Robert – Plantar Fasciitis & Neuropathy",
-    conditions: [
-      "Plantar fasciitis & neuropathy",
-      "Pain, stiffness in legs",
-      "Difficulty walking",
-      "Neuropathy relief",
-    ],
+    caption: "Robert's Story: Plantar fasciitis & neuropathy",
   },
   {
     name: "Wanda",
     vimeoUrl: "https://vimeo.com/938218963",
     thumbnail: "/assets/images/wanda-video-thumb.png",
     title: "Wanda – Knee & Leg Pain",
-    conditions: [
-      "Knee and leg pain",
-      "Pins & needles; throbbing; sleep disturbance",
-      "Relief without surgery or medications",
-    ],
+    caption: "Wanda's Story: Knee and leg pain",
   },
   {
     name: "Hayward",
     vimeoUrl: "https://vimeo.com/938258497",
     thumbnail: "/assets/images/hayward-video-thumb.png",
     title: "Hayward – Spinal Stenosis & Leg Pain",
-    conditions: [
-      "Work accident",
-      "Spinal stenosis & leg pain",
-      "Severe muscle spasms",
-      "Returned sensation in feet",
-      "Progressed from walker → cane",
-    ],
+    caption: "Hayward's Story: Work accident",
   },
 ]
 
@@ -84,12 +64,12 @@ export function NFPMTestimonials() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {testimonials.map((testimonial, index) => (
-                <Card
+                <div
                   key={index}
-                  className="cursor-pointer hover:shadow-xl transition-all border border-border rounded-lg overflow-hidden h-full group"
+                  className="cursor-pointer group"
                   onClick={() => setOpenVideo(index)}
                 >
-                  <div className="relative aspect-video flex items-center justify-center">
+                  <div className="relative aspect-video flex items-center justify-center rounded-lg overflow-hidden">
                     <Image
                       src={testimonial.thumbnail}
                       alt={`${testimonial.name}'s Story`}
@@ -102,20 +82,13 @@ export function NFPMTestimonials() {
                       <Play className="h-8 w-8 text-white fill-white ml-1" />
                     </div>
                   </div>
-                  <div className="p-5 space-y-2.5">
-                    <h3 className="text-lg font-heading text-primary">
-                      {testimonial.name}&apos;s Story
-                    </h3>
-                    <ul className="space-y-1.5">
-                      {testimonial.conditions.map((condition, idx) => (
-                        <li key={idx} className="text-sm text-foreground/80 flex items-start gap-2">
-                          <span className="text-primary mt-1">•</span>
-                          <span>{condition}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </Card>
+                  <p className="text-sm text-foreground/80 mt-3 text-center">
+                    <span className="text-primary font-semibold">
+                      {testimonial.name}&apos;s Story:
+                    </span>{" "}
+                    {testimonial.caption.split(": ")[1]}
+                  </p>
+                </div>
               ))}
             </div>
           </div>
