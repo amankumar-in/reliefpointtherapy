@@ -8,7 +8,7 @@ import { Testimonials } from "@/components/home/testimonials";
 import { FinalCTA } from "@/components/home/final-cta";
 
 export const metadata: Metadata = {
-  title: "Pain Relief That Helps You Heal — Not Just Cope",
+  title: "Pain Relief That Helps You Heal Not Just Cope",
   description: "Non-invasive, drug-free pain relief covered by Medicare, provided in the comfort of your home. NFPM treatments and cellular activation for chronic pain, knee pain, back pain, and nerve-related conditions in the East Bay.",
   keywords: [
     "pain relief",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "nerve pain",
   ],
   openGraph: {
-    title: "Pain Relief That Helps You Heal — Not Just Cope | Relief Point Therapy",
+    title: "Pain Relief That Helps You Heal Not Just Cope | Relief Point Therapy",
     description: "Non-invasive, drug-free pain relief covered by Medicare, provided in the comfort of your home. NFPM treatments and cellular activation for chronic pain.",
     url: "/",
     images: [
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    title: "Pain Relief That Helps You Heal — Not Just Cope",
+    title: "Pain Relief That Helps You Heal Not Just Cope",
     description: "Non-invasive, drug-free pain relief covered by Medicare, provided in the comfort of your home.",
     images: ["/assets/images/genis-homepage-hero.png"],
   },

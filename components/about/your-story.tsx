@@ -24,7 +24,7 @@ export function YourStory() {
             </p>
             
             <p className="font-semibold text-primary text-xl">
-              I started to ask myself: Why aren&apos;t we offering people options that help the body heal — not just cope?
+              I started to ask myself: Why aren&apos;t we offering people options that help the body heal Not Just Cope?
             </p>
             
             <p>

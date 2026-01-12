@@ -14,7 +14,7 @@ const differences = [
   {
     icon: Sparkles,
     title: "Whole-Person Support",
-    description: "From cellular activation guidance to lifestyle coaching, everything is designed to help you heal — not just cope.",
+    description: "From cellular activation guidance to lifestyle coaching, everything is designed to help you heal Not Just Cope.",
   },
 ]
 

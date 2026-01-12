@@ -166,7 +166,7 @@ Link Behavior
 Hero Layout: Split Section
 
 **Left Column (Text):**  
-**Pain Relief That Helps You Heal — Not Just Cope**
+**Pain Relief That Helps You Heal Not Just Cope**
 
 **Subheadline:**  
 Non-invasive, drug-free pain relief covered by Medicare, provided in the comfort of your home.
@@ -1372,7 +1372,7 @@ My journey into this field began long before I ever held a nursing license. Afte
 Years later, I spent several years working in **post-operative care**, and I cared for dozens of patients who were back again for their second, third, or even fourth pain procedure. They were often struggling with side effects from medications, complications from injections, or temporary relief that never lasted.
 
 I started to ask myself:  
-**Why aren’t we offering people options that help the body heal — not just cope?**
+**Why aren’t we offering people options that help the body heal Not Just Cope?**
 
 When I discovered NFPM and cellular activation, everything changed. I saw patients who had been dismissed or overlooked finally get real relief. I watched mobility return. I saw progress that felt meaningful — not just temporary.  
 Most of the people who find me have “tried everything.”  
@@ -1434,7 +1434,7 @@ NFPM supports the body’s natural healing systems without surgery, medications,
 
 ### **🟦 Whole-Person Support**
 
-From cellular activation guidance to lifestyle coaching, everything is designed to help you heal — not just cope.
+From cellular activation guidance to lifestyle coaching, everything is designed to help you heal Not Just Cope.
 
 ## SECTION 6: SERVICE AREA
 
