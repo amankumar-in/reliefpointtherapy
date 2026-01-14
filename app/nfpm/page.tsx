@@ -11,6 +11,7 @@ import { NFPMFAQ } from "@/components/nfpm/nfpm-faq"
 import { NFPMTestimonials } from "@/components/nfpm/nfpm-testimonials"
 import { NFPMFinalCTA } from "@/components/nfpm/nfpm-final-cta"
 import { SupportingProducts } from "@/components/nfpm/supporting-products"
+import { ProviderCallout } from "@/components/nfpm/provider-callout"
 
 export const metadata: Metadata = {
   title: "Neurofunctional Pain Management (NFPM) | Non-Invasive Pain Relief",
@@ -53,6 +54,7 @@ export const metadata: Metadata = {
 export default function NFPMPage() {
   return (
     <div className="flex flex-col min-h-screen">
+      <ProviderCallout />
       <NFPMHero />
       <WhatIsNFPM />
       <HowNFPMWorks />
