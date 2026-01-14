@@ -77,7 +77,7 @@ export function Hero() {
                 ))}
               </div>
               <p className="text-sm text-slate-500 font-sans">
-                <span className="text-slate-900 font-bold">500+</span> patients treated in East Bay
+                <span className="text-slate-900 font-bold">Thousands of</span> patients treated nationwide
               </p>
             </div>
           </div>

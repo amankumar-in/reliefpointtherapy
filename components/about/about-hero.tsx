@@ -10,7 +10,7 @@ export function AboutHero() {
             <div className="relative flex justify-center order-1 lg:order-2 lg:justify-end">
               <div className="relative w-[225px] h-[300px] md:w-[300px] md:h-[400px] lg:w-full lg:max-w-md lg:aspect-[3/4] lg:h-auto rounded-lg overflow-hidden shadow-lg">
                 <Image
-                  src="/assets/images/genis-waistlevel.jpeg"
+                  src="/assets/images/genis-wiastlevel-prof.jpeg"
                   alt="Genis Matel, RN - Founder of Relief Point Therapy"
                   fill
                   className="object-cover rounded-lg"
