@@ -26,43 +26,12 @@ export function ProductsTestimonials() {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
 
-  const [loaded, setLoaded] = useState<Set<number>>(new Set())
-
   useEffect(() => {
     if (!api) return
-
-    const updateLoaded = () => {
-      const visibleCount = api.slidesInView().length
-      const currentIndex = api.selectedScrollSnap()
-      const indicesToLoad = new Set<number>()
-      
-      for (let i = -1; i <= visibleCount + 1; i++) {
-        // Handle wrapping explicitly since testimonials length is known
-        const rawIdx = currentIndex + i
-        // JavaScript modulo can be negative, so ensure positive
-        const normalizedIdx = (rawIdx % testimonials.length + testimonials.length) % testimonials.length
-        indicesToLoad.add(normalizedIdx)
-      }
-
-      setLoaded(prev => {
-        const next = new Set(prev)
-        let hasNew = false
-        indicesToLoad.forEach(idx => {
-          if (!next.has(idx)) {
-            next.add(idx)
-            hasNew = true
-          }
-        })
-        return hasNew ? next : prev
-      })
-    }
-
-    updateLoaded()
+    setCurrent(api.selectedScrollSnap())
     api.on("select", () => {
       setCurrent(api.selectedScrollSnap())
-      updateLoaded()
     })
-    api.on("scroll", updateLoaded)
   }, [api])
 
   return (
@@ -90,12 +59,13 @@ export function ProductsTestimonials() {
             >
               <CarouselContent className="-ml-2 md:-ml-4">
                 {testimonials.map((testimonial, idx) => {
+                  const isVisible = Math.abs(idx - current) <= 2;
+
                   return (
                     <CarouselItem key={testimonial.id} className="pl-2 md:pl-4 basis-[85%] sm:basis-[70%] md:basis-1/2 lg:basis-1/3 xl:basis-1/3">
                       {/* Matching style to products-cost-saving.tsx: Standard border, shadow, rounded-2xl, white bg */}
                       <Card className="relative border border-slate-200 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow overflow-hidden aspect-[2/1]">
-                        {/* Persistent Lazy Load: Only render if it has been visible at least once */}
-                        {loaded.has(idx) && (
+                        {isVisible && (
                           <Image
                             src={testimonial.image}
                             alt={`Product Testimonial ${testimonial.id}`}

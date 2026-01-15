@@ -30,52 +30,12 @@ export function Nrf2Testimonials() {
   const [current, setCurrent] = useState(0)
   const videoUrl = "https://www.youtube.com/embed/swaeIXZ3u60"
 
-  const [loaded, setLoaded] = useState<Set<number>>(new Set())
-
   useEffect(() => {
     if (!api) return
-
-    const updateLoaded = () => {
-      const visibleCount = api.slidesInView().length
-      // Current snap index
-      const currentIndex = api.selectedScrollSnap()
-      
-      // Calculate a generous window of "loaded" slides around the current view
-      // This prevents white flashes during quick scrolls
-      const indicesToLoad = new Set<number>()
-      
-      // Load current view + buffer
-      for (let i = -1; i <= visibleCount + 1; i++) {
-        const rawIdx = currentIndex + i
-        // Handle wrapping for infinite loop
-        const normalizedIdx = (rawIdx + testimonials.length * 10) % testimonials.length
-        indicesToLoad.add(normalizedIdx)
-      }
-
-      setLoaded(prev => {
-        const next = new Set(prev)
-        let hasNew = false
-        indicesToLoad.forEach(idx => {
-          if (!next.has(idx)) {
-            next.add(idx)
-            hasNew = true
-          }
-        })
-        return hasNew ? next : prev
-      })
-    }
-
-    // Initial load
-    updateLoaded()
-    
+    setCurrent(api.selectedScrollSnap())
     api.on("select", () => {
       setCurrent(api.selectedScrollSnap())
-      updateLoaded()
     })
-    
-    // Also listen to scroll to load slightly ahead
-    api.on("scroll", updateLoaded)
-
   }, [api])
 
   return (
@@ -134,11 +94,15 @@ export function Nrf2Testimonials() {
             >
               <CarouselContent className="-ml-4">
                 {testimonials.map((testimonial, idx) => {
+                  // Lazy load rendering logic
+                  const isVisible = Math.abs(idx - current) <= 2 || 
+                                   idx >= testimonials.length - 2 && current <= 1 || 
+                                   idx <= 1 && current >= testimonials.length - 2;
+
                   return (
                     <CarouselItem key={testimonial.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
                       <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 shadow-lg bg-white group">
-                         {/* Persistent Lazy Load: Only render if it has been visible at least once */}
-                        {loaded.has(idx) && (
+                        {isVisible && (
                           <Image
                             src={testimonial.image}
                             alt={`Testimonial ${testimonial.id}`}
