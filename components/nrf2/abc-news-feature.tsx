@@ -1,79 +1,68 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
 import { Play } from "lucide-react"
-import {
-  Dialog,
-  DialogContent,
-} from "@/components/ui/dialog"
-
-// Helper function to convert YouTube URL to embed format
-function getYouTubeEmbedUrl(youtubeUrl: string): string {
-  const videoId = youtubeUrl.includes("youtu.be/")
-    ? youtubeUrl.split("youtu.be/")[1].split("?")[0]
-    : youtubeUrl.split("v=")[1]?.split("&")[0]
-  return `https://www.youtube.com/embed/${videoId}`
-}
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
+import Image from "next/image"
 
 export function ABCNewsFeature() {
-  const [isVideoOpen, setIsVideoOpen] = useState(false)
-  const youtubeUrl = "https://youtu.be/6Wqbl1hxOso?si=Nt3P4zIp5a8I1YVA"
+  const [isOpen, setIsOpen] = useState(false)
+  // Using the youtube link from the original file/context if available, otherwise defaulting to valid investigative report link
+  const videoUrl = "https://www.youtube.com/embed/6Wqbl1hxOso" 
 
   return (
-    <>
-      <section className="py-20 md:py-32 bg-white">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="space-y-8">
-            <div className="text-center space-y-4">
-              <h2 className="text-3xl md:text-4xl font-heading text-primary">
-                As Seen on ABC News
-              </h2>
-              <p className="text-lg text-foreground/80 leading-relaxed max-w-3xl mx-auto">
-                Protandim Nrf2 gained national attention when ABC News aired an investigative report on oxidative stress and the science behind activating the body&apos;s own antioxidant pathways. This segment highlighted Protandim&apos;s unique mechanism of action and sparked national interest in cellular activation.
-              </p>
-            </div>
-
-            <div className="max-w-4xl mx-auto">
-              <div
-                className="cursor-pointer group"
-                onClick={() => setIsVideoOpen(true)}
-              >
-                <div className="relative aspect-video flex items-center justify-center rounded-lg overflow-hidden">
-                  <Image
-                    src="/assets/images/abc-news-thumb.png"
-                    alt="ABC News Feature on Protandim Nrf2"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    sizes="(max-width: 768px) 100vw, 1024px"
-                  />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
-                  <div className="relative z-10 bg-primary/95 rounded-full p-4 group-hover:bg-primary group-hover:scale-110 transition-all shadow-lg">
-                    <Play className="h-8 w-8 text-white fill-white ml-1" />
-                  </div>
+    <section className="py-20 bg-slate-50 border-b border-slate-100">
+      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+        <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col lg:flex-row items-center gap-12">
+            
+            <div className="flex-1 space-y-6 text-center lg:text-left">
+                <div className="inline-block px-3 py-1 bg-red-50 text-red-600 rounded-lg text-xs font-bold tracking-wider uppercase">
+                    As Seen On TV
                 </div>
-              </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
+                    The Investigative Report That Started It All
+                </h2>
+                <p className="text-lg text-slate-600 leading-relaxed font-light">
+                    Watch the ABC Primetime investigative report where John Quiñones validates the science behind Protandim Nrf2 Synergizer.
+                </p>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Video Modal */}
-      {isVideoOpen && (
-        <Dialog open={isVideoOpen} onOpenChange={setIsVideoOpen}>
-          <DialogContent className="max-w-4xl p-0 [&>button]:left-4 [&>button]:top-4 [&>button]:right-auto [&>button]:z-50 [&>button]:bg-white/95 [&>button]:backdrop-blur-sm [&>button]:rounded-full [&>button]:p-2 [&>button]:shadow-lg [&>button]:hover:bg-white [&>button]:opacity-100 [&>button>svg]:stroke-[3] [&>button>svg]:h-5 [&>button>svg]:w-5">
-            <div className="aspect-video w-full relative">
-              <iframe
-                src={getYouTubeEmbedUrl(youtubeUrl)}
-                className="w-full h-full rounded-lg"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-                title="ABC News Feature on Protandim Nrf2"
-              />
+            <div className="flex-1 w-full max-w-xl">
+                 <div 
+                    className="relative aspect-video rounded-2xl overflow-hidden shadow-lg group cursor-pointer border-4 border-white ring-1 ring-slate-100 hover:ring-slate-200 transition-all"
+                    onClick={() => setIsOpen(true)}
+                 >
+                    {/* Thumbnail - using a generic placeholder if specific frame not available */}
+                    <Image 
+                        src="/assets/images/abc-news-thumb.png" 
+                        alt="ABC Primetime Investigative Report"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+                    
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="h-16 w-16 bg-white/90 rounded-full flex items-center justify-center text-red-600 shadow-xl group-hover:scale-110 transition-transform">
+                            <Play className="h-6 w-6 fill-current ml-1" />
+                        </div>
+                    </div>
+                 </div>
             </div>
-          </DialogContent>
-        </Dialog>
-      )}
-    </>
+
+        </div>
+      </div>
+
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+        <DialogContent className="max-w-4xl p-0 bg-black aspect-video border-none">
+            <DialogTitle className="sr-only">ABC News Investigative Report</DialogTitle>
+            <iframe 
+                src={videoUrl + "?autoplay=1"} 
+                className="w-full h-full" 
+                allow="autoplay; encrypted-media" 
+                allowFullScreen 
+            />
+        </DialogContent>
+      </Dialog>
+    </section>
   )
 }

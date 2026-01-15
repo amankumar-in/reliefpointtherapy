@@ -54,7 +54,7 @@ const faqs = [
       <>
         NFPM has been around for many years, but several factors kept it from becoming widely known:
         <br /><br />
-        <strong>1. It doesn't involve surgeries or prescriptions.</strong> Because NFPM is non-invasive and drug-free, it doesn't fall into the traditional "procedure-first" model used by many pain clinics.
+        <strong>1. It doesn't involve surgeries or prescriptions.</strong> Because NFPM is non-invasive and drug-free, it doesn't fall into the traditional &quot;procedure-first&quot; model used by many pain clinics.
         <br /><br />
         <strong>2. Twice-weekly clinic visits used to make it hard to access.</strong> Before in-home care became available, many patients with chronic pain or mobility issues struggled to attend treatments consistently.
         <br /><br />
@@ -68,23 +68,23 @@ const faqs = [
 
 export function NFPMFAQ() {
   return (
-    <section className="py-20 md:py-32 bg-background">
+    <section className="py-24 md:py-32 bg-slate-50">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-3xl mx-auto space-y-8">
-          <h2 className="text-3xl md:text-4xl font-heading text-primary text-center">
-            Frequently Asked Questions
+        <div className="max-w-3xl mx-auto space-y-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 text-center tracking-tight">
+            Frequently Asked <span className="text-teal-600">Questions</span>
           </h2>
-          <Accordion type="single" collapsible className="w-full space-y-2">
+          <Accordion type="single" collapsible className="w-full space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-white border border-[#E2E8E8] rounded-lg px-4"
+                className="bg-white border text-slate-700 border-[#E2E8E8] rounded-2xl px-6 shadow-sm hover:shadow-md transition-all [&[data-state=open]]:border-teal-200 [&[data-state=open]]:shadow-lg"
               >
-                <AccordionTrigger className="text-left font-sans text-base md:text-lg text-foreground hover:no-underline">
+                <AccordionTrigger className="text-left font-medium text-lg text-slate-900 py-6 hover:no-underline hover:text-teal-700 transition-colors">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-foreground/80 font-sans text-base md:text-lg leading-relaxed">
+                <AccordionContent className="text-slate-600 text-base md:text-lg leading-relaxed pb-6">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

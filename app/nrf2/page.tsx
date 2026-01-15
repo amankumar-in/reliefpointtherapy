@@ -3,7 +3,7 @@ import { Nrf2Hero } from "@/components/nrf2/nrf2-hero"
 import { WhyCellularActivation } from "@/components/nrf2/why-cellular-activation"
 import { ABCNewsFeature } from "@/components/nrf2/abc-news-feature"
 import { MyStoryNrf2 } from "@/components/nrf2/my-story-nrf2"
-import { HowToChoosePath } from "@/components/nrf2/how-to-choose-path"
+
 import { ProductCards } from "@/components/nrf2/product-cards"
 import { CostSavingTips } from "@/components/nrf2/cost-saving-tips"
 import { Nrf2FAQ } from "@/components/nrf2/nrf2-faq"
@@ -58,7 +58,7 @@ export default function Nrf2Page() {
       <WhyCellularActivation />
       <ABCNewsFeature />
       <MyStoryNrf2 />
-      <HowToChoosePath />
+
       <ProductCards />
       <CostSavingTips />
       <Nrf2FAQ />

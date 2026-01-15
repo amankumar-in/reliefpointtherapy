@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
+import { Loader2 } from "lucide-react"
 
 export function ProductsPersonalizedPlan() {
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -21,6 +21,7 @@ export function ProductsPersonalizedPlan() {
 
     try {
       // Call MailerLite API with subscriber data and tag
+      // Matches the POST body expected by app/api/mailerlite/route.ts
       const response = await fetch("/api/mailerlite", {
         method: "POST",
         headers: {
@@ -33,179 +34,191 @@ export function ProductsPersonalizedPlan() {
           phone: phone || undefined,
           supportWith: supportWith || undefined,
           productsInterested: productsInterested || undefined,
-          tags: ["Product Interest Lead"], // Tag as specified in design doc
+          tags: ["Product Interest Lead"], // Keeping the tag specific to this page
         }),
       })
 
       if (!response.ok) {
         const errorData = await response.json()
         console.error("MailerLite API error:", errorData)
-        // Still show success message (graceful degradation)
       }
 
       setIsSubmitted(true)
     } catch (error) {
       console.error("Error submitting form:", error)
-      setIsSubmitted(true) // Still show success message
+      setIsSubmitted(true)
     } finally {
       setIsSubmitting(false)
     }
   }
 
   return (
-    <section className="py-20 md:py-32 bg-white border-t border-[#E2E8E8]">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="py-24 relative overflow-hidden bg-slate-900 border-t border-slate-800">
+      <div className="absolute inset-0 bg-[url('/assets/images/grid-pattern.svg')] opacity-5" />
+      <div className="absolute -top-[20%] right-0 w-[600px] h-[600px] bg-teal-500/10 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Left Column: Form */}
-          <div>
-            <h2 className="text-3xl md:text-4xl font-heading text-primary mb-6">
-              Still Not Sure — or Stuck at Checkout?
-            </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            
+            {/* Left Column: Form */}
+            <div className="bg-slate-800/40 backdrop-blur-md border border-slate-700/50 rounded-3xl p-8 md:p-10 shadow-2xl">
+                {!isSubmitted ? (
+                  <>
+                  <h2 className="text-2xl font-bold text-white mb-8 tracking-tight flex items-center gap-3">
+                    <span className="w-8 h-1 bg-teal-500 rounded-full"></span>
+                    Still Not Sure?
+                  </h2>
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="space-y-1.5">
+                        <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider pl-1">First Name</label>
+                        <input
+                          type="text"
+                          name="firstName"
+                          required
+                          className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500 transition-all"
+                          placeholder="Jane"
+                        />
+                      </div>
+                      <div className="space-y-1.5">
+                        <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider pl-1">Last Name</label>
+                        <input
+                          type="text"
+                          name="lastName"
+                          required
+                          className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500 transition-all"
+                          placeholder="Doe"
+                        />
+                      </div>
+                    </div>
 
-            {!isSubmitted ? (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* First and Last Name - same row on mobile, separate on desktop */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label htmlFor="firstName" className="text-sm font-medium text-foreground">
-                      First Name <span className="text-destructive">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="firstName"
-                      name="firstName"
-                      required
-                      className="w-full px-3 py-2 border border-input rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-                      placeholder="First Name"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="lastName" className="text-sm font-medium text-foreground">
-                      Last Name <span className="text-destructive">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="lastName"
-                      name="lastName"
-                      required
-                      className="w-full px-3 py-2 border border-input rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-                      placeholder="Last Name"
-                    />
-                  </div>
-                </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-1.5">
+                        <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider pl-1">Email</label>
+                        <input
+                          type="email"
+                          name="email"
+                          required
+                          className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500 transition-all"
+                          placeholder="jane@example.com"
+                        />
+                      </div>
+                      <div className="space-y-1.5">
+                        <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider pl-1">Phone <span className="opacity-50 lowercase text-[10px] ml-1">(Optional)</span></label>
+                        <input
+                          type="tel"
+                          name="phone"
+                          className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500 transition-all"
+                          placeholder="(555) 000-0000"
+                        />
+                      </div>
+                    </div>
 
-                {/* Email and Phone - same row */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium text-foreground">
-                      Email <span className="text-destructive">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      className="w-full px-3 py-2 border border-input rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="phone" className="text-sm font-medium text-foreground">
-                      Phone <span className="text-muted-foreground">(optional)</span>
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      className="w-full px-3 py-2 border border-input rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-                      placeholder="(555) 123-4567"
-                    />
-                  </div>
-                </div>
+                    <div className="space-y-1.5">
+                        <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider pl-1">How can we help?</label>
+                        <textarea
+                          name="supportWith"
+                          required
+                          rows={3}
+                          className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500 transition-all resize-none"
+                          placeholder="I'm looking for help with..."
+                        />
+                    </div>
 
-                {/* Support With and Products Interested - same row on desktop */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label htmlFor="supportWith" className="text-sm font-medium text-foreground">
-                      What you want support with <span className="text-destructive">*</span>
-                    </label>
-                    <textarea
-                      id="supportWith"
-                      name="supportWith"
-                      required
-                      rows={4}
-                      className="w-full px-3 py-2 border border-input rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 resize-none"
-                      placeholder="Tell me about your health concerns, goals, or what you're looking for..."
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="productsInterested" className="text-sm font-medium text-foreground">
-                      Products you are interested in
-                    </label>
-                    <textarea
-                      id="productsInterested"
-                      name="productsInterested"
-                      rows={4}
-                      className="w-full px-3 py-2 border border-input rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 resize-none"
-                      placeholder="Nrf2, GlowStack, Dual Synergizer, Tri Synergizer, or any combination..."
-                    />
-                  </div>
-                </div>
+                     <div className="space-y-1.5">
+                        <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider pl-1">Products Interesting You</label>
+                        <textarea
+                          name="productsInterested"
+                          rows={2}
+                          className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500 transition-all resize-none"
+                          placeholder="Nrf2, Collagen, etc..."
+                        />
+                    </div>
 
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded"
-                >
-                  {isSubmitting ? "Submitting..." : "Build My Personalized Plan"}
-                </Button>
-              </form>
-            ) : (
-              <div className="space-y-4">
-                <h3 className="text-2xl font-heading text-primary">
-                  Thank You!
-                </h3>
-                <p className="text-lg text-foreground/80 leading-relaxed">
-                  I&apos;ve received your information and will personally review your request. I&apos;ll get back to you soon with personalized recommendations and a direct checkout link if needed.
-                </p>
-              </div>
-            )}
-          </div>
-
-          {/* Right Column: Content */}
-          <div className="space-y-6">
-            <p className="text-lg text-foreground/80 leading-relaxed">
-              I want to make this as easy as possible for you.
-            </p>
-            <p className="text-base text-foreground/80 leading-relaxed">
-              Some people aren&apos;t sure which product makes the most sense for their health concerns. Others already know what they want but feel unsure at checkout, aren&apos;t sure how to set up subscriptions, or want to make sure they&apos;re choosing the most cost-effective option.
-            </p>
-            <p className="text-base text-foreground/80 leading-relaxed">
-              If that&apos;s you, I can help by:
-            </p>
-            <div className="space-y-3">
-              <div className="flex items-start gap-2">
-                <span className="text-primary mt-1">1.</span>
-                <span className="text-foreground/80">Recommending the right product based on what you&apos;re struggling with</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-primary mt-1">2.</span>
-                <span className="text-foreground/80">Building a direct checkout link for you</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-primary mt-1">3.</span>
-                <span className="text-foreground/80">Adjusting subscription timing</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-primary mt-1">4.</span>
-                <span className="text-foreground/80">Making sure you&apos;re choosing the best option for your goals and budget</span>
-              </div>
+                    <div className="pt-2">
+                        <button 
+                            type="submit" 
+                            disabled={isSubmitting}
+                            className="w-full relative group overflow-hidden rounded-xl bg-gradient-to-r from-teal-500 to-teal-600 p-px font-semibold text-white shadow-[0_0_20px_-5px_rgba(20,184,166,0.5)] transition-all hover:shadow-[0_0_30px_-5px_rgba(20,184,166,0.6)] disabled:opacity-70"
+                        >
+                            <div className="relative flex items-center justify-center gap-2 rounded-xl bg-teal-600 px-6 py-4 transition-all group-hover:bg-opacity-0">
+                                {isSubmitting ? (
+                                    <>
+                                        <Loader2 className="h-5 w-5 animate-spin" />
+                                        <span>Submitting...</span>
+                                    </>
+                                ) : (
+                                    "Build My Personalized Plan"
+                                )}
+                            </div>
+                        </button>
+                    </div>
+                  </form>
+                  </>
+                ) : (
+                  <div className="py-12 flex flex-col items-center text-center space-y-6">
+                    <div className="h-20 w-20 bg-teal-500/20 rounded-full flex items-center justify-center mb-2">
+                        <div className="h-10 w-10 text-teal-400">
+                             <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="3"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 className="text-2xl font-bold text-white mb-2">Request Received!</h3>
+                        <p className="text-slate-400">
+                           I&apos;ll review your health goals and email you a personalized recommendation soon.
+                        </p>
+                    </div>
+                  </div>
+                )}
             </div>
-            <p className="text-base text-foreground/80 leading-relaxed pt-4">
-              Just enter your information on the left, and I&apos;ll personally help guide you through the next step.
-            </p>
-          </div>
+
+            {/* Right Column: Content */}
+            <div className="pt-4 lg:sticky lg:top-24">
+               <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tight leading-tight">
+                  Let&apos;s Build Your <br/>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-200 to-teal-400">Perfect Protocol</span>
+                </h2>
+                
+                <div className="space-y-8 text-lg text-slate-300 leading-relaxed">
+                    <p>
+                      Navigating supplements can be confusing. Some people aren&apos;t sure which product makes the most sense for their specific health concerns, while others just need a little guidance at checkout.
+                    </p>
+                    
+                    <div className="space-y-6 pl-2">
+                        {[
+                            "Recommending the right product based on your goals",
+                            "Building a direct pre-filled checkout link for you",
+                            "Adjusting subscription timing to fit your budget",
+                            "Ensuring you get the best possible price"
+                        ].map((item, i) => (
+                            <div key={i} className="flex gap-4">
+                                <div className="flex-none pt-1">
+                                    <div className="h-6 w-6 rounded-full bg-teal-500/20 flex items-center justify-center text-teal-400 font-bold text-sm">
+                                        {i + 1}
+                                    </div>
+                                </div>
+                                <span className="text-slate-100">{item}</span>
+                            </div>
+                        ))}
+                    </div>
+
+                    <p className="pt-4 text-slate-400 text-base border-t border-slate-800/50">
+                        Just enter your details, and I&apos;ll personally handle the rest to make sure your start is seamless.
+                    </p>
+                </div>
+            </div>
+
           </div>
         </div>
       </div>

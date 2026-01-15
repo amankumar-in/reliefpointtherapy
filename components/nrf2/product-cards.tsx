@@ -1,376 +1,295 @@
 "use client"
 
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion"
-import { Card } from "@/components/ui/card"
+import Image from "next/image"
+import { ShimmerButton } from "@/components/ui/shimmer-button"
+import { Check, ArrowRight, Info, Heart, Wallet, ChevronRight } from "lucide-react"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 const products = [
+  // Row 1
   {
-    id: "nrf2",
-    name: "Protandim Nrf2 Synergizer",
-    cta: "Order Protandim Nrf2",
+    id: "protandim-nrf2",
+    name: "Protandim® Nrf2 Synergizer",
+    tagline: "The Foundation",
+    image: "/assets/images/Product-Images/Protandim Nrf2/nrf2.png", 
     link: "https://genismatel.lifevantage.com/us-en/shop/protandim-nrf2",
-    whatItIs: (
-      <>
-        <p className="mb-4">
-          Protandim Nrf2 is a nutrigenomic supplement that activates the body&apos;s own antioxidant and detoxification pathways, rather than supplying antioxidants directly. It&apos;s designed to support inflammation balance, cellular repair, energy, and healthy aging at the cellular level.
-        </p>
-        <div className="space-y-3">
-          <p className="font-semibold">What Makes It Different</p>
-          <p>
-            Unlike traditional antioxidants, Protandim Nrf2 activates the <strong>Nrf2 pathway</strong>, signaling your body to produce its own protective enzymes.
-          </p>
-          <p className="font-semibold">Clinical studies have shown Protandim Nrf2 can:</p>
-          <ul className="space-y-2 list-none">
-            <li className="flex items-start gap-2">
-              <span className="text-primary mt-1">•</span>
-              <span>Increase <strong>glutathione</strong> levels by up to <strong>300%</strong></span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-primary mt-1">•</span>
-              <span>Increase <strong>SOD</strong> and <strong>catalase</strong> activity</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-primary mt-1">•</span>
-              <span>Reduce <strong>oxidative stress</strong> by approximately <strong>40% in 30 days</strong></span>
-            </li>
-          </ul>
-        </div>
-      </>
-    ),
+    overview: "Protandim Nrf2 is a nutrigenomic supplement that activates the body’s own antioxidant and detoxification pathways, rather than supplying antioxidants directly. It’s designed to support inflammation balance, cellular repair, energy, and healthy aging at the cellular level.",
     bestFor: [
       "Chronic inflammation",
       "Low energy or sluggish recovery",
       "Mental fog",
       "Healthy aging and longevity support",
       "Daily foundational wellness",
-      "Pairing with collagen (glowstack) or NFPM",
+      "Pairing with collagen (glowstack) or NFPM"
     ],
-    whatToExpect: "Some people notice subtle improvements sooner, but meaningful and lasting cellular benefits typically develop over 3–6 months. This timeline reflects normal biology — cellular turnover, mitochondrial repair, and inflammation regulation take time. I don't recommend starting Nrf2 unless you're willing to give your body that window to respond.",
-    howToSave: (
-      <>
-        <ul className="space-y-2 list-none">
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span><strong>Subscribe & Save:</strong> 10% off (cancel anytime)</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span><strong>3-pack option:</strong> Lowers cost to approximately <strong>$50/month</strong></span>
-            <br />
-            <span className="text-sm text-foreground/70 ml-6">Important: Update delivery to <strong>every 3 months</strong> if ordering for one individual</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span><strong>30-day money-back guarantee</strong></span>
-          </li>
-        </ul>
-      </>
-    ),
-    ingredients: (
-      <>
-        <p className="mb-4">
-          Protandim Nrf2 contains five plant-based, vegan-friendly ingredients:
-        </p>
-        <ul className="space-y-2 list-none mb-4">
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>Turmeric root extract</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>Green tea extract</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>Bacopa monnieri</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>Milk thistle</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>Ashwagandha</span>
-          </li>
-        </ul>
-        <p className="text-sm text-foreground/70">
-          While many people take these individually, <strong>the ingredients alone do not activate the Nrf2 pathway</strong>. The clinically studied results come from the patented synergy and ratios used in Protandim Nrf2.
-        </p>
-      </>
-    ),
+    saveTips: [
+      "Subscribe & Save: 10% off (cancel anytime)",
+      "3-pack option: Lowers cost to approximately $50/month",
+      "Important: Update delivery to every 3 months if ordering for one individual",
+      "30-day money-back guarantee"
+    ],
+    ingredients: "Turmeric, Green Tea, Bacopa, Milk Thistle, Ashwagandha. Patented synergy."
   },
   {
     id: "glowstack",
-    name: "GlowStack (Liquid Collagen + Nrf2)",
-    cta: "Order GlowStack",
+    name: "GlowStack",
+    tagline: "Liquid Collagen + Nrf2",
+    image: "/assets/images/Product-Images/Glowstack collagen/glow stack.png",
     link: "https://genismatel.lifevantage.com/us-en/shop/healthy-glow-essentials-stack",
-    whatItIs: (
-      <>
-        <p className="mb-4">
-          GlowStack combines Protandim Nrf2 with liquid collagen and a blend of 10 bioactive peptides to support skin elasticity, hydration, firmness, joint comfort, gut health, eye health, and connective tissue integrity from the inside out.
-        </p>
-        <div className="space-y-3">
-          <p className="font-semibold">Clinically shown to (highlights):</p>
-          <ul className="space-y-2 list-none">
-            <li className="flex items-start gap-2">
-              <span className="text-primary mt-1">•</span>
-              <span>Visible results in <strong>6–8 weeks</strong></span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-primary mt-1">•</span>
-              <span>Collagen density <strong>+100%</strong></span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-primary mt-1">•</span>
-              <span>Crow&apos;s feet depth <strong>−22%</strong></span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-primary mt-1">•</span>
-              <span>Skin moisture <strong>+18%</strong></span>
-            </li>
-          </ul>
-          <p className="text-sm text-foreground/70 italic">
-            Results may vary. Skin turnover takes at least 28 days and can take longer as we age.
-          </p>
-        </div>
-      </>
-    ),
+    overview: "GlowStack combines Protandim Nrf2 with liquid collagen and a blend of 10 bioactive peptides to support skin elasticity, hydration, firmness, joint comfort, gut health, eye health, and connective tissue integrity from the inside out.",
     bestFor: [
       "Skin elasticity, tone, glow",
       "Hair and nails",
       "Joint health",
       "Recovery",
-      "Aesthetic + internal wellness benefits",
+      "Aesthetic + internal wellness benefits"
     ],
-    whatToExpect: "Many people begin noticing improvements in skin hydration, elasticity, and joint comfort within 6–8 weeks. Deeper structural support — including collagen remodeling, joint resilience, and bone support — continues to develop over 3–6 months, especially when used consistently.",
-    howToSave: (
-      <>
-        <p className="mb-3 font-semibold">Two strategies:</p>
-        <div className="space-y-4">
-          <div>
-            <p className="font-semibold mb-2">1. Collagen Loading Month (if cost is a concern)</p>
-            <ul className="space-y-2 list-none">
-              <li className="flex items-start gap-2">
-                <span className="text-primary mt-1">•</span>
-                <span>Use GlowStack daily for 1 month to jump-start collagen production</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-primary mt-1">•</span>
-                <span>Then switch to Protandim Nrf2 only and add the 10-pack liquid collagen</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-primary mt-1">•</span>
-                <span>Take collagen every 3 days to help maintain collagen support</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-primary mt-1">•</span>
-                <span>Or, after the first month, continue with Protandim Nrf2 alone</span>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <p className="font-semibold mb-2">2. Pure Subscription</p>
-            <ul className="space-y-2 list-none">
-              <li className="flex items-start gap-2">
-                <span className="text-primary mt-1">•</span>
-                <span>Subscribe & Save (10% off)</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-primary mt-1">•</span>
-                <span>Cancel anytime</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </>
-    ),
+    saveTips: [
+      "Collagen Loading Month strategy available",
+      "Pure Subscription: Subscribe & Save (10% off)",
+      "Cancel anytime"
+    ],
+    ingredients: "10 Bioactive Peptides, Liquid Collagen, Nrf2 activators."
   },
+  // Row 2
   {
-    id: "dual",
-    name: "Dual Synergizer (Nrf1 + Nrf2)",
-    cta: "Order Dual Synergizer",
+    id: "dual-synergizer",
+    name: "Dual Synergizer",
+    tagline: "Nrf1 + Nrf2",
+    image: "/assets/images/Product-Images/Dual synergizer.WEBP",
     link: "https://genismatel.lifevantage.com/us-en/shop/protandim-dual",
-    whatItIs: "Supports mitochondria (Nrf1) + reduces oxidative stress (Nrf2). Mitochondria naturally decline with age, affecting energy, metabolism, and cognition.",
+    overview: "Supports mitochondria (Nrf1) + reduces oxidative stress (Nrf2). Mitochondria naturally decline with age, affecting energy, metabolism, and cognition.",
     bestFor: [
       "Low energy",
       "Brain fog",
       "Metabolism",
       "Active lifestyles",
-      "Anti-aging",
+      "Anti-aging"
     ],
-    howToSave: (
-      <>
-        <ul className="space-y-2 list-none">
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>Subscribe & Save</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>Purchase Tri Synergizer if NAD is desired</span>
-          </li>
-        </ul>
-      </>
-    ),
+    saveTips: [
+      "Subscribe & Save",
+      "Purchase Tri Synergizer if NAD is desired"
+    ],
+    ingredients: "Nrf1 activators + Nrf2 activators."
   },
   {
-    id: "tri",
-    name: "Tri Synergizer (Nrf1 + Nrf2 + NAD)",
-    cta: "Order Tri Synergizer",
+    id: "tri-synergizer",
+    name: "Tri Synergizer",
+    tagline: "Nrf1 + Nrf2 + NAD",
+    image: "/assets/images/Product-Images/Tri synergizer/Tri synergizer.WEBP",
     link: "https://genismatel.lifevantage.com/us-en/shop/protandim-tri",
-    whatItIs: (
-      <>
-        <p className="mb-4">
-          LifeVantage&apos;s most complete cellular activation system.
-        </p>
-        <ul className="space-y-2 list-none mb-4">
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>NAD levels drop ~50% by age 40</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>This system is <strong>clinically proven to increase NAD by 100% in 24 hours</strong></span>
-          </li>
-        </ul>
-        <p className="font-semibold mb-2">Supports:</p>
-        <ul className="space-y-2 list-none">
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>Longevity pathways</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>Energy, focus, performance</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>DNA repair</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>Inflammation reduction</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>Recovery</span>
-          </li>
-        </ul>
-      </>
-    ),
+    overview: "LifeVantage’s most complete cellular activation system. NAD levels drop ~50% by age 40. This system is clinically proven to increase NAD by 100% in 24 hours.",
     bestFor: [
       "Faster or deeper results",
       "Longevity + anti-aging",
       "Cognitive performance",
-      "Recovery + resilience",
+      "Recovery + resilience"
     ],
-    howToSave: (
-      <>
-        <ul className="space-y-2 list-none">
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>Cheaper bundled vs individual bottles</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>Subscribe & Save (10% off)</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>30-day guarantee</span>
-          </li>
-        </ul>
-      </>
-    ),
-  },
+    saveTips: [
+      "Cheaper bundled vs individual bottles",
+      "Subscribe & Save (10% off)",
+      "30-day guarantee"
+    ],
+    ingredients: "Full spectrum activation: Nrf1, Nrf2, NAD."
+  }
 ]
 
 export function ProductCards() {
   return (
-    <section id="products" className="py-20 md:py-32 bg-white">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {products.map((product) => (
-            <div key={product.id} id={product.id} className="p-6 md:p-8 flex flex-col space-y-6 bg-white border border-[#E2E8E8] rounded-lg shadow-sm hover:shadow-md transition-shadow scroll-mt-20">
-              <h3 className="text-2xl md:text-3xl font-heading text-primary">
-                {product.name}
-              </h3>
+    <section id="products" className="py-24 md:py-32 bg-slate-50 relative overflow-hidden">
+        {/* Background Gradients */}
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-teal-500/5 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-indigo-500/5 via-transparent to-transparent pointer-events-none" />
 
-              <Accordion type="single" collapsible className="w-full space-y-2">
-                <AccordionItem value={`what-it-is-${product.id}`} className="border border-[#E2E8E8] rounded-lg px-4">
-                  <AccordionTrigger className="font-sans text-base md:text-lg text-foreground hover:no-underline">
-                    What It Is
-                  </AccordionTrigger>
-                  <AccordionContent className="text-foreground/80 font-sans text-base md:text-lg leading-relaxed">
-                    {typeof product.whatItIs === "string" ? <p>{product.whatItIs}</p> : product.whatItIs}
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem value={`best-for-${product.id}`} className="border border-[#E2E8E8] rounded-lg px-4">
-                  <AccordionTrigger className="font-sans text-base md:text-lg text-foreground hover:no-underline">
-                    Best For
-                  </AccordionTrigger>
-                  <AccordionContent className="text-foreground/80 font-sans text-base md:text-lg leading-relaxed">
-                    <ul className="space-y-2 list-none">
-                      {product.bestFor.map((item, index) => (
-                        <li key={index} className="flex items-start gap-2">
-                          <span className="text-primary mt-1">•</span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    {product.whatToExpect && (
-                      <div className="mt-4 pt-4 border-t border-border">
-                        <p className="font-semibold mb-2">What to Expect:</p>
-                        <p>{product.whatToExpect}</p>
-                      </div>
-                    )}
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem value={`how-to-save-${product.id}`} className="border border-[#E2E8E8] rounded-lg px-4">
-                  <AccordionTrigger className="font-sans text-base md:text-lg text-foreground hover:no-underline">
-                    How to Save
-                  </AccordionTrigger>
-                  <AccordionContent className="text-foreground/80 font-sans text-base md:text-lg leading-relaxed">
-                    {typeof product.howToSave === "string" ? <p>{product.howToSave}</p> : product.howToSave}
-                  </AccordionContent>
-                </AccordionItem>
-
-                {product.ingredients && (
-                  <AccordionItem value={`ingredients-${product.id}`} className="border border-[#E2E8E8] rounded-lg px-4">
-                    <AccordionTrigger className="font-sans text-base md:text-lg text-foreground hover:no-underline">
-                      Ingredients
-                    </AccordionTrigger>
-                    <AccordionContent className="text-foreground/80 font-sans text-base md:text-lg leading-relaxed">
-                      {product.ingredients}
-                    </AccordionContent>
-                  </AccordionItem>
-                )}
-              </Accordion>
-
-              <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded mt-auto">
-                <Link href={product.link} target="_blank" rel="noopener noreferrer">
-                  {product.cta}
-                </Link>
-              </Button>
-            </div>
-          ))}
-          </div>
+      <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-7xl">
+        <div className="text-center mb-16 space-y-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
+                Recommended <span className="text-teal-600">Protocols</span>
+            </h2>
+            <p className="text-xl text-slate-600 font-light max-w-2xl mx-auto">
+                Select the path that matches your health goals.
+            </p>
         </div>
-        
-        <p className="text-center text-sm text-foreground/60 italic mt-12">
-          Wellness products are not intended to diagnose, treat, cure, or prevent disease. Results vary.
-        </p>
+
+        {/* 2 Rows x 3 Columns Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            
+            {/* ROW 1 */}
+            
+            {/* Product 1: Nrf2 */}
+            <ProductCard product={products[0]} />
+
+            {/* Product 2: GlowStack */}
+            <ProductCard product={products[1]} />
+
+            {/* Decision Guide Part 1 - Redesigned as clean list panel */}
+            <div className="lg:col-span-1 pl-4 flex flex-col justify-center">
+                <div className="mb-6">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-2">My Nurse&apos;s Guide</h3>
+                    <p className="text-teal-600 font-bold uppercase tracking-wider text-xs">Part 1: The Essentials</p>
+                </div>
+
+                <div className="space-y-8 relative">
+                    {/* Vertical line connector */}
+                    <div className="absolute left-[11px] top-6 bottom-6 w-0.5 bg-slate-200" />
+
+                    <div className="relative pl-8">
+                        <span className="absolute left-0 top-0 h-6 w-6 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center text-xs font-bold ring-4 ring-slate-50">1</span>
+                        <h4 className="font-bold text-slate-900 mb-2 text-lg">Scientific Foundation</h4>
+                        <p className="text-slate-600 leading-relaxed text-sm">
+                            If you want ONE simple daily foundation, start with <strong>Protandim Nrf2</strong>. It&apos;s the only product proven to reduce oxidative stress by 40% in 30 days.
+                        </p>
+                    </div>
+
+                    <div className="relative pl-8">
+                         <span className="absolute left-0 top-0 h-6 w-6 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center text-xs font-bold ring-4 ring-slate-50">2</span>
+                        <h4 className="font-bold text-slate-900 mb-2 text-lg">Beauty & Joints</h4>
+                        <p className="text-slate-600 leading-relaxed text-sm">
+                            If you want skin, hair, joint, or collagen support, choose <strong>GlowStack</strong>. Combining Nrf2 with liquid collagen gives deeper structural results.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            {/* ROW 2 */}
+
+            {/* Product 3: Dual */}
+            <ProductCard product={products[2]} />
+
+            {/* Product 4: Tri */}
+            <ProductCard product={products[3]} />
+            
+             {/* Decision Guide Part 2 - Redesigned as clean list panel */}
+             <div className="lg:col-span-1 pl-4 flex flex-col justify-center">
+                <div className="mb-6">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-2">Advanced Protocols</h3>
+                    <p className="text-indigo-600 font-bold uppercase tracking-wider text-xs">Part 2: Deep Activation</p>
+                </div>
+
+                <div className="space-y-8 relative">
+                   {/* Vertical line connector */}
+                   <div className="absolute left-[11px] top-6 bottom-6 w-0.5 bg-slate-200" />
+
+                    <div className="relative pl-8">
+                        <span className="absolute left-0 top-0 h-6 w-6 rounded-full bg-teal-900 text-teal-100 flex items-center justify-center text-xs font-bold ring-4 ring-slate-50">3</span>
+                        <h4 className="font-bold text-slate-900 mb-2 text-lg">Energy & Aging (&gt;40)</h4>
+                        <p className="text-slate-600 leading-relaxed text-sm">
+                            If you&apos;re over 40, feel low energy, or recover slowly, upgrade to <strong>Dual Synergizer</strong>. Nrf1 supports mitochondrial energy which naturally declines with age.
+                        </p>
+                    </div>
+
+                    <div className="relative pl-8">
+                        <span className="absolute left-0 top-0 h-6 w-6 rounded-full bg-indigo-900 text-indigo-100 flex items-center justify-center text-xs font-bold ring-4 ring-slate-50">4</span>
+                        <h4 className="font-bold text-slate-900 mb-2 text-lg">Maximum Performance</h4>
+                        <p className="text-slate-600 leading-relaxed text-sm">
+                            For faster, deeper results and cognitive performance, <strong>Tri Synergizer</strong> adds NAD support. NAD levels drop ~50% by age 40; this system restores them by 100% in 24 hrs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+         <div className="mt-12 text-center text-sm text-slate-400 font-light max-w-2xl mx-auto">
+            Wellness products are not intended to diagnose, treat, cure, or prevent disease. Results vary.
+        </div>
+
       </div>
     </section>
   )
+}
+
+function ProductCard({ product }: { product: any }) {
+    return (
+        <div 
+            id={product.id} 
+            className="group bg-white rounded-3xl border border-slate-200 flex flex-col overflow-hidden h-full scroll-mt-32"
+        >
+            {/* Header / Image */}
+            <div className="p-6 pb-0 flex items-start gap-4">
+                <div className="relative w-24 h-24 shrink-0 bg-slate-50 rounded-2xl overflow-hidden border border-slate-100">
+                     <Image 
+                        src={product.image}
+                        alt={product.name}
+                        fill
+                        className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
+                    />
+                </div>
+                <div className="pt-2">
+                    <div className="bg-teal-50 text-teal-700 text-[10px] font-bold px-2 py-0.5 rounded-full inline-block mb-2 uppercase tracking-wider">
+                        {product.tagline}
+                    </div>
+                    <h3 className="text-lg font-bold text-slate-900 leading-tight">
+                        {product.name}
+                    </h3>
+                </div>
+            </div>
+            
+            {/* Tabbed Content */}
+            <div className="p-6 flex-1 flex flex-col">
+                <Tabs defaultValue="overview" className="w-full flex-1 flex flex-col">
+                    <TabsList className="w-full grid grid-cols-3 mb-6 bg-slate-100/50 p-1 rounded-xl">
+                        <TabsTrigger value="overview" className="text-xs rounded-lg data-[state=active]:bg-white data-[state=active]:shadow-sm">Overview</TabsTrigger>
+                        <TabsTrigger value="details" className="text-xs rounded-lg data-[state=active]:bg-white data-[state=active]:shadow-sm">Details</TabsTrigger>
+                        <TabsTrigger value="save" className="text-xs rounded-lg data-[state=active]:bg-white data-[state=active]:shadow-sm">Save</TabsTrigger>
+                    </TabsList>
+
+                    <div className="flex-1 min-h-[160px]">
+                        <TabsContent value="overview" className="mt-0 h-full animate-in fade-in slide-in-from-bottom-2 duration-300">
+                            <div className="space-y-4">
+                                <p className="text-sm text-slate-600 leading-relaxed font-light">
+                                    {product.overview}
+                                </p>
+                                <div className="text-xs text-slate-400 pt-2 border-t border-slate-50">
+                                    <span className="font-semibold text-slate-600">Key Ingredients:</span> {product.ingredients}
+                                </div>
+                            </div>
+                        </TabsContent>
+                        
+                        <TabsContent value="details" className="mt-0 h-full animate-in fade-in slide-in-from-bottom-2 duration-300">
+                             <div className="space-y-3">
+                                <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wide mb-2 flex items-center gap-1">
+                                    <Heart className="h-3 w-3 text-teal-500" /> Best Used For
+                                </h4>
+                                <ul className="space-y-2">
+                                    {product.bestFor.map((item: string, i: number) => (
+                                        <li key={i} className="text-sm text-slate-600 flex items-start gap-2">
+                                            <Check className="h-4 w-4 text-teal-500 shrink-0 mt-0.5" />
+                                            <span className="leading-snug">{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </TabsContent>
+
+                        <TabsContent value="save" className="mt-0 h-full animate-in fade-in slide-in-from-bottom-2 duration-300">
+                            <div className="space-y-3">
+                                <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wide mb-2 flex items-center gap-1">
+                                    <Wallet className="h-3 w-3 text-teal-500" /> Smart Savings
+                                </h4>
+                                 <ul className="space-y-2">
+                                    {product.saveTips.map((item: string, i: number) => (
+                                        <li key={i} className="text-sm text-slate-600 flex items-start gap-2">
+                                            <span className="h-1.5 w-1.5 rounded-full bg-teal-400 mt-1.5 shrink-0" />
+                                            <span className="leading-snug">{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </TabsContent>
+                    </div>
+                </Tabs>
+
+                <div className="mt-8 pt-6 border-t border-slate-100">
+                    <Link href={product.link} target="_blank" className="block w-full">
+                        <ShimmerButton className="w-full h-12 text-sm font-bold shadow-md" background="#0F8B8D" shimmerColor="#ffffff" noShimmer={true}>
+                            Order Now <ArrowRight className="h-4 w-4 ml-2" />
+                        </ShimmerButton>
+                    </Link>
+                </div>
+            </div>
+        </div>
+    )
 }

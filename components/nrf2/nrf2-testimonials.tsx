@@ -1,14 +1,9 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Play } from "lucide-react"
-import { Card } from "@/components/ui/card"
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import {
   Carousel,
   CarouselContent,
@@ -16,134 +11,109 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import Image from "next/image"
+import { Card } from "@/components/ui/card"
 
-// All testimonial images from Nrf2_Testimonial folder
+// Testimonial Images
 const testimonials = [
-  { id: 1, image: "/assets/images/Nrf2_Testimonial/energy-back-pain-migraines.png" },
-  { id: 2, image: "/assets/images/Nrf2_Testimonial/energy_ sleep.png" },
-  { id: 3, image: "/assets/images/Nrf2_Testimonial/energy-back-pain-migraines-AzGMLa8Gl7HoWZqb.png" },
-  { id: 4, image: "/assets/images/Nrf2_Testimonial/energy-sleep-A1azxVQaJeF56R2b.png" },
-  { id: 5, image: "/assets/images/Nrf2_Testimonial/general_ eyes.png" },
-  { id: 6, image: "/assets/images/Nrf2_Testimonial/general_ migraine (2).png" },
-  { id: 7, image: "/assets/images/Nrf2_Testimonial/general_ migraine (3).png" },
-  { id: 8, image: "/assets/images/Nrf2_Testimonial/general_ migraine.png" },
-  { id: 9, image: "/assets/images/Nrf2_Testimonial/general_ off meds.png" },
-  { id: 10, image: "/assets/images/Nrf2_Testimonial/general-migraine-2-YNqM7zpqQou9Rvyw.png" },
-  { id: 11, image: "/assets/images/Nrf2_Testimonial/general-sleep-fatigue-brain-fog-aches-YNqM7zpLaQFk6LGP.png" },
-  { id: 12, image: "/assets/images/Nrf2_Testimonial/general.png" },
-  { id: 13, image: "/assets/images/Nrf2_Testimonial/nrf2 allergies.png" },
-  { id: 14, image: "/assets/images/Nrf2_Testimonial/nrf2 allergy (2).png" },
-  { id: 15, image: "/assets/images/Nrf2_Testimonial/nrf2 allergy (3).png" },
-  { id: 16, image: "/assets/images/Nrf2_Testimonial/nrf2 allergy (4).png" },
-  { id: 17, image: "/assets/images/Nrf2_Testimonial/nrf2 allergy.png" },
-  { id: 18, image: "/assets/images/Nrf2_Testimonial/nrf2 nrf1 allergy.png" },
-  { id: 19, image: "/assets/images/Nrf2_Testimonial/nrf2_ eyes.png" },
-  { id: 20, image: "/assets/images/Nrf2_Testimonial/nrf2-allergies-mv0PBM408GHvGvPR.png" },
-  { id: 21, image: "/assets/images/Nrf2_Testimonial/off pain meds.png" },
-  { id: 22, image: "/assets/images/Nrf2_Testimonial/off pain meds(1).png" },
-  { id: 23, image: "/assets/images/Nrf2_Testimonial/RA.png" },
+  { id: 1, image: "/assets/images/product-testimonial/collagen back injections.png" },
+  { id: 2, image: "/assets/images/product-testimonial/collagen back pain_ injections.png" },
+  { id: 3, image: "/assets/images/product-testimonial/collagen back pain.png" },
+  { id: 4, image: "/assets/images/product-testimonial/collagen fibromyalgia.png" },
+  { id: 5, image: "/assets/images/product-testimonial/collagen, post op knee.png" },
+  { id: 6, image: "/assets/images/product-testimonial/nrf1 nrf2 collagen; knees.png" },
 ]
 
 export function Nrf2Testimonials() {
   const [isVideoOpen, setIsVideoOpen] = useState(false)
-  const videoUrl = "https://www.youtube.com/watch?v=swaeIXZ3u60"
+  const videoUrl = "https://www.youtube.com/embed/swaeIXZ3u60"
 
   return (
-    <>
-      <section className="py-20 md:py-32 bg-white">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="space-y-12">
-            <div className="text-center space-y-4">
-              <h2 className="text-3xl md:text-4xl font-heading text-primary">
-                What People Are Saying
-              </h2>
+    <section className="py-24 bg-slate-50 relative overflow-hidden">
+      {/* Background Decor */}
+      <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-teal-500/5 rounded-full blur-[100px]" />
+      </div>
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+
+
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-20">
+            {/* Video Story */}
+            <div className="space-y-6">
+                <div className="inline-block px-3 py-1 bg-teal-50 text-teal-700 border border-teal-100 rounded-full text-xs font-bold tracking-wider uppercase">
+                    Featured Story
+                </div>
+                <h3 className="text-3xl font-bold text-slate-900 leading-tight">
+                    A Firefighter&apos;s Return to Duty
+                </h3>
+                <p className="text-lg text-slate-600 leading-relaxed font-light">
+                    After falling three stories, this firefighter used NFPM and cellular activation to recover. Hear his incredible journey back to health.
+                </p>
             </div>
 
-            <div className="space-y-8">
-              {/* Featured Video Testimonial */}
-              <div className="max-w-4xl mx-auto">
-                <Card 
-                  className="cursor-pointer hover:shadow-xl transition-all border border-border rounded-lg overflow-hidden"
-                  onClick={() => setIsVideoOpen(true)}
-                >
-                  <div className="relative aspect-video group">
-                    <Image
-                      src="/assets/images/firefighter-story-1.png"
-                      alt="A Firefighter's Recovery Story"
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 1024px"
-                    />
-                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
-                    
-                    {/* Play Button - Centered */}
-                    <div className="absolute inset-0 z-10 flex items-center justify-center">
-                      <div className="bg-primary/95 rounded-full p-4 md:p-5 w-fit mx-auto group-hover:bg-primary group-hover:scale-110 transition-all shadow-lg">
-                        <Play className="h-8 w-8 md:h-10 md:w-10 text-white fill-white ml-1" />
-                      </div>
+            <div 
+                className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-slate-200 cursor-pointer group"
+                onClick={() => setIsVideoOpen(true)}
+            >
+                <Image
+                  src="/assets/images/firefighter-story-1.png"
+                  alt="Firefighter Recovery Story"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="h-20 w-20 bg-white/90 rounded-full flex items-center justify-center text-teal-600 shadow-xl group-hover:scale-110 transition-transform">
+                        <Play className="h-8 w-8 fill-current ml-1" />
                     </div>
-                    
-                    {/* Text - Bottom */}
-                    <div className="absolute bottom-0 left-0 right-0 z-10 text-center p-4 md:p-8">
-                      <div className="space-y-1 md:space-y-2">
-                        <h3 className="text-base md:text-3xl font-heading text-white drop-shadow-lg">A Firefighter&apos;s Recovery Story</h3>
-                        <p className="text-white/90 text-xs md:text-lg max-w-2xl mx-auto drop-shadow-md hidden md:block">
-                          After falling three stories on duty, a local firefighter struggled with pain and mobility issues. After beginning NFPM, Protandim Nrf2, and liquid collagen, he experienced meaningful improvements in recovery and daily function.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              </div>
-
-              {/* Testimonials Carousel - Full Width */}
-              <div className="w-full">
-                <Carousel
-                  opts={{
-                    align: "start",
-                    loop: false,
-                  }}
-                  className="w-full"
-                >
-                  <CarouselContent className="-ml-2 md:-ml-4">
-                    {testimonials.map((testimonial) => (
-                      <CarouselItem key={testimonial.id} className="pl-2 md:pl-4 basis-[85%] sm:basis-[70%] md:basis-1/2 lg:basis-1/3 xl:basis-1/3">
-                        <Card className="relative border border-[#E2E8E8] rounded-lg shadow-sm hover:shadow-lg transition-shadow overflow-hidden aspect-[2/1]">
-                          <Image
-                            src={testimonial.image}
-                            alt={`Nrf2 Testimonial ${testimonial.id}`}
-                            fill
-                            className="object-contain"
-                            sizes="(max-width: 640px) 85vw, (max-width: 768px) 70vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
-                          />
-                        </Card>
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                  <CarouselPrevious className="left-2 md:left-4 bg-primary text-white border-primary hover:bg-primary/90 hover:text-white" />
-                  <CarouselNext className="right-2 md:right-4 bg-primary text-white border-primary hover:bg-primary/90 hover:text-white" />
-                </Carousel>
-              </div>
+                </div>
             </div>
-          </div>
         </div>
-      </section>
 
-      {/* Video Modal */}
+        {/* Carousel Section */}
+        <div className="w-full">
+            <h3 className="text-2xl font-bold text-slate-900 mb-8 text-center">Community Success Stories</h3>
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-4">
+                {testimonials.map((testimonial) => (
+                  <CarouselItem key={testimonial.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 shadow-lg bg-white group">
+                      <Image
+                        src={testimonial.image}
+                        alt={`Testimonial ${testimonial.id}`}
+                        fill
+                        className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden md:flex -left-12 border-teal-200 text-teal-700 hover:bg-teal-50 hover:text-teal-900" />
+              <CarouselNext className="hidden md:flex -right-12 border-teal-200 text-teal-700 hover:bg-teal-50 hover:text-teal-900" />
+            </Carousel>
+        </div>
+
+      </div>
+
       <Dialog open={isVideoOpen} onOpenChange={setIsVideoOpen}>
-        <DialogContent className="max-w-4xl p-0 [&>button]:left-4 [&>button]:top-4 [&>button]:right-auto [&>button]:z-50 [&>button]:bg-white/95 [&>button]:backdrop-blur-sm [&>button]:rounded-full [&>button]:p-2 [&>button]:shadow-lg [&>button]:hover:bg-white [&>button]:opacity-100 [&>button>svg]:stroke-[3] [&>button>svg]:h-5 [&>button>svg]:w-5">
-          <div className="aspect-video w-full">
-            <iframe
-              src={videoUrl.replace("watch?v=", "embed/")}
-              className="w-full h-full rounded-lg"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title="Firefighter Recovery Story"
+        <DialogContent className="max-w-4xl p-0 bg-black aspect-video border-none">
+            <DialogHeader className="sr-only">
+                <DialogTitle>Firefighter Recovery Story</DialogTitle>
+            </DialogHeader>
+            <iframe 
+                src={videoUrl + "?autoplay=1"} 
+                className="w-full h-full" 
+                allow="autoplay; encrypted-media" 
+                allowFullScreen 
             />
-          </div>
         </DialogContent>
       </Dialog>
-    </>
+    </section>
   )
 }

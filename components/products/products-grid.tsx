@@ -4,7 +4,8 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Activity, CheckCircle2 } from "lucide-react"
+import { ShimmerButton } from "@/components/ui/shimmer-button"
+import { Activity, CheckCircle2, ArrowRight, ShieldCheck, Zap, Sparkles } from "lucide-react"
 import {
   Carousel,
   CarouselContent,
@@ -111,60 +112,63 @@ function ProductImageGallery({ images, productName }: { images: string[]; produc
 
   if (images.length === 1) {
     return (
-      <div className="relative aspect-square bg-gradient-to-br from-primary/5 via-primary/10 to-secondary/5 overflow-hidden group-hover:from-primary/10 group-hover:via-primary/15 group-hover:to-secondary/10 transition-all duration-300">
-        <Image
-          src={images[0]}
-          alt={productName}
-          fill
-          className="object-contain p-6 group-hover:scale-110 transition-transform duration-500"
-          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        />
-      </div>
+        <div className="relative aspect-square bg-slate-50 overflow-hidden group-hover:bg-slate-100 transition-colors duration-300">
+            <Image
+            src={images[0]}
+            alt={productName}
+            fill
+            className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+            />
+        </div>
     )
   }
 
   return (
-    <div className="relative aspect-square bg-gradient-to-br from-primary/5 via-primary/10 to-secondary/5 overflow-hidden group-hover:from-primary/10 group-hover:via-primary/15 group-hover:to-secondary/10 transition-all duration-300">
+    <div className="w-full bg-slate-50 overflow-hidden group-hover:bg-slate-100 transition-colors duration-300">
       <Carousel
         setApi={setApi}
         opts={{
           align: "start",
           loop: true,
         }}
-        className="w-full h-full"
+        className="w-full"
       >
         <CarouselContent className="-ml-0">
           {images.map((image, idx) => (
             <CarouselItem key={idx} className="pl-0 basis-full">
-              <div className="relative aspect-square w-full bg-gradient-to-br from-primary/5 via-primary/10 to-secondary/5">
+               {/* Inner container defines height -> aspect-square makes it robust */}
+               <div className="relative w-full aspect-square">
                 <Image
                   src={image}
                   alt={`${productName} - Image ${idx + 1}`}
                   fill
-                  className="object-contain p-6 group-hover:scale-110 transition-transform duration-500"
+                  className="object-contain p-6 group-hover:scale-105 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
-              </div>
+               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious 
-          className="left-2 opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 hover:bg-white border-0 shadow-md" 
-          variant="outline"
-        />
-        <CarouselNext 
-          className="right-2 opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 hover:bg-white border-0 shadow-md" 
-          variant="outline"
-        />
+        {/* Always visible controls */}
+        <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-2 pointer-events-none z-10">
+            <CarouselPrevious 
+            className="pointer-events-auto bg-white/80 hover:bg-white border-0 shadow-md h-8 w-8 text-slate-800 relative left-0 translate-y-0" 
+            variant="outline"
+            />
+            <CarouselNext 
+            className="pointer-events-auto bg-white/80 hover:bg-white border-0 shadow-md h-8 w-8 text-slate-800 relative right-0 translate-y-0" 
+            variant="outline"
+            />
+        </div>
       </Carousel>
       
       {/* Image Indicators */}
-      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10 pointer-events-none">
+      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10 pointer-events-none">
         {images.map((_, idx) => (
           <div
             key={idx}
-            className={`h-1.5 rounded-full transition-all ${
-              idx === current ? "w-6 bg-primary" : "w-1.5 bg-white/60"
+            className={`h-1.5 rounded-full transition-all duration-300 shadow-sm ${
+              idx === current ? "w-6 bg-teal-600" : "w-1.5 bg-slate-300"
             }`}
           />
         ))}
@@ -174,105 +178,172 @@ function ProductImageGallery({ images, productName }: { images: string[]; produc
 }
 
 export function ProductsGrid() {
+  const nfpm = products[0]
+  const otherProducts = products.slice(1)
+
   return (
-    <section id="products-services" className="py-20 md:py-32 bg-background">
+    <section id="products-services" className="py-20 md:py-24 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="space-y-12">
+          
           <div className="text-center space-y-4">
-            <h2 className="text-3xl md:text-4xl font-heading text-primary">
-              Products & Services
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight">
+              Products & <span className="text-teal-600">Services</span>
             </h2>
-            <p className="text-lg text-foreground/80 leading-relaxed max-w-3xl mx-auto">
-              Everything we offer — from in-home pain relief to daily wellness support
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Everything you need for pain relief and long-term cellular health.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.map((product) => (
-              <div
-                key={product.id}
-                className="bg-white border border-[#E2E8E8] rounded-lg shadow-sm hover:shadow-lg transition-all overflow-hidden flex flex-col group"
-              >
-                {/* Product Image Gallery */}
-                <ProductImageGallery images={product.images} productName={product.name} />
+          <div className="space-y-8">
+            {/* Row 1: NFPM (Featured) + Marketing Content */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+              
+              {/* NFPM Featured Card (Columns 1-8) */}
+              <div className="lg:col-span-8 bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col md:flex-row group min-h-[450px]">
+                
+                {/* Left: Product Carousel (40% width) */}
+                <div className="w-full md:w-5/12 border-r border-slate-100">
+                    <ProductImageGallery images={nfpm.images} productName={nfpm.name} />
+                </div>
 
-                {/* Icon Badge */}
-                {product.icon && (
-                  <div className="absolute top-4 right-4 p-2.5 bg-white/95 rounded-lg shadow-md group-hover:shadow-lg transition-shadow z-20">
-                    <product.icon className="h-5 w-5 text-primary" />
-                  </div>
-                )}
+                {/* Right: Content */}
+                <div className="flex-1 p-8 flex flex-col space-y-6">
+                    <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                            <h3 className="text-2xl font-bold text-slate-900">{nfpm.name}</h3>
+                            <div className="p-2 bg-teal-50 rounded-lg text-teal-600">
+                                <nfpm.icon className="h-6 w-6" />
+                            </div>
+                        </div>
+                        <p className="text-slate-600 leading-relaxed text-base">
+                            {nfpm.summary}
+                        </p>
+                    </div>
 
-                {/* Product Content */}
-                <div className="p-6 flex flex-col flex-1 space-y-4">
-                  <h3 className="text-xl md:text-2xl font-heading text-primary">
-                    {product.name}
-                  </h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {nfpm.includes?.map((item, idx) => (
+                             <div key={idx} className="flex items-center gap-2 text-sm text-slate-700">
+                                 <CheckCircle2 className="h-4 w-4 text-teal-500 shrink-0" />
+                                 <span>{item}</span>
+                             </div>
+                        ))}
+                    </div>
 
-                  <div className="flex-1 space-y-4">
-                    <p className="text-foreground/80 leading-relaxed">
-                      {product.summary}
+                    <div className="pt-4 flex flex-col sm:flex-row gap-4 mt-auto">
+                        {nfpm.ctas?.map((cta, idx) => (
+                             cta.primary ? (
+                                <Link key={idx} href={cta.link} className="flex-1" target={cta.link.startsWith("http") ? "_blank" : "_self"}>
+                                    <ShimmerButton 
+                                        className="w-full h-12 text-base font-bold shadow-md" 
+                                        background="#0D9488" 
+                                        shimmerColor="#ffffff"
+                                        noShimmer={true}
+                                        borderRadius="9999px" 
+                                    >
+                                        {cta.text} <ArrowRight className="ml-2 h-4 w-4" />
+                                    </ShimmerButton>
+                                </Link>
+                             ) : (
+                                <Button
+                                    key={idx}
+                                    asChild
+                                    variant="outline"
+                                    className="flex-1 h-12 border-2 border-slate-200 text-slate-700 hover:border-teal-600 hover:text-teal-600 hover:bg-white rounded-full text-base font-bold transition-all"
+                                >
+                                    <Link href={cta.link} target={cta.link.startsWith("http") ? "_blank" : "_self"}>
+                                        {cta.text}
+                                    </Link>
+                                </Button>
+                             )
+                        ))}
+                    </div>
+                </div>
+
+              </div>
+
+              {/* Marketing / Intro Card (Columns 9-12) */}
+              <div className="lg:col-span-4 bg-slate-900 rounded-2xl shadow-xl text-white relative overflow-hidden p-8 flex flex-col justify-center h-full min-h-[400px]">
+                 {/* Decorative background */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2" />
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/2" />
+
+                <div className="relative z-10 space-y-6">
+                    <div className="p-3 bg-white/10 w-fit rounded-xl backdrop-blur-sm">
+                        <Sparkles className="h-8 w-8 text-teal-300" />
+                    </div>
+                    
+                    <h3 className="text-3xl font-bold leading-tight">
+                        Complete<br/>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-200 to-teal-400">Wellness System</span>
+                    </h3>
+                    
+                    <p className="text-slate-300 leading-relaxed text-lg">
+                        Combines clinical-grade electroanalgesia with powerful cellular activation.
                     </p>
 
-                    {/* Includes or Best For */}
-                    {product.includes && (
-                      <div className="space-y-2 pt-2">
-                        <p className="font-semibold text-sm text-foreground">Includes:</p>
-                        <ul className="grid grid-cols-2 gap-x-4 gap-y-1">
-                          {product.includes.map((item, idx) => (
-                            <li key={idx} className="text-sm text-foreground/80 flex items-start gap-2">
-                              <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-
-                    {product.bestFor && (
-                      <div className="space-y-2 pt-2">
-                        <p className="font-semibold text-sm text-foreground">Best For:</p>
-                        <ul className="space-y-1">
-                          {product.bestFor.map((item, idx) => (
-                            <li key={idx} className="text-sm text-foreground/80 flex items-start gap-2">
-                              <span className="text-primary mt-1">•</span>
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* CTAs */}
-                  <div className="pt-4 space-y-2 mt-auto">
-                    {product.ctas ? (
-                      product.ctas.map((cta, idx) => (
-                        <Button
-                          key={idx}
-                          asChild
-                          variant={cta.primary ? "default" : "outline"}
-                          className={`w-full ${cta.primary ? "bg-primary text-primary-foreground hover:bg-primary/90" : "border-primary text-primary hover:bg-muted"} rounded`}
-                        >
-                          <Link href={cta.link} target={cta.link.startsWith("http") ? "_blank" : "_self"} rel={cta.link.startsWith("http") ? "noopener noreferrer" : undefined}>
-                            {cta.text}
-                          </Link>
-                        </Button>
-                      ))
-                    ) : (
-                      <Button
-                        asChild
-                        className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded"
-                      >
-                        <Link href={product.cta.link} target="_blank" rel="noopener noreferrer">
-                          {product.cta.text}
-                        </Link>
-                      </Button>
-                    )}
-                  </div>
+                    <div className="space-y-4 pt-4">
+                        <div className="flex items-center gap-3 text-slate-200">
+                             <div className="p-1.5 rounded-full bg-teal-500/20 text-teal-400"><Zap className="h-4 w-4" /></div>
+                             <span className="font-semibold">Pain Relief</span>
+                        </div>
+                        <div className="flex items-center gap-3 text-slate-200">
+                             <div className="p-1.5 rounded-full bg-blue-500/20 text-blue-400"><ShieldCheck className="h-4 w-4" /></div>
+                             <span className="font-semibold">Cellular Defense</span>
+                        </div>
+                    </div>
                 </div>
               </div>
-            ))}
+
+            </div>
+
+             {/* Row 2: Supplements (4 Columns) */}
+             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
+                {otherProducts.map((product) => (
+                    <div key={product.id} className="bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col group h-full">
+                        {/* Compact Image Area */}
+                        <div className="aspect-[4/3] w-full">
+                            <ProductImageGallery images={product.images} productName={product.name} />
+                        </div>
+
+                        <div className="p-5 flex flex-col flex-1 space-y-3">
+                            <h3 className="text-lg font-bold text-slate-900 leading-tight min-h-[3rem] pb-1 border-b border-slate-50">
+                                {product.name}
+                            </h3>
+                            
+                            <p className="text-slate-600 text-sm leading-relaxed flex-1">
+                                {product.summary}
+                            </p>
+
+                            {/* Best For Tags (Restored) */}
+                            {product.bestFor && (
+                                <div className="py-2 flex flex-wrap gap-2">
+                                    {product.bestFor.map((item, idx) => (
+                                        <span key={idx} className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-slate-100 text-slate-700">
+                                            {item}
+                                        </span>
+                                    ))}
+                                </div>
+                            )}
+
+                            <div className="mt-4">
+                                <Link href={product.cta!.link} target="_blank" className="block w-full">
+                                    <ShimmerButton 
+                                        className="w-full h-10 text-sm font-bold shadow-sm" 
+                                        background="#0F766E" 
+                                        shimmerColor="#ffffff"
+                                        noShimmer={true}
+                                        borderRadius="9999px"
+                                    >
+                                        {product.cta!.text}
+                                    </ShimmerButton>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+             </div>
+
           </div>
         </div>
       </div>

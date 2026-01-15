@@ -2,40 +2,60 @@ import { CheckCircle2 } from "lucide-react"
 
 export function WhyChooseNFPM() {
   const benefits = [
-    "100% non-invasive",
-    "Drug-free",
-    "No downtime",
-    "Nurse-led care",
-    "Covered by Medicare & many PPOs",
-    "Helps people who haven't found relief elsewhere",
-    "Designed to promote actual healing, not just masking symptoms",
+    "100% Non-Invasive & Drug-Free",
+    "No Downtime or Recovery Period",
+    "Nurse-Led Care in Your Home",
+    "Covered by Medicare & Many PPOs",
+    "Effective for Treatment-Resistant Pain",
+    "Promotes Actual Healing, Not Masking",
   ]
 
   return (
-    <section className="py-20 md:py-32 bg-background">
-      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-        <div className="space-y-12">
-          <h2 className="text-3xl md:text-4xl font-heading text-primary text-center">
-            Why People Choose NFPM
-          </h2>
-          <div className="bg-white rounded-lg border border-border p-8 shadow-sm">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-start gap-4 p-3 rounded-lg hover:bg-muted/50 transition-colors">
-                  <CheckCircle2 className="h-7 w-7 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-lg text-foreground/80 leading-relaxed">{benefit}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+    <section className="py-24 md:py-32 bg-slate-900 relative overflow-hidden">
+      {/* Background Ambience */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-teal-900/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[url('/assets/images/grid-pattern.svg')] opacity-[0.05]" />
 
-          {/* Outcome Highlight */}
-          <div className="bg-primary/10 border-2 border-primary rounded-lg p-8 text-center space-y-2">
-            <div className="text-5xl md:text-6xl font-heading text-primary">85%</div>
-            <p className="text-xl md:text-2xl font-semibold text-foreground">
-              of NFPM patients experience a 50% or greater reduction in pain.
-            </p>
-          </div>
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            
+            <div className="space-y-10 order-last lg:order-first">
+                <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+                    Why Patients <br />
+                    <span className="text-teal-400">Choose NFPM</span>
+                </h2>
+                
+                {/* 2-Column List - No Cards */}
+                <div className="grid sm:grid-cols-2 gap-x-8 gap-y-6">
+                    {benefits.map((benefit, index) => (
+                        <div key={index} className="flex items-start gap-4 group">
+                            <div className="p-1 rounded-full bg-teal-500/10 text-teal-400 mt-1 shrink-0 group-hover:bg-teal-500/20 transition-colors">
+                                <CheckCircle2 className="h-5 w-5" />
+                            </div>
+                            <span className="text-lg text-slate-300 font-light leading-snug group-hover:text-white transition-colors">
+                                {benefit}
+                            </span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="order-first lg:order-last">
+                <div className="bg-gradient-to-br from-teal-500 to-teal-700 rounded-3xl p-10 md:p-14 text-center shadow-2xl relative overflow-hidden group">
+                    <div className="absolute inset-0 bg-[url('/assets/images/grid-pattern.svg')] opacity-10" />
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-[60px] pointer-events-none group-hover:scale-110 transition-transform duration-700" />
+                    
+                    <div className="relative z-10 space-y-4">
+                        <div className="text-7xl md:text-9xl font-bold text-white tracking-tighter drop-shadow-sm">
+                            85%
+                        </div>
+                        <div className="text-teal-100 text-xl md:text-2xl font-medium max-w-sm mx-auto leading-relaxed">
+                            of NFPM patients experience a 50% or greater reduction in pain.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
       </div>
     </section>

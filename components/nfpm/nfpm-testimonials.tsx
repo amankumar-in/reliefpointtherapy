@@ -14,7 +14,7 @@ const testimonials = [
     vimeoUrl: "https://vimeo.com/937856275",
     thumbnail: "/assets/images/ed-video-thumb.png",
     title: "Ed – Peripheral Neuropathy",
-    caption: "Ed's Story: Peripheral neuropathy (DBN, DB2)",
+    caption: "Ed's Story: Peripheral neuropathy",
   },
   {
     name: "Robert",
@@ -50,44 +50,53 @@ export function NFPMTestimonials() {
 
   return (
     <>
-      <section className="py-20 md:py-32 bg-white">
+      <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+        {/* Decor */}
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-teal-500/5 rounded-full blur-[100px] pointer-events-none" />
+
         <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-5xl mx-auto space-y-12">
-            <div className="text-center space-y-4">
-              <h2 className="text-3xl md:text-4xl font-heading text-primary">
-                Real NFPM Patient Stories
+          <div className="max-w-6xl mx-auto space-y-16">
+            <div className="text-center space-y-6 max-w-3xl mx-auto">
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
+                Real <span className="text-teal-600">Patient Stories</span>
               </h2>
-              <p className="text-lg text-foreground/80 leading-relaxed">
-                NFPM has helped many people reduce pain, regain mobility, and restore their quality of life — especially after other treatments failed. These patient stories come directly from the Relatyv national NFPM program.
+              <p className="text-xl text-slate-600 font-light leading-relaxed">
+                NFPM has helped many people reduce pain, regain mobility, and restore their quality of life — especially after other treatments failed.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
               {testimonials.map((testimonial, index) => (
                 <div
                   key={index}
-                  className="cursor-pointer group"
+                  className="cursor-pointer group relative"
                   onClick={() => setOpenVideo(index)}
                 >
-                  <div className="relative aspect-video flex items-center justify-center rounded-lg overflow-hidden">
+                  <div className="relative aspect-video flex items-center justify-center rounded-2xl overflow-hidden shadow-lg shadow-slate-200 border border-slate-100 transform group-hover:scale-[1.02] transition-all duration-500">
                     <Image
                       src={testimonial.thumbnail}
                       alt={`${testimonial.name}'s Story`}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
-                    <div className="relative z-10 bg-primary/95 rounded-full p-4 group-hover:bg-primary group-hover:scale-110 transition-all shadow-lg">
-                      <Play className="h-8 w-8 text-white fill-white ml-1" />
+                    <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/30 transition-colors" />
+                    
+                    {/* Play Button */}
+                    <div className="relative z-10 bg-white/20 backdrop-blur-sm border border-white/40 rounded-full p-4 group-hover:scale-110 transition-transform duration-300">
+                        <div className="bg-white text-teal-600 p-3 rounded-full shadow-lg">
+                            <Play className="h-6 w-6 fill-current ml-1" />
+                        </div>
                     </div>
                   </div>
-                  <p className="text-sm text-foreground/80 mt-3 text-center">
-                    <span className="text-primary font-semibold">
-                      {testimonial.name}&apos;s Story:
-                    </span>{" "}
-                    {testimonial.caption.split(": ")[1]}
-                  </p>
+                  
+                  <div className="mt-4 text-center">
+                    <h3 className="text-lg font-bold text-slate-900 group-hover:text-teal-700 transition-colors">
+                        {testimonial.name}
+                    </h3>
+                    <p className="text-slate-500 text-sm">
+                        {testimonial.caption.split(": ")[1]}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -98,11 +107,11 @@ export function NFPMTestimonials() {
       {/* Video Modal */}
       {openVideo !== null && (
         <Dialog open={openVideo !== null} onOpenChange={() => setOpenVideo(null)}>
-          <DialogContent className="max-w-4xl p-0 [&>button]:left-4 [&>button]:top-4 [&>button]:right-auto [&>button]:z-50 [&>button]:bg-white/95 [&>button]:backdrop-blur-sm [&>button]:rounded-full [&>button]:p-2 [&>button]:shadow-lg [&>button]:hover:bg-white [&>button]:opacity-100 [&>button>svg]:stroke-[3] [&>button>svg]:h-5 [&>button>svg]:w-5">
-            <div className="aspect-video w-full relative">
+          <DialogContent className="max-w-5xl p-0 border-0 bg-black overflow-hidden aspect-video">
+            <div className="w-full h-full relative">
               <iframe
-                src={getVimeoEmbedUrl(testimonials[openVideo].vimeoUrl)}
-                className="w-full h-full rounded-lg"
+                src={getVimeoEmbedUrl(testimonials[openVideo].vimeoUrl) + "?autoplay=1"}
+                className="w-full h-full"
                 allow="autoplay; fullscreen; picture-in-picture"
                 allowFullScreen
                 title={testimonials[openVideo].title}

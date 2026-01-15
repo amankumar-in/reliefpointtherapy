@@ -26,7 +26,7 @@ export function ProductsTestimonials() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="space-y-12">
           <div className="text-center space-y-4">
-            <h2 className="text-3xl md:text-4xl font-heading text-primary">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary">
               What People Are Saying
             </h2>
             <p className="text-sm text-foreground/60 italic">
@@ -46,7 +46,8 @@ export function ProductsTestimonials() {
               <CarouselContent className="-ml-2 md:-ml-4">
                 {testimonials.map((testimonial) => (
                   <CarouselItem key={testimonial.id} className="pl-2 md:pl-4 basis-[85%] sm:basis-[70%] md:basis-1/2 lg:basis-1/3 xl:basis-1/3">
-                    <Card className="relative border border-[#E2E8E8] rounded-lg shadow-sm hover:shadow-lg transition-shadow overflow-hidden aspect-[2/1]">
+                    {/* Matching style to products-cost-saving.tsx: Standard border, shadow, rounded-2xl, white bg */}
+                    <Card className="relative border border-slate-200 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow overflow-hidden aspect-[2/1]">
                       <Image
                         src={testimonial.image}
                         alt={`Product Testimonial ${testimonial.id}`}

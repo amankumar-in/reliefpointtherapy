@@ -1,57 +1,46 @@
-import Link from "next/link"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
+import { Quote } from "lucide-react"
 
 export function MyStoryNrf2() {
   return (
-    <section className="py-20 md:py-32 bg-background">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column: Text */}
-          <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-heading text-primary">
-              In Case We Haven&apos;t Met Yet…
-            </h2>
-            <div className="space-y-4 text-lg text-foreground/80 leading-relaxed">
-              <p>
-                Hi, I&apos;m Genis Matel — a registered nurse and founder of Relief Point Therapy.
-              </p>
-              <p>
-                Before I became a provider, I was a pain patient myself. After <strong>five knee surgeries</strong> and stage-4 arthritis, I saw how often traditional care focuses on masking pain rather than helping the body repair. Later, I worked in <strong>post-operative care</strong>, watching dozens of patients cycle through procedures and medications with limited relief.
-              </p>
-              <p>
-                I became passionate about natural, science-backed solutions that genuinely help the body heal.
-              </p>
-              <p>
-                A turning point for me was seeing a patient experience dramatic improvement after trying Nrf2 activation — and then seeing results in my own family. That&apos;s when I brought these products into my practice.
-              </p>
-              <p className="text-primary font-semibold italic">
-                Your body already knows how to heal — sometimes it just needs the right support.
-              </p>
+    <section className="py-24 bg-white relative">
+      <div className="container mx-auto px-4 md:px-6 max-w-5xl">
+         <div className="flex flex-col md:flex-row gap-12 items-center md:items-start">
+            
+            <div className="relative shrink-0">
+                <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white shadow-2xl relative z-10">
+                    <Image 
+                        src="/assets/images/genis-headshot.png" 
+                        alt="Genis Matel, RN" 
+                        fill 
+                        className="object-cover"
+                    />
+                </div>
+                <div className="absolute -bottom-4 -right-4 bg-teal-600 text-white p-4 rounded-full shadow-lg z-20">
+                    <Quote className="h-6 w-6" />
+                </div>
+                <div className="absolute top-0 -left-4 w-32 h-32 bg-teal-500/10 rounded-full blur-2xl -z-10" />
             </div>
-            <div className="pt-4">
-              <Button asChild variant="outline" className="border-primary text-primary hover:bg-muted rounded">
-                <Link href="/about">
-                  Learn More About My Story
-                </Link>
-              </Button>
-            </div>
-          </div>
 
-          {/* Right Column: Image Card */}
-          <div className="flex justify-center lg:justify-end">
-            {/* Teal card with 4:5 portrait ratio and rounded corners */}
-            <div className="relative w-full max-w-xs md:max-w-md aspect-[4/5] bg-primary/50 rounded-lg overflow-hidden p-0">
-              <Image
-                src="/assets/images/genis-headshot-transparent-bg.png"
-                alt="Genis Matel, RN - Relief Point Therapy"
-                fill
-                className="object-contain object-bottom"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+            <div className="flex-1 space-y-6 text-center md:text-left">
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
+                    Why I Recommend <span className="text-teal-600">Cellular Activation</span>
+                </h2>
+                <div className="space-y-4 text-lg text-slate-600 leading-relaxed font-light">
+                    <p>
+                        "As a nurse specializing in pain management, I've seen how chronic inflammation holds the body back from healing. While treatments like NFPM address the nerves, we also need to support the cells themselves."
+                    </p>
+                    <p>
+                        "I personally use these products daily. I've seen them help patients—and my own family—recover faster, have more energy, and just feel <em>better</em>. It's the perfect complement to the clinical care we provide."
+                    </p>
+                </div>
+                <div>
+                    <div className="text-slate-900 font-bold text-lg">Genis Matel, RN</div>
+                    <div className="text-slate-500">Founder, Relief Point Therapy</div>
+                </div>
             </div>
-          </div>
-        </div>
+
+         </div>
       </div>
     </section>
   )

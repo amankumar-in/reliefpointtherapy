@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { AboutHero } from "@/components/about/about-hero"
-import { YourStory } from "@/components/about/your-story"
+import { AboutProfile } from "@/components/about/about-profile"
 import { Credentials } from "@/components/about/credentials"
 import { OurMission } from "@/components/about/our-mission"
 import { WhatMakesDifferent } from "@/components/about/what-makes-different"
@@ -27,6 +26,10 @@ export const metadata: Metadata = {
     "Concord",
     "Walnut Creek",
     "Danville",
+    "San Ramon",
+    "Dublin",
+    "Pleasanton",
+    "Livermore",
   ],
   openGraph: {
     title: "Meet Your Nurse | About Relief Point Therapy",
@@ -51,8 +54,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <AboutHero />
-      <YourStory />
+      <AboutProfile />
       <Credentials />
       <OurMission />
       <WhatMakesDifferent />

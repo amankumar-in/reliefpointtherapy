@@ -1,41 +1,56 @@
-import { CheckCircle2 } from "lucide-react"
+import { CheckCircle2, Calendar, Activity, User, HeartPulse, Droplets } from "lucide-react"
 
 export function TreatmentProgram() {
   const programItems = [
-    "Two 60-minute sessions each week",
-    "In-home care by a registered nurse",
-    "Progressive neuromodulation treatment",
-    "Pain tracking and mobility monitoring",
-    "Lifestyle guidance to support healing",
-    "IV hydration",
-    "Optional cellular activation recommendations",
+    { icon: Calendar, text: "Two 60-minute sessions each week" },
+    { icon: User, text: "In-home care by a registered nurse" },
+    { icon: Activity, text: "Progressive neuromodulation treatment" },
+    { icon: Activity, text: "Pain tracking and mobility monitoring" },
+    { icon: HeartPulse, text: "Lifestyle guidance to support healing" },
+    { icon: Droplets, text: "IV hydration included" },
   ]
 
   return (
-    <section className="py-20 md:py-32 bg-white">
-      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-        <div className="space-y-8">
-          <h2 className="text-3xl md:text-4xl font-heading text-primary text-center">
-            What Your NFPM Program Includes
-          </h2>
-          <p className="text-lg text-foreground/80 leading-relaxed text-center">
-            The NFPM program is structured over <strong>8 weeks</strong> and includes:
-          </p>
-          <div className="bg-white border border-border rounded-lg p-8 md:p-10 shadow-md">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {programItems.map((item, index) => (
-                <div key={index} className="flex items-start gap-4 p-3 rounded-lg hover:bg-muted/50 transition-colors">
-                  <div className="flex-shrink-0">
-                    <CheckCircle2 className="h-7 w-7 text-primary mt-0.5" />
-                  </div>
-                  <span className="text-foreground/80 text-lg leading-relaxed">{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          <p className="text-lg text-foreground/80 leading-relaxed text-center pt-4">
-            Your treatment plan is personalized based on your pain, function goals, and medical history.
-          </p>
+    <section className="py-24 md:py-32 bg-white border-t border-slate-100">
+      <div className="container mx-auto px-4 md:px-6 max-w-5xl">
+        <div className="text-center mb-16 space-y-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
+                Your <span className="text-teal-600">Treatment Plan</span>
+            </h2>
+            <p className="text-xl text-slate-600 font-light">
+                Structured care designed for long-term relief.
+            </p>
+        </div>
+
+        <div className="bg-slate-50 border border-slate-100 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+             
+             <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-teal-100/40 rounded-full blur-[80px] pointer-events-none" />
+
+             <div className="grid md:grid-cols-2 gap-8 md:gap-12 relative z-10">
+                 <div className="space-y-6">
+                     <h3 className="text-2xl font-bold text-slate-900">
+                        The 8-Week Program
+                     </h3>
+                     <p className="text-slate-600 leading-relaxed text-lg">
+                        Your personalized plan is tailored to your pain, function goals, and medical history. We combine advanced technology with compassionate nurse-led care.
+                     </p>
+                     <div className="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm">
+                        <div className="text-4xl font-bold text-teal-600 mb-2">8 Weeks</div>
+                        <div className="text-slate-900 font-medium">Comprehensive Care Cycle</div>
+                     </div>
+                 </div>
+
+                 <div className="grid gap-4">
+                    {programItems.map((item, index) => (
+                        <div key={index} className="flex items-center gap-4 p-3 rounded-xl hover:bg-white hover:shadow-sm transition-all duration-300 group">
+                            <div className="h-10 w-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-teal-600 group-hover:bg-teal-500 group-hover:text-white transition-colors shadow-sm">
+                                <item.icon className="h-5 w-5" />
+                            </div>
+                            <span className="text-lg text-slate-700 group-hover:text-slate-900 transition-colors font-medium">{item.text}</span>
+                        </div>
+                    ))}
+                 </div>
+             </div>
         </div>
       </div>
     </section>

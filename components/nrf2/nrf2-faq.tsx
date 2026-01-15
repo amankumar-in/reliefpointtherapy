@@ -1,232 +1,80 @@
-"use client"
-
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
-
-const faqs = [
-  {
-    question: "What is Protandim Nrf2?",
-    answer: (
-      <>
-        <p className="mb-3">
-          Protandim Nrf2 helps your body turn on its own natural defense system. It signals your cells to make more of their own antioxidants, including glutathione. In studies, it has been shown to increase glutathione by up to 300%.
-        </p>
-        <p className="mb-3">
-          Protandim Nrf2 is also the only product on the market shown in human studies to lower oxidative stress by about 40%.
-        </p>
-        <p className="mb-3">
-          Oxidative stress is a major driver of inflammation, stress, aging, and many chronic health issues.
-        </p>
-        <p>
-          It is made from a patented blend of plant-based ingredients that work together to support cellular health and repair. You can find the full ingredients list on the LifeVantage product page.
-        </p>
-      </>
-    ),
-  },
-  {
-    question: "How long does it take to see results?",
-    answer: (
-      <>
-        <p>
-          Most people begin noticing benefits in <strong>6–8 weeks</strong>, though some feel improvements sooner.
-        </p>
-        <p className="mt-3">
-          Cellular repair naturally takes 60–90 days, but we encourage committing to Nrf2 for at least 3–6 months for a fair evaluation.
-        </p>
-        <p className="mt-3">
-          I generally don&apos;t recommend starting Nrf2 unless you&apos;re willing to give your cells enough time to respond.
-        </p>
-      </>
-    ),
-  },
-  {
-    question: "What is GlowStack?",
-    answer: (
-      <>
-        <p>
-          GlowStack combines Nrf2 with liquid collagen and peptides to support skin elasticity, joint comfort, hydration, bone density, and recovery. Visible results often begin around <strong>6–8 weeks</strong>.
-        </p>
-      </>
-    ),
-  },
-  {
-    question: "Which product should I start with?",
-    answer: (
-      <>
-        <ul className="space-y-2 list-none">
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>If choosing only one → <strong>Protandim Nrf2</strong></span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>For 40+, energy, deeper or faster results → <strong>Dual Synergizer</strong></span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>For skin, hair, joint, and collagen support → <strong>GlowStack</strong></span>
-          </li>
-        </ul>
-      </>
-    ),
-  },
-  {
-    question: "Can I take these with my current supplements?",
-    answer: (
-      <>
-        <p>
-          Yes — these are nutrigenomic, plant-based products designed to support your body&apos;s natural cellular pathways. They are generally very well tolerated, and most people do not experience side effects.
-        </p>
-        <p className="mt-3">
-          If you have specific concerns, feel free to discuss them with your healthcare provider. All ingredients are plant-based and vegan.
-        </p>
-      </>
-    ),
-  },
-  {
-    question: "Are these treatments covered by insurance?",
-    answer: (
-      <>
-        <p>
-          No — cellular activation products are wellness supplements and are not insurance-covered.
-        </p>
-      </>
-    ),
-  },
-  {
-    question: "Is there a money-back guarantee?",
-    answer: (
-      <>
-        <p>
-          Yes — all LifeVantage orders include a <strong>30-day money-back guarantee</strong>.
-        </p>
-      </>
-    ),
-  },
-  {
-    question: "Can I use these with NFPM?",
-    answer: (
-      <>
-        <p>
-          Yes. Many patients use cellular activation to support inflammation reduction, energy, recovery, and overall wellness alongside their NFPM program for faster, deeper results.
-        </p>
-      </>
-    ),
-  },
-  {
-    question: "How do subscriptions work?",
-    answer: (
-      <>
-        <p>
-          Subscribe & Save gives 10% off and can be canceled anytime.
-        </p>
-      </>
-    ),
-  },
-  {
-    question: "What if I'm still not sure what I need?",
-    answer: (
-      <>
-        <p>
-          You can submit your information on the products page, and I will personally build a recommendation and a direct checkout link for you.
-        </p>
-      </>
-    ),
-  },
-  {
-    question: "What are the ingredients in Protandim Nrf2, and why can't I just take them separately?",
-    answer: (
-      <>
-        <p className="mb-3">
-          Protandim Nrf2 is made from five plant-based, vegan-friendly ingredients:
-        </p>
-        <ul className="space-y-2 list-none mb-3">
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>Turmeric root extract</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>Green tea extract</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>Bacopa monnieri</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>Milk thistle</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>Ashwagandha</span>
-          </li>
-        </ul>
-        <p className="mb-3">
-          While many people take these herbs individually, <strong>the ingredients alone do not activate the Nrf2 pathway</strong>.
-        </p>
-        <p className="mb-3">
-          What makes Protandim unique is its <strong>patented formula and ingredient synergy</strong>, which clinical studies show can:
-        </p>
-        <ul className="space-y-2 list-none">
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>Increase glutathione up to 300%</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>Increase SOD and catalase</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>Reduce oxidative stress by ~40% in 30 days</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-primary mt-1">•</span>
-            <span>Support detoxification and cellular repair</span>
-          </li>
-        </ul>
-        <p className="mt-3">
-          These outcomes <strong>cannot be replicated</strong> by taking the ingredients separately.
-        </p>
-      </>
-    ),
-  },
-]
+} from "@/components/ui/accordion";
 
 export function Nrf2FAQ() {
-  return (
-    <section className="py-20 md:py-32 bg-white">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="space-y-8">
-          <div className="text-center space-y-4">
-            <h2 className="text-3xl md:text-4xl font-heading text-primary">
-              Frequently Asked Questions
-            </h2>
-          </div>
+  const faqs = [
+    {
+      q: "What is Protandim Nrf2?",
+      a: "Protandim Nrf2 helps your body turn on its own natural defense system. It signals your cells to make more of their own antioxidants, including glutathione. In studies, it has been shown to increase glutathione by up to 300%. Protandim Nrf2 is also the only product on the market shown in human studies to lower oxidative stress by about 40%. Oxidative stress is a major driver of inflammation, stress, aging, and many chronic health issues. It is made from a patented blend of plant-based ingredients that work together to support cellular health and repair. You can find the full ingredients list on the LifeVantage product page."
+    },
+    {
+      q: "what are the ingredients in Protandim Nrf2, and why can’t I just take them separately?",
+      a: "Protandim Nrf2 is made from five plant-based, vegan-friendly ingredients: Turmeric root extract, Green tea extract, Bacopa monnieri, Milk thistle, and Ashwagandha. While many people take these herbs individually, the ingredients alone do not activate the Nrf2 pathway. What makes Protandim unique is its patented formula and ingredient synergy, which clinical studies show can increase glutathione up to 300%, increase SOD and catalase, reduce oxidative stress by ~40% in 30 days, and support detoxification and cellular repair. These outcomes cannot be replicated by taking the ingredients separately."
+    },
+    {
+        q: "How long does it take to see results?",
+        a: "Most people begin noticing benefits in 6–8 weeks, though some feel improvements sooner. Cellular repair naturally takes 60–90 days, but we encourage committing to Nrf2 for at least 3–6 months for a fair evaluation. I generally don’t recommend starting Nrf2 unless you’re willing to give your cells enough time to respond."
+    },
+    {
+        q: "What is GlowStack?",
+        a: "GlowStack combines Nrf2 with liquid collagen and peptides to support skin elasticity, joint comfort, hydration, bone density, and recovery. Visible results often begin around 6–8 weeks."
+    },
+    {
+        q: "Which product should I start with?",
+        a: "If choosing only one → Protandim Nrf2. For 40+, energy, deeper or faster results → Dual Synergizer. For skin, hair, joint, and collagen support → GlowStack."
+    },
+    {
+        q: "Can I take these with my current supplements?",
+        a: "Yes — these are nutrigenomic, plant-based products designed to support your body’s natural cellular pathways. They are generally very well tolerated, and most people do not experience side effects. If you have specific concerns, feel free to discuss them with your healthcare provider. All ingredients are plant-based and vegan."
+    },
+    {
+        q: "Are these treatments covered by insurance?",
+        a: "No — cellular activation products are wellness supplements and are not insurance-covered."
+    },
+    {
+        q: "Is there a money-back guarantee?",
+        a: "Yes — all LifeVantage orders include a 30-day money-back guarantee."
+    },
+    {
+        q: "Can I use these with NFPM?",
+        a: "Yes. Many patients use cellular activation to support inflammation reduction, energy, recovery, and overall wellness alongside their NFPM program for faster, deeper results."
+    },
+    {
+        q: "How do subscriptions work?",
+        a: "Subscribe & Save gives 10% off and can be canceled anytime."
+    },
+    {
+        q: "What if I’m still not sure what I need?",
+        a: "You can submit your information on the products page, and I will personally build a recommendation and a direct checkout link for you."
+    }
+  ];
 
-          <Accordion type="single" collapsible className="w-full space-y-2 max-w-4xl mx-auto">
+  return (
+    <section className="py-24 bg-slate-50">
+      <div className="container mx-auto px-4 md:px-6 max-w-3xl">
+        <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight text-center mb-12">
+            Frequently Asked Questions
+        </h2>
+        
+        <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-8">
+            <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) => (
-              <AccordionItem
-                key={index}
-                value={`faq-${index}`}
-                className="border border-[#E2E8E8] rounded-lg px-4 bg-white"
-              >
-                <AccordionTrigger className="font-sans text-base md:text-lg text-foreground hover:no-underline text-left">
-                  {faq.question}
+                <AccordionItem key={index} value={`item-${index}`} className="border-b-slate-100 last:border-0 px-2 hover:bg-slate-50/50 transition-colors rounded-lg">
+                <AccordionTrigger className="text-left text-lg font-semibold text-slate-900 py-6 hover:text-teal-600 hover:no-underline transition-colors">
+                    {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-foreground/80 font-sans text-base md:text-lg leading-relaxed">
-                  {faq.answer}
+                <AccordionContent className="text-slate-600 text-lg leading-relaxed pb-6 pr-4 font-light">
+                    {faq.a}
                 </AccordionContent>
-              </AccordionItem>
+                </AccordionItem>
             ))}
-          </Accordion>
+            </Accordion>
         </div>
       </div>
     </section>
-  )
+  );
 }

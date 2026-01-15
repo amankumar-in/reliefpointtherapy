@@ -1,69 +1,65 @@
-import { Sparkles, Heart, Zap, TrendingUp } from "lucide-react"
-import Image from "next/image"
+import { Zap, Shield, Activity, Clock } from "lucide-react"
 
 export function WhyCellularActivation() {
   const benefits = [
-    { icon: Sparkles, text: "Produce more of its own antioxidants" },
-    { icon: Heart, text: "Reduce inflammation" },
-    { icon: Zap, text: "Support energy and cellular health" },
-    { icon: TrendingUp, text: "Improve skin, joint, and tissue support over time" },
+    {
+      icon: Shield,
+      title: "Reduce Oxidative Stress",
+      desc: "Lowers oxidative stress by 40% in just 30 days (verified by peer-reviewed studies)."
+    },
+    {
+        icon: Zap,
+        title: "Lower Inflammation",
+        desc: "Combats the root cause of many chronic health issues by regulating inflammatory pathways."
+    },
+    {
+        icon: Activity,
+        title: "Boost Mitochondria",
+        desc: "Increases production of mitochondria for better energy and cellular repair."
+    },
+    {
+        icon: Clock,
+        title: "Support Healthy Aging",
+        desc: "Keeps your cells functioning like they did when you were younger."
+    }
   ]
 
   return (
-    <section className="py-20 md:py-32 bg-background">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column: Content */}
-          <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-heading text-primary">
-              Why Cellular Activation?
-            </h2>
-            <div className="space-y-4 text-lg text-foreground/80 leading-relaxed">
-              <p>
-                Your body already knows how to heal. Cellular activation works by turning on your body&apos;s own antioxidant and repair systems, rather than adding something artificial from the outside.
-              </p>
-              <p>
-                These products help activate natural pathways that tell your body to:
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                {benefits.map((benefit, index) => {
-                  const Icon = benefit.icon
-                  return (
-                    <div key={index} className="flex items-start gap-3">
-                      <div className="flex-shrink-0 p-2 bg-primary/10 rounded-lg">
-                        <Icon className="h-5 w-5 text-primary" />
-                      </div>
-                      <span className="text-foreground/80 text-base leading-relaxed">{benefit.text}</span>
-                    </div>
-                  )
-                })}
-              </div>
-              <p>
-                All of the ingredients are plant-based, completely vegan, and naturally sourced. They are designed to work with your body, not override it.
-              </p>
-              <p>
-                Because this process works at the cellular level, it isn&apos;t instant. While some people notice changes sooner, the most meaningful benefits typically build over 3–6 months. That&apos;s because cells need time to repair, renew, and function better.
-              </p>
-              <p>
-                The good news is you can start cellular activation right away — on its own as daily wellness support, or alongside NFPM.
-              </p>
-            </div>
-          </div>
+    <section id="science" className="py-24 md:py-32 bg-slate-900 relative overflow-hidden">
+       {/* Background */}
+       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+            <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-teal-600/10 rounded-full blur-[120px]" />
+            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-900/20 rounded-full blur-[100px]" />
+       </div>
 
-          {/* Right Column: Image/Visual */}
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-md aspect-square rounded-lg overflow-hidden">
-              <Image
-                src="/assets/images/subtle-wellness.avif"
-                alt="Cellular activation and wellness"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+       <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-5xl">
+            <div className="text-center mb-16 space-y-4">
+                <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
+                    Why <span className="text-teal-400">Cellular Activation?</span>
+                </h2>
+                <p className="text-lg text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
+                    Most supplements just provide nutrients. Activation flips a switch in your DNA to help your body produce its own powerful enzymes.
+                </p>
             </div>
-          </div>
-        </div>
-      </div>
+
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+                {benefits.map((item, i) => (
+                    <div key={i} className="flex gap-5 group">
+                        <div className="flex-shrink-0 h-12 w-12 rounded-xl bg-teal-500/10 flex items-center justify-center text-teal-400 group-hover:bg-teal-500 group-hover:text-white transition-all duration-300">
+                            <item.icon className="h-6 w-6" />
+                        </div>
+                        <div className="space-y-2">
+                            <h3 className="text-xl font-bold text-white group-hover:text-teal-300 transition-colors">
+                                {item.title}
+                            </h3>
+                            <p className="text-slate-400 leading-relaxed">
+                                {item.desc}
+                            </p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+       </div>
     </section>
   )
 }

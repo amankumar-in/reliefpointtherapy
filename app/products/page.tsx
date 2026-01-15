@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ProductsHero } from "@/components/products/products-hero"
+
 import { ProductsStartHere } from "@/components/products/products-start-here"
 import { ProductsVideoTestimonial } from "@/components/products/products-video-testimonial"
 import { ProductsGrid } from "@/components/products/products-grid"
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
 export default function ProductsPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <ProductsHero />
+
       <ProductsStartHere />
       <ProductsVideoTestimonial />
       <ProductsGrid />
