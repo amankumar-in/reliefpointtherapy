@@ -213,7 +213,7 @@ export function ProductsGrid() {
                         <div className="flex items-center justify-between">
                             <h3 className="text-2xl font-bold text-slate-900">{nfpm.name}</h3>
                             <div className="p-2 bg-teal-50 rounded-lg text-teal-600">
-                                <nfpm.icon className="h-6 w-6" />
+                                {nfpm.icon && <nfpm.icon className="h-6 w-6" />}
                             </div>
                         </div>
                         <p className="text-slate-600 leading-relaxed text-base">
