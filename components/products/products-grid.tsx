@@ -124,7 +124,7 @@ function ProductImageGallery({ images, productName }: { images: string[]; produc
   }
 
   return (
-    <div className="w-full bg-slate-50 overflow-hidden group-hover:bg-slate-100 transition-colors duration-300">
+    <div className="relative w-full bg-slate-50 overflow-hidden group-hover:bg-slate-100 transition-colors duration-300">
       <Carousel
         setApi={setApi}
         opts={{
