@@ -96,6 +96,11 @@ const products = [
   },
 ]
 
+const CAROUSEL_OPTS = {
+  align: "start" as const,
+  loop: true,
+}
+
 function ProductImageGallery({ images, productName }: { images: string[]; productName: string }) {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
@@ -157,10 +162,7 @@ function ProductImageGallery({ images, productName }: { images: string[]; produc
     <div className="relative w-full bg-slate-50 overflow-hidden group-hover:bg-slate-100 transition-colors duration-300">
       <Carousel
         setApi={setApi}
-        opts={{
-          align: "start",
-          loop: true,
-        }}
+        opts={CAROUSEL_OPTS}
         className="w-full"
       >
         <CarouselContent className="-ml-0">
