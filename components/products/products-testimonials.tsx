@@ -63,11 +63,17 @@ export function ProductsTestimonials() {
     }
 
     updateLoaded()
-    api.on("select", () => {
+    const onSelect = () => {
       setCurrent(api.selectedScrollSnap())
       updateLoaded()
-    })
+    }
+    api.on("select", onSelect)
     api.on("scroll", updateLoaded)
+
+    return () => {
+      api.off("select", onSelect)
+      api.off("scroll", updateLoaded)
+    }
   }, [api])
 
   return (

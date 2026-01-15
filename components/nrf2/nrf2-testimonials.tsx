@@ -68,14 +68,20 @@ export function Nrf2Testimonials() {
     // Initial load
     updateLoaded()
     
-    api.on("select", () => {
+    const onSelect = () => {
       setCurrent(api.selectedScrollSnap())
       updateLoaded()
-    })
+    }
+    
+    api.on("select", onSelect)
     
     // Also listen to scroll to load slightly ahead
     api.on("scroll", updateLoaded)
 
+    return () => {
+      api.off("select", onSelect)
+      api.off("scroll", updateLoaded)
+    }
   }, [api])
 
   return (
