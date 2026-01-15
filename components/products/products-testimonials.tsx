@@ -6,9 +6,11 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel"
 import { Card } from "@/components/ui/card"
 import Image from "next/image"
+import { useState, useEffect } from "react"
 
 // All testimonial images from product-testimonial folder
 const testimonials = [
@@ -21,6 +23,17 @@ const testimonials = [
 ]
 
 export function ProductsTestimonials() {
+  const [api, setApi] = useState<CarouselApi>()
+  const [current, setCurrent] = useState(0)
+
+  useEffect(() => {
+    if (!api) return
+    setCurrent(api.selectedScrollSnap())
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap())
+    })
+  }, [api])
+
   return (
     <section className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-4 md:px-6">
@@ -33,10 +46,11 @@ export function ProductsTestimonials() {
               Activation-related testimonials only (Nrf2, GlowStack, Tri Synergizer)
             </p>
           </div>
-
+ 
           {/* Testimonials Carousel - Full Width */}
           <div className="w-full">
             <Carousel
+              setApi={setApi}
               opts={{
                 align: "start",
                 loop: false,
@@ -44,20 +58,26 @@ export function ProductsTestimonials() {
               className="w-full"
             >
               <CarouselContent className="-ml-2 md:-ml-4">
-                {testimonials.map((testimonial) => (
-                  <CarouselItem key={testimonial.id} className="pl-2 md:pl-4 basis-[85%] sm:basis-[70%] md:basis-1/2 lg:basis-1/3 xl:basis-1/3">
-                    {/* Matching style to products-cost-saving.tsx: Standard border, shadow, rounded-2xl, white bg */}
-                    <Card className="relative border border-slate-200 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow overflow-hidden aspect-[2/1]">
-                      <Image
-                        src={testimonial.image}
-                        alt={`Product Testimonial ${testimonial.id}`}
-                        fill
-                        className="object-contain"
-                        sizes="(max-width: 640px) 85vw, (max-width: 768px) 70vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
-                      />
-                    </Card>
-                  </CarouselItem>
-                ))}
+                {testimonials.map((testimonial, idx) => {
+                  const isVisible = Math.abs(idx - current) <= 2;
+
+                  return (
+                    <CarouselItem key={testimonial.id} className="pl-2 md:pl-4 basis-[85%] sm:basis-[70%] md:basis-1/2 lg:basis-1/3 xl:basis-1/3">
+                      {/* Matching style to products-cost-saving.tsx: Standard border, shadow, rounded-2xl, white bg */}
+                      <Card className="relative border border-slate-200 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow overflow-hidden aspect-[2/1]">
+                        {isVisible && (
+                          <Image
+                            src={testimonial.image}
+                            alt={`Product Testimonial ${testimonial.id}`}
+                            fill
+                            className="object-contain"
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                          />
+                        )}
+                      </Card>
+                    </CarouselItem>
+                  );
+                })}
               </CarouselContent>
               <CarouselPrevious className="left-2 md:left-4 bg-primary text-white border-primary hover:bg-primary/90 hover:text-white" />
               <CarouselNext className="right-2 md:right-4 bg-primary text-white border-primary hover:bg-primary/90 hover:text-white" />

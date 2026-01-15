@@ -135,20 +135,28 @@ function ProductImageGallery({ images, productName }: { images: string[]; produc
         className="w-full"
       >
         <CarouselContent className="-ml-0">
-          {images.map((image, idx) => (
-            <CarouselItem key={idx} className="pl-0 basis-full">
-               {/* Inner container defines height -> aspect-square makes it robust */}
-               <div className="relative w-full aspect-square">
-                <Image
-                  src={image}
-                  alt={`${productName} - Image ${idx + 1}`}
-                  fill
-                  className="object-contain p-6 group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
-               </div>
-            </CarouselItem>
-          ))}
+          {images.map((image, idx) => {
+            // Lazy load: Only render the current image and its immediate neighbors
+            const isVisible = idx === current || 
+                              idx === (current + 1) % images.length || 
+                              idx === (current - 1 + images.length) % images.length;
+                              
+            return (
+              <CarouselItem key={idx} className="pl-0 basis-full">
+                <div className="relative w-full aspect-square">
+                  {isVisible && (
+                    <Image
+                      src={image}
+                      alt={`${productName} - Image ${idx + 1}`}
+                      fill
+                      className="object-contain p-6 group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 400px"
+                    />
+                  )}
+                </div>
+              </CarouselItem>
+            );
+          })}
         </CarouselContent>
         {/* Always visible controls */}
         <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-2 pointer-events-none z-10">

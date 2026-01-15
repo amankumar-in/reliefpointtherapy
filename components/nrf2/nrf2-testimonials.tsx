@@ -10,6 +10,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel"
 import { Card } from "@/components/ui/card"
 
@@ -25,7 +26,17 @@ const testimonials = [
 
 export function Nrf2Testimonials() {
   const [isVideoOpen, setIsVideoOpen] = useState(false)
+  const [api, setApi] = useState<CarouselApi>()
+  const [current, setCurrent] = useState(0)
   const videoUrl = "https://www.youtube.com/embed/swaeIXZ3u60"
+
+  useEffect(() => {
+    if (!api) return
+    setCurrent(api.selectedScrollSnap())
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap())
+    })
+  }, [api])
 
   return (
     <section className="py-24 bg-slate-50 relative overflow-hidden">
@@ -74,6 +85,7 @@ export function Nrf2Testimonials() {
         <div className="w-full">
             <h3 className="text-2xl font-bold text-slate-900 mb-8 text-center">Community Success Stories</h3>
             <Carousel
+              setApi={setApi}
               opts={{
                 align: "start",
                 loop: true,
@@ -81,18 +93,28 @@ export function Nrf2Testimonials() {
               className="w-full"
             >
               <CarouselContent className="-ml-4">
-                {testimonials.map((testimonial) => (
-                  <CarouselItem key={testimonial.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 shadow-lg bg-white group">
-                      <Image
-                        src={testimonial.image}
-                        alt={`Testimonial ${testimonial.id}`}
-                        fill
-                        className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
-                  </CarouselItem>
-                ))}
+                {testimonials.map((testimonial, idx) => {
+                  // Lazy load rendering logic
+                  const isVisible = Math.abs(idx - current) <= 2 || 
+                                   idx >= testimonials.length - 2 && current <= 1 || 
+                                   idx <= 1 && current >= testimonials.length - 2;
+
+                  return (
+                    <CarouselItem key={testimonial.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 shadow-lg bg-white group">
+                        {isVisible && (
+                          <Image
+                            src={testimonial.image}
+                            alt={`Testimonial ${testimonial.id}`}
+                            fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
+                            className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
+                          />
+                        )}
+                      </div>
+                    </CarouselItem>
+                  );
+                })}
               </CarouselContent>
               <CarouselPrevious className="hidden md:flex -left-12 border-teal-200 text-teal-700 hover:bg-teal-50 hover:text-teal-900" />
               <CarouselNext className="hidden md:flex -right-12 border-teal-200 text-teal-700 hover:bg-teal-50 hover:text-teal-900" />
