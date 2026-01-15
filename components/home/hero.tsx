@@ -19,6 +19,8 @@ export function Hero() {
           priority
           sizes="100vw"
         />
+        {/* Overlay for text readability - Visible on mobile/tablet, hidden on desktop */}
+        <div className="absolute inset-0 bg-white/70 sm:bg-white/60 lg:hidden" />
       </div>
 
       {/* Decorative Glows - Keep subtle */}
