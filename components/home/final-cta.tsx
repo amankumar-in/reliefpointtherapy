@@ -19,11 +19,13 @@ export function FinalCTA() {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-          <ShimmerButton className="h-14 px-8 text-lg font-bold shadow-2xl w-full sm:w-auto text-primary" background="#ffffff" shimmerColor="#0F8B8D">
-            <Link href="/nrf2" className="flex items-center justify-center w-full h-full gap-2">
-              Start My Cellular Healing <ArrowRight className="h-5 w-5" />
-            </Link>
-          </ShimmerButton>
+          <Link href="/nrf2" className="w-full sm:w-auto">
+            <ShimmerButton className="h-14 px-8 text-lg font-bold shadow-2xl w-full sm:w-auto text-primary" background="#ffffff" shimmerColor="#0F8B8D">
+              <span className="flex items-center justify-center w-full h-full gap-2">
+                Start My Cellular Healing <ArrowRight className="h-5 w-5" />
+              </span>
+            </ShimmerButton>
+          </Link>
 
           <Button asChild size="lg" className="h-14 px-8 text-lg font-bold bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary rounded-[100px] w-full sm:w-auto transition-all shadow-lg hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]">
             <Link href="https://relatyv.formstack.com/forms/insurance_details" target="_blank" className="flex items-center justify-center gap-2">

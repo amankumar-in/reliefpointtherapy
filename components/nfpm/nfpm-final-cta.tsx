@@ -21,16 +21,16 @@ export function NFPMFinalCTA() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
-                <ShimmerButton className="h-16 px-10 text-xl font-semibold shadow-2xl shadow-teal-500/20" background="#0F8B8D" shimmerColor="#ffffff">
-                    <Link 
-                        href="https://relatyv.formstack.com/forms/insurance_details"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2"
-                    >
+                <Link 
+                    href="https://relatyv.formstack.com/forms/insurance_details"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                >
+                    <ShimmerButton className="h-16 px-10 text-xl font-semibold shadow-2xl shadow-teal-500/20" background="#0F8B8D" shimmerColor="#ffffff">
                         Verify My Insurance Benefits
-                    </Link>
-                </ShimmerButton>
+                    </ShimmerButton>
+                </Link>
                 
                 <Link href="/nrf2" className="group flex items-center gap-2 text-white hover:text-teal-400 transition-colors text-lg font-medium px-4">
                     Start My Cellular Healing

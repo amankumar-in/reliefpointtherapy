@@ -66,16 +66,16 @@ export function HowNFPMWorks() {
             </div>
             
             <div className="flex-shrink-0">
-                <ShimmerButton className="h-14 px-8 text-lg font-semibold shadow-xl shadow-teal-900/20" background="#0F8B8D" shimmerColor="#ffffff">
-                    <Link 
-                      href="https://drive.google.com/file/d/1zeX9QeI9dDtGTTTgp9feqb_0MEoSSWU5/view?usp=sharing"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2"
-                    >
-                      <Download className="h-5 w-5" /> Download eBook
-                    </Link>
-                </ShimmerButton>
+                <Link 
+                  href="https://drive.google.com/file/d/1yajdZCW-UA0bMiRje4-H41-MbUFVE4Tf/view?usp=drive_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                    <ShimmerButton className="h-14 px-8 text-lg font-semibold shadow-xl shadow-teal-900/20" background="#0F8B8D" shimmerColor="#ffffff">
+                       <Download className="h-5 w-5" /> Download eBook
+                    </ShimmerButton>
+                </Link>
             </div>
         </div>
       </div>

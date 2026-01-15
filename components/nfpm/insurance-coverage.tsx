@@ -31,15 +31,15 @@ export function InsuranceCoverage() {
                     </p>
                 </div>
                 <div className="pt-4 flex flex-col sm:flex-row gap-4">
-                    <ShimmerButton className="h-14 px-8 text-lg font-semibold shadow-lg shadow-teal-900/10" background="#0F8B8D" shimmerColor="#ffffff">
-                        <Link 
-                            href="https://relatyv.formstack.com/forms/insurance_details"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
+                    <Link 
+                        href="https://relatyv.formstack.com/forms/insurance_details"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <ShimmerButton className="h-14 px-8 text-lg font-semibold shadow-lg shadow-teal-900/10" background="#0F8B8D" shimmerColor="#ffffff">
                             Verify My Benefits
-                        </Link>
-                    </ShimmerButton>
+                        </ShimmerButton>
+                    </Link>
                     <div className="flex items-center gap-2 text-slate-500 text-sm px-4">
                         <Clock className="h-4 w-4" />
                         <span>Typically verified within 24 hours</span>

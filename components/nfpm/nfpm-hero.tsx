@@ -53,15 +53,15 @@ export function NFPMHero() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-5 pt-4 justify-center lg:justify-start items-center">
-                <ShimmerButton className="h-14 px-8 text-lg font-semibold shadow-xl shadow-teal-900/10" background="#0F8B8D" shimmerColor="#ffffff">
-                    <Link 
-                      href="https://relatyv.formstack.com/forms/insurance_details" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                <Link 
+                  href="https://relatyv.formstack.com/forms/insurance_details" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                    <ShimmerButton className="h-14 px-8 text-lg font-semibold shadow-xl shadow-teal-900/10" background="#0F8B8D" shimmerColor="#ffffff">
                       Verify My Insurance
-                    </Link>
-                </ShimmerButton>
+                    </ShimmerButton>
+                </Link>
                 
                 <Button asChild variant="ghost" size="lg" className="text-slate-600 hover:text-teal-700 hover:bg-teal-50/50 text-lg font-medium px-8 h-14 rounded-full">
                   <Link href="/nrf2">
