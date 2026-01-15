@@ -78,6 +78,7 @@ export function NFPMHero() {
                   src="/assets/images/nfpm-hero-thumb.png"
                   alt="Neurofunctional Pain Management Treatment"
                   fill
+                  sizes="(max-width: 768px) 100vw, 672px"
                   className="object-cover"
                   priority
                 />

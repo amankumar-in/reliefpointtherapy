@@ -22,6 +22,7 @@ export function MeetNurse() {
                       src="/assets/images/genis-headshot-transparent-bg.png"
                       alt="Genis Matel"
                       fill
+                      sizes="80px"
                       className="object-cover bg-teal-50"
                     />
                   </div>

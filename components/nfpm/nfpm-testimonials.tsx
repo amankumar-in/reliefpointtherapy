@@ -77,6 +77,7 @@ export function NFPMTestimonials() {
                       src={testimonial.thumbnail}
                       alt={`${testimonial.name}'s Story`}
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                       className="object-cover"
                     />
                     <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/30 transition-colors" />

@@ -117,6 +117,7 @@ function ProductImageGallery({ images, productName }: { images: string[]; produc
             src={images[0]}
             alt={productName}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 400px"
             className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
             />
         </div>

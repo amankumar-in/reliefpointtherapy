@@ -37,6 +37,7 @@ export function ABCNewsFeature() {
                         src="/assets/images/abc-news-thumb.png" 
                         alt="ABC Primetime Investigative Report"
                         fill
+                        sizes="(max-width: 768px) 100vw, 576px"
                         className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />

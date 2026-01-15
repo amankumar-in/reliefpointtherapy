@@ -210,12 +210,13 @@ function ProductCard({ product }: { product: any }) {
             {/* Header / Image */}
             <div className="p-6 pb-0 flex items-start gap-4">
                 <div className="relative w-24 h-24 shrink-0 bg-slate-50 rounded-2xl overflow-hidden border border-slate-100">
-                     <Image 
-                        src={product.image}
-                        alt={product.name}
-                        fill
-                        className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
-                    />
+                         <Image 
+                            src={product.image}
+                            alt={product.name}
+                            fill
+                            sizes="96px"
+                            className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
+                        />
                 </div>
                 <div className="pt-2">
                     <div className="bg-teal-50 text-teal-700 text-[10px] font-bold px-2 py-0.5 rounded-full inline-block mb-2 uppercase tracking-wider">
