@@ -22,11 +22,6 @@ const testimonials = [
   { id: 6, image: "/assets/images/product-testimonial/nrf1 nrf2 collagen; knees.png" },
 ]
 
-const CAROUSEL_OPTS = {
-  align: "start" as const,
-  loop: false,
-}
-
 export function ProductsTestimonials() {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
@@ -63,17 +58,11 @@ export function ProductsTestimonials() {
     }
 
     updateLoaded()
-    const onSelect = () => {
+    api.on("select", () => {
       setCurrent(api.selectedScrollSnap())
       updateLoaded()
-    }
-    api.on("select", onSelect)
+    })
     api.on("scroll", updateLoaded)
-
-    return () => {
-      api.off("select", onSelect)
-      api.off("scroll", updateLoaded)
-    }
   }, [api])
 
   return (
@@ -93,7 +82,10 @@ export function ProductsTestimonials() {
           <div className="w-full">
             <Carousel
               setApi={setApi}
-              opts={CAROUSEL_OPTS}
+              opts={{
+                align: "start",
+                loop: false,
+              }}
               className="w-full"
             >
               <CarouselContent className="-ml-2 md:-ml-4">

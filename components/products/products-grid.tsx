@@ -96,11 +96,6 @@ const products = [
   },
 ]
 
-const CAROUSEL_OPTS = {
-  align: "start" as const,
-  loop: true,
-}
-
 function ProductImageGallery({ images, productName }: { images: string[]; productName: string }) {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
@@ -137,18 +132,11 @@ function ProductImageGallery({ images, productName }: { images: string[]; produc
 
     updateLoaded()
 
-    const onSelect = () => {
+    api.on("select", () => {
       setCurrent(api.selectedScrollSnap())
       updateLoaded()
-    }
-
-    api.on("select", onSelect)
+    })
     api.on("scroll", updateLoaded)
-
-    return () => {
-      api.off("select", onSelect)
-      api.off("scroll", updateLoaded)
-    }
   }, [api, images.length])
 
   if (images.length === 1) {
@@ -169,7 +157,10 @@ function ProductImageGallery({ images, productName }: { images: string[]; produc
     <div className="relative w-full bg-slate-50 overflow-hidden group-hover:bg-slate-100 transition-colors duration-300">
       <Carousel
         setApi={setApi}
-        opts={CAROUSEL_OPTS}
+        opts={{
+          align: "start",
+          loop: true,
+        }}
         className="w-full"
       >
         <CarouselContent className="-ml-0">
