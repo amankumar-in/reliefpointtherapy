@@ -100,15 +100,44 @@ function ProductImageGallery({ images, productName }: { images: string[]; produc
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
 
+  const [loaded, setLoaded] = useState<Set<number>>(new Set())
+
   useEffect(() => {
     if (!api) return
 
-    setCurrent(api.selectedScrollSnap())
+    const updateLoaded = () => {
+        const visibleCount = api.slidesInView().length
+        const currentIndex = api.selectedScrollSnap()
+        const indicesToLoad = new Set<number>()
+        
+        // Load current view + 1 neighbor on each side (buffer)
+        for (let i = -1; i <= visibleCount + 1; i++) {
+          const rawIdx = currentIndex + i
+          const normalizedIdx = (rawIdx % images.length + images.length) % images.length
+          indicesToLoad.add(normalizedIdx)
+        }
+  
+        setLoaded(prev => {
+          const next = new Set(prev)
+          let hasNew = false
+          indicesToLoad.forEach(idx => {
+            if (!next.has(idx)) {
+              next.add(idx)
+              hasNew = true
+            }
+          })
+          return hasNew ? next : prev
+        })
+    }
+
+    updateLoaded()
 
     api.on("select", () => {
       setCurrent(api.selectedScrollSnap())
+      updateLoaded()
     })
-  }, [api])
+    api.on("scroll", updateLoaded)
+  }, [api, images.length])
 
   if (images.length === 1) {
     return (
@@ -136,15 +165,11 @@ function ProductImageGallery({ images, productName }: { images: string[]; produc
       >
         <CarouselContent className="-ml-0">
           {images.map((image, idx) => {
-            // Lazy load: Only render the current image and its immediate neighbors
-            const isVisible = idx === current || 
-                              idx === (current + 1) % images.length || 
-                              idx === (current - 1 + images.length) % images.length;
-                              
             return (
               <CarouselItem key={idx} className="pl-0 basis-full">
                 <div className="relative w-full aspect-square">
-                  {isVisible && (
+                  {/* Persistent Lazy Load: Only render if it has been visible at least once */}
+                  {loaded.has(idx) && (
                     <Image
                       src={image}
                       alt={`${productName} - Image ${idx + 1}`}
