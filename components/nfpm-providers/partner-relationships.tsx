@@ -22,16 +22,10 @@ export function PartnerRelationships() {
                     </div>
                     <h3 className="text-2xl font-bold text-slate-900">Primary Care & Specialists</h3>
                     <p className="text-lg text-slate-600 leading-relaxed max-w-md">
-                        We support providers looking for reliable options when standard approaches like medications or injections have hit a ceiling.
+                        We support licensed healthcare providers who are looking for reliable, non-invasive options for patients experiencing chronic pain, nerve-related symptoms, mobility limitations, or poor response to traditional treatments.
                     </p>
                 </div>
-                <div className="mt-8 flex gap-3 flex-wrap">
-                    {["Primary Care", "Pain Management", "Orthopedics", "Geriatrics"].map(tag => (
-                        <span key={tag} className="px-3 py-1 bg-slate-100 text-slate-600 text-sm font-medium rounded-full">
-                            {tag}
-                        </span>
-                    ))}
-                </div>
+                
             </div>
 
             {/* Relationship Card - Tall Right */}

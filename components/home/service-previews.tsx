@@ -134,9 +134,9 @@ export function Nrf2Preview() {
               ))}
             </ul>
 
-            <div className="pt-4">
-               <ShimmerButton className="h-14 px-8 text-lg font-bold shadow-xl shadow-teal-900/10 w-full sm:w-fit mx-auto lg:mx-0" background="#0F8B8D" shimmerColor="#ffffff">
-                  <Link href="/nrf2">Learn About Nrf2 & Cellular Activation</Link>
+            <div className="pt-4 w-full">
+               <ShimmerButton className="h-auto min-h-[56px] py-4 px-4 sm:px-8 text-base sm:text-lg font-bold shadow-xl shadow-teal-900/10 w-full sm:w-fit mx-auto lg:mx-0 whitespace-normal leading-tight" background="#0F8B8D" shimmerColor="#ffffff">
+                  <Link href="/nrf2" className="text-center">Learn About Nrf2 & Cellular Activation</Link>
                </ShimmerButton>
             </div>
           </div>

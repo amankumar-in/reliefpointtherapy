@@ -13,6 +13,7 @@ const navLinks = [
   { name: "Cellular Activation", href: "/nrf2" },
   { name: "Shop Products", href: "/products" },
   { name: "About", href: "/about" },
+  { name: "Healthcare Provider Resource", href: "/nfpm/providers", mobileOnly: true },
 ];
 
 export function Header() {
@@ -35,7 +36,7 @@ export function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden xl:flex items-center gap-8">
-          {navLinks.map((link) => (
+          {navLinks.filter(link => !link.mobileOnly).map((link) => (
             <Link
               key={link.name}
               href={link.href}

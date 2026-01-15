@@ -44,7 +44,7 @@ export function ProvidersHero() {
         {/* CTA Group - Center Aligned */}
         <div className="flex flex-row gap-3 sm:gap-5 justify-center items-center pt-4 w-full px-2 sm:px-0">
              <ShimmerButton className="h-12 sm:h-14 px-4 sm:px-10 text-sm sm:text-lg font-semibold shadow-xl shadow-teal-900/5 w-1/2 sm:w-auto text-center flex justify-center items-center" background="#0F8B8D" shimmerColor="#ffffff">
-                 <Link href="#contact" className="w-full">Refer a Patient</Link>
+                 <Link href="mailto:refer@reliefpointtherapy.com" className="w-full">Refer a Patient</Link>
              </ShimmerButton>
              <Button asChild variant="ghost" size="lg" className="text-slate-600 hover:text-teal-700 hover:bg-teal-50/50 text-sm sm:text-lg font-medium px-2 sm:px-8 h-12 sm:h-14 rounded-full w-1/2 sm:w-auto">
                  <Link href="#clinical-overview" className="flex items-center justify-center gap-1 sm:gap-2">

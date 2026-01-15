@@ -44,7 +44,7 @@ export function ProvidersContact() {
                          <Phone className="h-5 w-5" />
                      </div>
                      <h3 className="text-lg font-bold text-white mb-1">Call Office</h3>
-                     <p className="text-slate-400 text-sm md:text-base group-hover:text-indigo-200 transition-colors">925-813-9495</p>
+                     <p className="text-slate-400 text-sm md:text-base group-hover:text-indigo-200 transition-colors">(925) 515-3710</p>
                  </div>
              </a>
         </div>

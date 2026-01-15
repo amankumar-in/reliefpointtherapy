@@ -20,8 +20,8 @@ export function InsuranceInfo() {
                           <Check className="h-6 w-6 text-green-600" />
                       </div>
                       <div>
-                          <div className="font-bold text-slate-900">24-Hour Verification</div>
-                          <div className="text-slate-500 text-sm">Fast turnaround for your patients</div>
+                          <div className="font-bold text-slate-900">Fast Verification</div>
+                          <div className="text-slate-500 text-sm">Typically completed within 24–72 hours</div>
                       </div>
                  </div>
              </div>
@@ -30,7 +30,7 @@ export function InsuranceInfo() {
                  {[
                      { 
                          name: "Original Medicare", 
-                         desc: "Fully Covered (Red, White & Blue Card)",
+                         desc: "Covered (Red, White & Blue Card)",
                          bg: "bg-teal-50 border-teal-100 text-teal-900"
                      },
                      { 
@@ -40,7 +40,7 @@ export function InsuranceInfo() {
                      },
                      { 
                          name: "Cash-Pay Options", 
-                         desc: "Automated discounts available",
+                         desc: "Self-pay options available",
                          bg: "bg-white border-slate-200 text-slate-900"
                      }
                  ].map((plan, i) => (

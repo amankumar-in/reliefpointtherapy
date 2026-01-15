@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 // TikTok icon (custom SVG)
 const TikTokIcon = ({ className }: { className?: string }) => (
@@ -68,16 +69,19 @@ export function Footer() {
             <h3 className="text-lg font-bold text-slate-900 tracking-tight">Quick Links</h3>
             <ul className="space-y-3">
               {[
-                { name: "Home", href: "/" },
                 { name: "NFPM Pain Relief", href: "/nfpm" },
                 { name: "Cellular Activation", href: "/nrf2" },
                 { name: "Shop Products", href: "/products" },
                 { name: "About Us", href: "/about" },
+                { name: "Healthcare Provider Resource", href: "/nfpm/providers", special: true },
               ].map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-slate-600 hover:text-teal-600 transition-colors font-sans text-base inline-block transform hover:translate-x-1 duration-200"
+                    className={cn(
+                        "text-slate-600 hover:text-teal-600 transition-colors font-sans text-base inline-block transform hover:translate-x-1 duration-200",
+                        link.special && "text-teal-700 font-semibold border-b border-teal-100 pb-0.5"
+                    )}
                   >
                     {link.name}
                   </Link>

@@ -19,7 +19,7 @@ export function CostSavingTips() {
                             <Truck className="h-5 w-5 text-indigo-600 shrink-0 mt-1" />
                             <div>
                                 <h4 className="font-bold text-slate-900">Choose Subscription</h4>
-                                <p className="text-sm text-slate-600">Save up to 20% on every order + Free Shipping.</p>
+                                <p className="text-sm text-slate-600">Save up to 10% on every order + Free Shipping.</p>
                             </div>
                         </div>
                         <div className="flex gap-3">

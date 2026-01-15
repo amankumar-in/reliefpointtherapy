@@ -12,7 +12,7 @@ export function Nrf2FAQ() {
       a: "Protandim Nrf2 helps your body turn on its own natural defense system. It signals your cells to make more of their own antioxidants, including glutathione. In studies, it has been shown to increase glutathione by up to 300%. Protandim Nrf2 is also the only product on the market shown in human studies to lower oxidative stress by about 40%. Oxidative stress is a major driver of inflammation, stress, aging, and many chronic health issues. It is made from a patented blend of plant-based ingredients that work together to support cellular health and repair. You can find the full ingredients list on the LifeVantage product page."
     },
     {
-      q: "what are the ingredients in Protandim Nrf2, and why can’t I just take them separately?",
+      q: "What are the ingredients in Protandim Nrf2, and why can’t I just take them separately?",
       a: "Protandim Nrf2 is made from five plant-based, vegan-friendly ingredients: Turmeric root extract, Green tea extract, Bacopa monnieri, Milk thistle, and Ashwagandha. While many people take these herbs individually, the ingredients alone do not activate the Nrf2 pathway. What makes Protandim unique is its patented formula and ingredient synergy, which clinical studies show can increase glutathione up to 300%, increase SOD and catalase, reduce oxidative stress by ~40% in 30 days, and support detoxification and cellular repair. These outcomes cannot be replicated by taking the ingredients separately."
     },
     {
@@ -25,7 +25,7 @@ export function Nrf2FAQ() {
     },
     {
         q: "Which product should I start with?",
-        a: "If choosing only one → Protandim Nrf2. For 40+, energy, deeper or faster results → Dual Synergizer. For skin, hair, joint, and collagen support → GlowStack."
+        a: "If choosing only one → Protandim Nrf2. For skin, hair, joint, collagen support, or age 40+ → GlowStack."
     },
     {
         q: "Can I take these with my current supplements?",

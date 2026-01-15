@@ -113,12 +113,12 @@ export function ProductsStartHere() {
 
                         <Link href={path.link} className="block mt-auto">
                             <ShimmerButton 
-                                className="w-full h-12 text-sm font-bold shadow-md" 
+                                className="w-full h-auto min-h-12 py-3 px-3 text-sm font-bold shadow-md whitespace-normal leading-tight mx-auto" 
                                 background={path.color === 'teal' ? '#0F8B8D' : path.color === 'blue' ? '#2563EB' : '#4F46E5'} 
                                 shimmerColor="#ffffff" 
                                 noShimmer={true}
                             >
-                                {path.cta} <ArrowRight className="ml-2 h-4 w-4" />
+                                <span className="text-center">{path.cta}</span> <ArrowRight className="ml-2 h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1" />
                             </ShimmerButton>
                         </Link>
                     </div>

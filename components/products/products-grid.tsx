@@ -244,13 +244,13 @@ export function ProductsGrid() {
                              cta.primary ? (
                                 <Link key={idx} href={cta.link} className="flex-1" target={cta.link.startsWith("http") ? "_blank" : "_self"}>
                                     <ShimmerButton 
-                                        className="w-full h-12 text-base font-bold shadow-md" 
+                                        className="w-full h-auto min-h-12 py-3 px-3 sm:px-6 text-sm sm:text-base font-bold shadow-md whitespace-normal leading-tight mx-auto" 
                                         background="#0D9488" 
                                         shimmerColor="#ffffff"
                                         noShimmer={true}
                                         borderRadius="9999px" 
                                     >
-                                        {cta.text} <ArrowRight className="ml-2 h-4 w-4" />
+                                        <span className="text-center">{cta.text}</span> <ArrowRight className="ml-2 h-4 w-4 shrink-0" />
                                     </ShimmerButton>
                                 </Link>
                              ) : (
@@ -258,9 +258,9 @@ export function ProductsGrid() {
                                     key={idx}
                                     asChild
                                     variant="outline"
-                                    className="flex-1 h-12 border-2 border-slate-200 text-slate-700 hover:border-teal-600 hover:text-teal-600 hover:bg-white rounded-full text-base font-bold transition-all"
+                                    className="flex-1 h-auto min-h-12 py-2 px-2 border-2 border-slate-200 text-slate-700 hover:border-teal-600 hover:text-teal-600 hover:bg-white rounded-full text-sm sm:text-base font-bold transition-all whitespace-normal leading-tight"
                                 >
-                                    <Link href={cta.link} target={cta.link.startsWith("http") ? "_blank" : "_self"}>
+                                    <Link href={cta.link} target={cta.link.startsWith("http") ? "_blank" : "_self"} className="flex items-center justify-center text-center h-full w-full">
                                         {cta.text}
                                     </Link>
                                 </Button>
@@ -337,15 +337,15 @@ export function ProductsGrid() {
 
                             <div className="mt-4">
                                 <Link href={product.cta!.link} target="_blank" className="block w-full">
-                                    <ShimmerButton 
-                                        className="w-full h-10 text-sm font-bold shadow-sm" 
-                                        background="#0F766E" 
-                                        shimmerColor="#ffffff"
-                                        noShimmer={true}
-                                        borderRadius="9999px"
-                                    >
-                                        {product.cta!.text}
-                                    </ShimmerButton>
+                                        <ShimmerButton 
+                                            className="w-full h-auto min-h-10 py-2.5 px-3 sm:px-6 text-xs sm:text-sm font-bold shadow-sm whitespace-normal leading-tight" 
+                                            background="#0F766E" 
+                                            shimmerColor="#ffffff"
+                                            noShimmer={true}
+                                            borderRadius="9999px"
+                                        >
+                                            <span className="text-center w-full">{product.cta!.text}</span>
+                                        </ShimmerButton>
                                 </Link>
                             </div>
                         </div>
