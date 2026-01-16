@@ -131,13 +131,14 @@ export async function POST(request: NextRequest) {
 
           // Find or create groups for each tag
           for (const tag of tags) {
-            // If group exists, log it
+            let group = groups.find(
+              (g: { name: string }) =>
+                g.name.toLowerCase() === tag.toLowerCase()
+            )
+
             if (group) {
               console.log(`[MailerLite] Matched existing group "${tag}" with ID: ${group.id}`)
-            }
-
-            // If group doesn't exist, create it
-            if (!group) {
+            } else {
               console.log(`[MailerLite] Group "${tag}" not found, creating it...`)
               try {
                 const createGroupResponse = await fetch(
@@ -164,7 +165,7 @@ export async function POST(request: NextRequest) {
                   console.error(`[MailerLite] Failed to create group "${tag}":`, errorText)
                 }
               } catch (createError) {
-                console.warn(`Could not create group "${tag}":`, createError)
+                console.error(`[MailerLite] Could not create group "${tag}":`, createError)
               }
             }
 
