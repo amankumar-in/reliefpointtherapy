@@ -5,6 +5,11 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     const { email, firstName, lastName, phone, supportWith, productsInterested, tags } = body
 
+    console.log(`[MailerLite POST] Processing submission for: ${email}`, {
+      timestamp: new Date().toISOString(),
+      body: { ...body, email: "[REDACTED]" } // Redact email for privacy in logs if needed, but the user asked for detailed logging to verify data, so maybe keep it. Let's keep it but be mindful. 
+    })
+
     // Validate required fields
     if (!email) {
       return NextResponse.json(
@@ -46,6 +51,7 @@ export async function POST(request: NextRequest) {
         if (fieldsResponse.ok) {
           const fieldsData = await fieldsResponse.json()
           const fields = fieldsData.data || []
+          console.log(`[MailerLite] Successfully fetched ${fields.length} fields`)
           
           // Find existing field by key or name (case-insensitive)
           let field = fields.find((f: { key: string; name: string }) => {
@@ -76,6 +82,10 @@ export async function POST(request: NextRequest) {
             if (createFieldResponse.ok) {
               const newField = await createFieldResponse.json()
               field = newField.data
+              console.log(`[MailerLite] Created new field: ${fieldTitle} (key: ${field.key})`)
+            } else {
+              const errorText = await createFieldResponse.text()
+              console.error(`[MailerLite] Failed to create field "${fieldTitle}":`, errorText)
             }
           }
           
@@ -87,7 +97,7 @@ export async function POST(request: NextRequest) {
           return field?.key || fieldKey
         }
       } catch (error) {
-        console.warn(`Could not get/create field "${fieldKey}":`, error)
+        console.error(`[MailerLite] Error in getOrCreateFieldKey for "${fieldKey}":`, error)
       }
       return fieldKey
     }
@@ -158,9 +168,12 @@ export async function POST(request: NextRequest) {
               groupIds.push(group.id.toString())
             }
           }
+        } else {
+          const errorText = await groupsResponse.text()
+          console.error("[MailerLite] Failed to fetch groups:", errorText)
         }
       } catch (groupError) {
-        console.warn("Could not fetch/create groups from MailerLite:", groupError)
+        console.error("[MailerLite] Error fetching/creating groups:", groupError)
       }
     }
 
@@ -220,6 +233,8 @@ export async function POST(request: NextRequest) {
     // MailerLite API v2 endpoint
     const mailerliteUrl = "https://connect.mailerlite.com/api/subscribers"
 
+    console.log("[MailerLite] Final subscriber payload:", JSON.stringify(subscriberData, null, 2))
+
     // Create or update the subscriber with groups (tags)
     const subscriberResponse = await fetch(mailerliteUrl, {
       method: "POST",
@@ -233,14 +248,15 @@ export async function POST(request: NextRequest) {
 
     if (!subscriberResponse.ok) {
       const errorData = await subscriberResponse.text()
-      console.error("MailerLite subscriber error:", errorData)
+      console.error(`[MailerLite] Subscriber API error (${subscriberResponse.status}):`, errorData)
       return NextResponse.json(
-        { error: "Failed to add subscriber to MailerLite" },
+        { error: "Failed to add subscriber to MailerLite", details: errorData },
         { status: subscriberResponse.status }
       )
     }
 
     const subscriber = await subscriberResponse.json()
+    console.log("[MailerLite] Subscriber successfully added/updated:", subscriber.data?.id)
 
     return NextResponse.json(
       {
