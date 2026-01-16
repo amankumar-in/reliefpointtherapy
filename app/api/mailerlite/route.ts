@@ -131,13 +131,14 @@ export async function POST(request: NextRequest) {
 
           // Find or create groups for each tag
           for (const tag of tags) {
-            let group = groups.find(
-              (g: { name: string }) =>
-                g.name.toLowerCase() === tag.toLowerCase()
-            )
+            // If group exists, log it
+            if (group) {
+              console.log(`[MailerLite] Matched existing group "${tag}" with ID: ${group.id}`)
+            }
 
             // If group doesn't exist, create it
             if (!group) {
+              console.log(`[MailerLite] Group "${tag}" not found, creating it...`)
               try {
                 const createGroupResponse = await fetch(
                   "https://connect.mailerlite.com/api/groups",
@@ -157,6 +158,10 @@ export async function POST(request: NextRequest) {
                 if (createGroupResponse.ok) {
                   const newGroup = await createGroupResponse.json()
                   group = newGroup.data
+                  console.log(`[MailerLite] Successfully created group "${tag}" with ID: ${group.id}`)
+                } else {
+                  const errorText = await createGroupResponse.text()
+                  console.error(`[MailerLite] Failed to create group "${tag}":`, errorText)
                 }
               } catch (createError) {
                 console.warn(`Could not create group "${tag}":`, createError)
