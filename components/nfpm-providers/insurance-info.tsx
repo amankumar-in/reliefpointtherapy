@@ -30,7 +30,7 @@ export function InsuranceInfo() {
                  {[
                      { 
                          name: "Original Medicare", 
-                         desc: "Covered (Red, White & Blue Card)",
+                         desc: "Coverage available for eligible patients.",
                          bg: "bg-teal-50 border-teal-100 text-teal-900"
                      },
                      { 

@@ -40,7 +40,7 @@ export function DecisionGuide() {
                 </p>
                 <div className="w-full pt-4">
                     <div className="text-sm text-teal-100 font-medium mb-8">
-                        📍 Available to patients local to the East Bay (Medicare covered).
+                        📍 Available to patients local to the East Bay (Coverage available through Original Medicare).
                     </div>
                     <ShimmerButton className="w-full text-primary font-bold h-12 text-lg group-hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all" background="#ffffff" shimmerColor="#0F8B8D">
                          <Link href="/nfpm" className="flex items-center justify-center w-full h-full gap-2">

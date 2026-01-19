@@ -15,7 +15,7 @@ import { ProviderCallout } from "@/components/nfpm/provider-callout"
 
 export const metadata: Metadata = {
   title: "Neurofunctional Pain Management (NFPM) | Non-Invasive Pain Relief",
-  description: "Drug-free, non-invasive, nurse-led pain relief in the comfort of your home. NFPM uses FDA-cleared electroanalgesia to calm overactive pain pathways, promote circulation, and support healing. Covered by Medicare and most major PPOs.",
+  description: "Drug-free, non-invasive, nurse-led pain relief in the comfort of your home. NFPM uses FDA-cleared electroanalgesia to calm overactive pain pathways, promote circulation, and support healing. Coverage available through Original Medicare and most major PPOs.",
   keywords: [
     "NFPM",
     "neurofunctional pain management",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Neurofunctional Pain Management (NFPM) | Non-Invasive Pain Relief",
-    description: "Drug-free, non-invasive, nurse-led pain relief in the comfort of your home. NFPM uses FDA-cleared electroanalgesia. Covered by Medicare and most major PPOs.",
+    description: "Drug-free, non-invasive, nurse-led pain relief in the comfort of your home. NFPM uses FDA-cleared electroanalgesia. Coverage available through Original Medicare and most major PPOs.",
     url: "/nfpm",
     images: [
       {
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     title: "Neurofunctional Pain Management (NFPM) | Non-Invasive Pain Relief",
-    description: "Drug-free, non-invasive, nurse-led pain relief in the comfort of your home. Covered by Medicare and most major PPOs.",
+    description: "Drug-free, non-invasive, nurse-led pain relief in the comfort of your home. Coverage available through Original Medicare and most major PPOs.",
     images: ["/assets/images/rpt-logo.png"],
   },
 };

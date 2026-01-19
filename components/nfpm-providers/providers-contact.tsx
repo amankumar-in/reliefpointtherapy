@@ -25,14 +25,14 @@ export function ProvidersContact() {
 
         <div className="grid md:grid-cols-2 gap-4 lg:gap-6">
              {/* Email Card */}
-             <a href="mailto:info@reliefpointtherapy.com" className="group relative p-6 rounded-2xl bg-white/5 border border-white/10 overflow-hidden hover:bg-white/10 transition-all duration-300 flex flex-col items-center">
+             <a href="mailto:contact@reliefpointtherapy.com" className="group relative p-6 rounded-2xl bg-white/5 border border-white/10 overflow-hidden hover:bg-white/10 transition-all duration-300 flex flex-col items-center">
                  <div className="absolute inset-0 bg-gradient-to-br from-teal-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                  <div className="relative z-10 flex flex-col items-center text-center">
                      <div className="h-10 w-10 rounded-xl bg-white/10 flex items-center justify-center text-white mb-3 group-hover:scale-110 transition-transform group-hover:bg-teal-500 group-hover:shadow-[0_0_20px_rgba(45,212,191,0.4)]">
                          <Mail className="h-5 w-5" />
                      </div>
                      <h3 className="text-lg font-bold text-white mb-1">Email Direct</h3>
-                     <p className="text-slate-400 text-sm md:text-base group-hover:text-teal-200 transition-colors">info@reliefpointtherapy.com</p>
+                     <p className="text-slate-400 text-sm md:text-base group-hover:text-teal-200 transition-colors">contact@reliefpointtherapy.com</p>
                  </div>
              </a>
 

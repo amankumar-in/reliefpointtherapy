@@ -6,7 +6,7 @@ const paths = [
   {
     title: "Clinical Pain Relief",
     subtitle: "NFPM Treatment",
-    description: "For moderate to severe chronic pain, neuropathy, and mobility issues. Covered by Medicare.",
+    description: "For moderate to severe chronic pain, neuropathy, and mobility issues. Coverage available through Original Medicare.",
     benefits: [
       "Severe Chronic Pain",
       "Neuropathy & Sciatica",

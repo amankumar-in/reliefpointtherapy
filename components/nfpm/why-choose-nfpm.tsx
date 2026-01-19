@@ -5,7 +5,7 @@ export function WhyChooseNFPM() {
     "100% Non-Invasive & Drug-Free",
     "No Downtime or Recovery Period",
     "Nurse-Led Care in Your Home",
-    "Covered by Medicare & Many PPOs",
+    "Coverage available through Original Medicare & Many PPOs",
     "Effective for Treatment-Resistant Pain",
     "Promotes Actual Healing, Not Masking",
   ]

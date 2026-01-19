@@ -14,20 +14,20 @@ const products = [
     tagline: "The Foundation",
     image: "/assets/images/Product-Images/Protandim Nrf2/nrf2.png", 
     link: "https://genismatel.lifevantage.com/us-en/shop/protandim-nrf2",
-    overview: "Protandim Nrf2 is a nutrigenomic supplement that activates the body’s own antioxidant and detoxification pathways, rather than supplying antioxidants directly. It’s designed to support inflammation balance, cellular repair, energy, and healthy aging at the cellular level.",
+    overview: "Protandim Nrf2 activates the body’s own antioxidant pathways rather than supplying antioxidants directly. It is the only dietary supplement clinically shown to reduce oxidative stress by up to 40% in 30 days, supporting cellular repair, energy, and healthy aging.",
     bestFor: [
       "Chronic inflammation",
       "Low energy or sluggish recovery",
       "Mental fog",
       "Healthy aging and longevity support",
-      "Daily foundational wellness",
-      "Pairing with collagen (glowstack) or NFPM"
+      "Daily foundational wellness"
     ],
     saveTips: [
-      "Subscribe & Save: 10% off (cancel anytime)",
+      "Subscribe & Save (10% off)",
       "3-pack option: Lowers cost to approximately $50/month",
       "Important: Update delivery to every 3 months if ordering for one individual",
-      "30-day money-back guarantee"
+      "30-day money-back guarantee",
+      "Cancel anytime"
     ],
     ingredients: "Turmeric, Green Tea, Bacopa, Milk Thistle, Ashwagandha. Patented synergy."
   },
@@ -37,7 +37,7 @@ const products = [
     tagline: "Liquid Collagen + Nrf2",
     image: "/assets/images/Product-Images/Glowstack collagen/glow stack.png",
     link: "https://genismatel.lifevantage.com/us-en/shop/healthy-glow-essentials-stack",
-    overview: "GlowStack combines Protandim Nrf2 with liquid collagen and a blend of 10 bioactive peptides to support skin elasticity, hydration, firmness, joint comfort, gut health, eye health, and connective tissue integrity from the inside out.",
+    overview: "GlowStack combines TrueScience®Liquid Collagen with Protandim® Nrf2 to support skin, joints, and connective tissue from the inside out. It delivers 10 different types of collagen, while cell culture studies showed a 100% increase in collagen density.",
     bestFor: [
       "Skin elasticity, tone, glow",
       "Hair and nails",
@@ -47,10 +47,11 @@ const products = [
     ],
     saveTips: [
       "Collagen Loading Month strategy available",
-      "Pure Subscription: Subscribe & Save (10% off)",
+      "Subscribe & Save (10% off)",
+      "30-day money-back guarantee",
       "Cancel anytime"
     ],
-    ingredients: "10 Bioactive Peptides, Liquid Collagen, Nrf2 activators."
+    ingredients: "Fish Collagen Peptides, Ruby Quinoa Extract, Proprietary Citrus & Berry Blend"
   },
   // Row 2
   {
@@ -68,8 +69,10 @@ const products = [
       "Anti-aging"
     ],
     saveTips: [
-      "Subscribe & Save",
-      "Purchase Tri Synergizer if NAD is desired"
+      "Subscribe & Save (10% off)",
+      "Purchase Tri Synergizer if NAD is desired",
+      "30-day money-back guarantee",
+      "Cancel anytime"
     ],
     ingredients: "Nrf1 activators + Nrf2 activators."
   },
@@ -89,7 +92,8 @@ const products = [
     saveTips: [
       "Cheaper bundled vs individual bottles",
       "Subscribe & Save (10% off)",
-      "30-day guarantee"
+      "30-day money-back guarantee",
+      "Cancel anytime"
     ],
     ingredients: "Full spectrum activation: Nrf1, Nrf2, NAD."
   }

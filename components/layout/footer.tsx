@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { NewsletterForm } from "@/components/home/newsletter-form";
+
 
 // TikTok icon (custom SVG)
 const TikTokIcon = ({ className }: { className?: string }) => (
@@ -29,7 +31,7 @@ export function Footer() {
       <div className="absolute -bottom-[200px] -left-[200px] w-[400px] h-[400px] bg-blue-50 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
           
           {/* Column 1: Brand & Social */}
           <div className="space-y-6">
@@ -42,7 +44,7 @@ export function Footer() {
                 className="h-14 w-auto" 
               />
             </Link>
-            <p className="text-slate-600 font-sans text-base leading-relaxed max-w-sm">
+            <p className="text-slate-600 font-sans text-sm leading-relaxed max-w-sm">
               Empowering you to heal with non-invasive, nurse-led pain relief solutions in the comfort of your home.
             </p>
             <div className="flex gap-4 pt-2">
@@ -65,7 +67,7 @@ export function Footer() {
           </div>
 
           {/* Column 2: Quick Links */}
-          <div className="md:pl-8 lg:pl-16 space-y-6">
+          <div className="lg:pl-4 space-y-6">
             <h3 className="text-lg font-bold text-slate-900 tracking-tight">Quick Links</h3>
             <ul className="space-y-3">
               {[
@@ -79,7 +81,7 @@ export function Footer() {
                   <Link
                     href={link.href}
                     className={cn(
-                        "text-slate-600 hover:text-teal-600 transition-colors font-sans text-base inline-block transform hover:translate-x-1 duration-200",
+                        "text-slate-600 hover:text-teal-600 transition-colors font-sans text-sm inline-block transform hover:translate-x-1 duration-200",
                         link.special && "text-teal-700 font-semibold border-b border-teal-100 pb-0.5"
                     )}
                   >
@@ -92,29 +94,40 @@ export function Footer() {
 
           {/* Column 3: Contact */}
           <div className="space-y-6">
-            <h3 className="text-lg font-bold text-slate-900 tracking-tight">Contact Information</h3>
+            <h3 className="text-lg font-bold text-slate-900 tracking-tight">Contact Info</h3>
             <div className="space-y-4 font-sans text-slate-600">
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-teal-600 shrink-0 mt-1" />
-                <p>East Bay, California<br /><span className="text-sm text-slate-500">Serving the greater East Bay area</span></p>
+                <p className="text-sm">East Bay, California<br /><span className="text-xs text-slate-500">Serving the greater East Bay area</span></p>
               </div>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-teal-600 shrink-0" />
-                <a href="tel:9255153710" className="hover:text-teal-800 transition-colors">
+                <a href="tel:9255153710" className="hover:text-teal-800 transition-colors text-sm">
                   (925) 515-3710
                 </a>
               </div>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-teal-600 shrink-0" />
-                <a href="mailto:contact@reliefpointtherapy.com" className="hover:text-teal-800 transition-colors">
+                <a href="mailto:contact@reliefpointtherapy.com" className="hover:text-teal-800 transition-colors text-sm break-all">
                   contact@reliefpointtherapy.com
                 </a>
               </div>
               <div className="pt-2">
-                 <span className="inline-flex items-center px-3 py-1 rounded-full bg-teal-50 border border-teal-100 text-teal-700 text-xs font-bold">
+                 <span className="inline-flex items-center px-3 py-1 rounded-full bg-teal-50 border border-teal-100 text-teal-700 text-[10px] font-bold">
                     RN License #95206892
                  </span>
               </div>
+            </div>
+          </div>
+
+          {/* Column 4: Newsletter */}
+          <div className="space-y-6">
+            <h3 className="text-lg font-bold text-slate-900 tracking-tight">Get Your Healing Checklist</h3>
+            <div className="pt-2">
+              <NewsletterForm 
+                buttonText="Get Free Guide"
+                formClassName="space-y-3"
+              />
             </div>
           </div>
         </div>

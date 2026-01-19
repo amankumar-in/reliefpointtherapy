@@ -9,7 +9,7 @@ const differences = [
   {
     icon: Heart,
     title: "Non-Invasive, Drug-Free Pain Relief",
-    description: "NFPM supports the body's natural healing systems without surgery, medications, or downtime. Covered by Medicare.",
+    description: "NFPM supports the body's natural healing systems without surgery, medications, or downtime. Coverage available through Original Medicare.",
   },
   {
     icon: Sparkles,

@@ -25,7 +25,7 @@ const products = [
       "/assets/images/Product-Images/NFPM Machine/nfpm machine with glowstack.jpg",
       "/assets/images/Product-Images/NFPM Machine/NFPM Clipart.png",
     ],
-    summary: "In-home, non-invasive electroanalgesia treatments that help reduce pain, improve mobility, and support long-term healing. Medicare-covered.",
+    summary: "In-home, non-invasive electroanalgesia treatments that help reduce pain, improve mobility, and support long-term healing. Coverage available through Original Medicare.",
     includes: [
       "8-week personalized program",
       "2 treatments per week",
@@ -67,7 +67,7 @@ const products = [
       "/assets/images/Product-Images/Glowstack collagen/collagen 2.png",
       "/assets/images/Product-Images/Glowstack collagen/LFVN-TS-Collagen-Stevie-Award_CO_01.jpg.png",
     ],
-    summary: "10 peptides + collagen + Nrf2. Supports skin elasticity, joints, hair, nails, and recovery. Clinically shown to increase bone density and improve skin firmness in 6–8 weeks.",
+    summary: "Truescience Liquid Collagen + Protandim Nrf2. Includes 10 different types of collagen to support skin elasticity, joints, hair, nails, and recovery. Clinically shown to increase collagen density and improve skin firmness in 6–8 weeks.",
     cta: { text: "Order GlowStack", link: "https://genismatel.lifevantage.com/us-en/shop/healthy-glow-essentials-stack" },
   },
   {
@@ -78,7 +78,7 @@ const products = [
       "/assets/images/Product-Images/nrf1.png",
       "/assets/images/Product-Images/Protandim Nrf2/nrf2.png",
     ],
-    summary: "Mitochondria support + inflammation reduction. Helps energy, metabolism, and cognitive clarity.",
+    summary: "Mitochondrial support + inflammation reduction. Supports energy, metabolism, and cognitive clarity.",
     cta: { text: "Order Dual Synergizer", link: "https://genismatel.lifevantage.com/us-en/shop/protandim-dual" },
   },
   {
