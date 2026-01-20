@@ -9,7 +9,7 @@ export function Nrf2FAQ() {
   const faqs = [
     {
       q: "What is Protandim Nrf2?",
-      a: "Protandim Nrf2 helps your body turn on its own natural defense system. It signals your cells to make more of their own antioxidants, including glutathione. In studies, it has been shown to increase glutathione by up to 300%. Protandim Nrf2 is also the only product on the market shown in human studies to lower oxidative stress by about 40%. Oxidative stress is a major driver of inflammation, stress, aging, and many chronic health issues. It is made from a patented blend of plant-based ingredients that work together to support cellular health and repair. You can find the full ingredients list on the LifeVantage product page."
+      a: "Protandim Nrf2 helps your body turn on its own natural defense system. It signals your cells to make more of their own antioxidants, including glutathione. In studies, it has been shown to increase glutathione by up to 300%. Protandim® Nrf2 is also the only product on the market shown in human studies to lower oxidative stress by about 40% in 30 days. Oxidative stress is a major driver of inflammation, stress, aging, and many chronic health issues. It is made from a patented blend of plant-based ingredients that work together to support cellular health and repair. You can find the full ingredients list on the LifeVantage product page."
     },
     {
       q: "What are the ingredients in Protandim Nrf2, and why can’t I just take them separately?",
@@ -17,11 +17,11 @@ export function Nrf2FAQ() {
     },
     {
         q: "How long does it take to see results?",
-        a: "Most people begin noticing benefits in 6–8 weeks, though some feel improvements sooner. Cellular repair naturally takes 60–90 days, but we encourage committing to Nrf2 for at least 3–6 months for a fair evaluation. I generally don’t recommend starting Nrf2 unless you’re willing to give your cells enough time to respond."
+        a: "With Protandim® Nrf2, most people notice subtle changes within 30–60 days, but meaningful cellular support takes time. For best results, commit to Protandim® Nrf2 for 3–6 months, or about one month per decade of life.\n\nGlowStack (TrueScience® Liquid Collagen + Nrf2) is clinically shown to support visible skin and joint improvements within 6–8 weeks, since collagen turnover occurs more quickly than cellular repair."
     },
     {
         q: "What is GlowStack?",
-        a: "GlowStack combines Nrf2 with liquid collagen and peptides to support skin elasticity, joint comfort, hydration, bone density, and recovery. Visible results often begin around 6–8 weeks."
+        a: "GlowStack combines Protandim® Nrf2 with TrueScience® Liquid Collagen to support skin elasticity, joint comfort, hydration, bone density, and recovery. It is clinically shown to support visible skin and joint improvements within 6–8 weeks."
     },
     {
         q: "Which product should I start with?",

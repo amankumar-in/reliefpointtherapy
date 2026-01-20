@@ -18,8 +18,8 @@ const testimonials = [
   { id: 2, image: "/assets/images/product-testimonial/collagen back pain_ injections.png" },
   { id: 3, image: "/assets/images/product-testimonial/collagen back pain.png" },
   { id: 4, image: "/assets/images/product-testimonial/collagen fibromyalgia.png" },
-  { id: 5, image: "/assets/images/product-testimonial/collagen, post op knee.png" },
-  { id: 6, image: "/assets/images/product-testimonial/nrf1 nrf2 collagen; knees.png" },
+  { id: 5, image: "/assets/images/product-testimonial/collagen-post-op-knee.png" },
+  { id: 6, image: "/assets/images/product-testimonial/nrf1-nrf2-collagen-knees.png" },
 ]
 
 export function ProductsTestimonials() {

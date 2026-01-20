@@ -18,6 +18,13 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    if (!firstName) {
+      return NextResponse.json(
+        { error: "Name is required" },
+        { status: 400 }
+      )
+    }
+
     // Get MailerLite API token from environment variable
     const apiToken = process.env.MAILERLITE_API_TOKEN
 

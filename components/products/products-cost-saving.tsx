@@ -27,29 +27,29 @@ export function ProductsCostSaving() {
   ]
 
   return (
-    <section className="py-20 md:py-24 bg-slate-50 border-t border-slate-200">
+    <section className="py-20 md:py-24 bg-slate-900 border-t border-slate-800">
       <div className="container mx-auto px-4 md:px-6">
         <div className="space-y-12">
           <div className="text-center space-y-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
-              Smart Ways to <span className="text-teal-600">Save</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+              Smart Ways to <span className="text-teal-400">Save</span>
             </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
               Get the most value out of your activation protocol.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
             {tips.map((tip, index) => {
               const Icon = tip.icon
               return (
-                <div key={index} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex gap-5 items-start">
-                  <div className="shrink-0 p-3 bg-teal-50 rounded-xl text-teal-600">
-                    <Icon className="h-6 w-6" />
+                <div key={index} className="flex flex-row items-start text-left gap-3 group">
+                  <div className="shrink-0 p-2.5 bg-slate-800 rounded-xl border border-slate-700 shadow-sm text-teal-400 group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 text-lg mb-2">{tip.title}</h3>
-                    <p className="text-slate-600 leading-relaxed text-sm">
+                    <h3 className="font-bold text-white text-sm md:text-base mb-1">{tip.title}</h3>
+                    <p className="text-slate-400 leading-tight text-xs md:text-sm">
                       {tip.description}
                     </p>
                   </div>

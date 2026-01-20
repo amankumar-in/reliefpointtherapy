@@ -100,13 +100,14 @@ export function NewsletterForm({
         <input
           type="text"
           name="firstName"
+          required
           className={cn(
             "w-full px-4 py-2.5 rounded-full border focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all text-sm",
             darkMode 
                 ? "bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus:bg-white/10" 
                 : "bg-white/80 border-slate-200 text-slate-900 placeholder:text-slate-400 focus:bg-white"
           )}
-          placeholder="First Name (Optional)"
+          placeholder="Name"
         />
       </div>
       <ShimmerButton 
