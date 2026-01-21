@@ -12,7 +12,7 @@ export function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/assets/images/world-art-day-celebration-with-hands-posing.png"
+          src="/assets/images/image2.png"
           alt="World Art Day Celebration"
           fill
           className="object-cover"
