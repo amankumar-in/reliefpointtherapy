@@ -16,7 +16,7 @@ export function WhyIBelieve() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
              
              {/* Left: The Quote/Manifesto Header */}
-             <div className="space-y-8 sticky top-32">
+             <div className="space-y-8 lg:sticky lg:top-32">
                 <Quote className="h-12 w-12 text-teal-500 opacity-50" />
                 <h2 className="text-4xl md:text-6xl font-serif leading-tight">
                     Why I Brought NFPM Into My Practice

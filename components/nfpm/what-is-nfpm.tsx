@@ -16,10 +16,10 @@ export function WhatIsNFPM() {
             </h2>
             <div className="space-y-6 text-lg md:text-xl text-slate-300 leading-relaxed font-light">
               <p>
-                Neurofunctional Pain Management (NFPM) uses <strong className="text-white font-medium">FDA-cleared electroanalgesia</strong> and neuromodulation to calm overactive pain pathways, improve circulation, reduce inflammation, and support the body&apos;s natural healing. 
+                Neurofunctional Pain Management (NFPM) is a comprehensive, nurse-led pain management approach delivered in partnership with Relatyv. It uses <strong className="text-white font-medium">FDA-cleared electroanalgesia</strong> and neuromodulation, along with supportive IV hydration and lifestyle guidance, to calm overactive pain pathways, improve circulation, reduce inflammation, and support the body&apos;s natural healing.
               </p>
               <p>
-                It is a comprehensive medical treatment performed in your home by a registered nurse—ideal for people who want long-term relief without relying on medications, injections, or repeated procedures.
+                NFPM is performed in your home by a registered nurse and is ideal for people seeking long-term relief without relying on medications, injections, or other invasive procedures.
               </p>
             </div>
           </div>

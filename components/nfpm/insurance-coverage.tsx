@@ -42,7 +42,7 @@ export function InsuranceCoverage() {
                     </Link>
                     <div className="flex items-center gap-2 text-slate-500 text-sm px-4">
                         <Clock className="h-4 w-4" />
-                        <span>Typically verified within 24 hours</span>
+                        <span>Fast Verification: Typically completed within 24–72 hours</span>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@ export function InsuranceCoverage() {
                     </div>
                     <div>
                         <h3 className="text-xl font-bold text-slate-900 mb-2">Original Medicare</h3>
-                        <p className="text-slate-600">Full primary coverage under Part B. We accept assignment, meaning simplified billing for you.</p>
+                        <p className="text-slate-600">Coverage available for eligible patients.</p>
                     </div>
                 </div>
 

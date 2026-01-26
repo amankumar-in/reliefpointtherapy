@@ -19,7 +19,7 @@ export function ProvidersContact() {
                 Start a <span className="text-teal-400">Conversation</span>
             </h2>
             <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-                Direct access for clinical partnerships. I am available to discuss complex cases.
+                Direct access for clinical partnerships. I am available to discuss complex cases, referrals, and care coordination.
             </p>
         </div>
 

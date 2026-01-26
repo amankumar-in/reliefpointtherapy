@@ -6,18 +6,18 @@ export function ClinicalOverview() {
   const pillars = [
     {
       icon: Zap,
-      title: "High Pulse Electroanalgesia",
-      description: "The highest FDA-cleared high pulse electroanalgesia therapy available in the country. This specialized therapy is not available through general practitioners, chiropractors, or standard pain clinics."
+      title: "High-Pulse Electroanalgesia",
+      description: "FDA-cleared high-pulse electroanalgesia delivered using advanced neuromodulation protocols designed to calm overactive pain pathways, improve circulation, and support nerve recovery."
     },
     {
       icon: Pill, 
-      title: "Nutritional Deficiency Therapy",
-      description: "Personalized vitamin and mineral hydration therapy designed to support nerve healing and reset pain signaling pathways, addressing the biochemical root of chronic pain."
+      title: "IV Nutritional Hydration Therapy",
+      description: "Personalized IV nutritional hydration therapy using vitamin and antioxidant support to enhance cellular energy, neurological function, and metabolic health while supporting the biochemical foundation of pain recovery."
     },
     {
       icon: Brain,
-      title: "Patient Education & Counseling",
-      description: "A robust and personalized education and lifestyle counseling regimen. We empower patients to understand their pain and adopt habits that support long-term outcomes and sustainable relief."
+      title: "Patient Education & Lifestyle Coaching",
+      description: "Guided coaching for long-term pain relief resilience and wellness"
     }
   ]
 

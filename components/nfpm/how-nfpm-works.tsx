@@ -20,8 +20,8 @@ export function HowNFPMWorks() {
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight mb-6">
               How <span className="text-teal-600">NFPM Works</span>
             </h2>
-            <p className="text-xl text-slate-600 font-light leading-relaxed max-w-2xl">
-              NFPM uses high-pulse electrical currents to restore balance to your nervous system. By targeting the root causes of pain—inflammation, circulation, and nerve signaling—it promotes actual healing.
+            <p className="text-xl text-slate-600 font-light leading-relaxed max-w-3xl">
+              NFPM uses FDA-cleared high-pulse electroanalgesia, along with supportive IV hydration, to restore balance to the nervous system. By addressing inflammation, circulation, and nerve signaling, it supports true healing rather than temporary symptom relief.
             </p>
         </div>
 
@@ -67,7 +67,7 @@ export function HowNFPMWorks() {
             
             <div className="flex-shrink-0">
                 <Link 
-                  href="https://drive.google.com/file/d/1yajdZCW-UA0bMiRje4-H41-MbUFVE4Tf/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/1zeX9QeI9dDtGTTTgp9feqb_0MEoSSWU5/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"
