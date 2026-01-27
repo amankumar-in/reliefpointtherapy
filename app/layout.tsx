@@ -17,7 +17,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://reliefpointtherapy.com'),
+  metadataBase: new URL('https://reliefpointtherapy.onrender.com'),
   title: {
     default: "Relief Point Therapy | Non-Invasive Pain Relief in the East Bay",
     template: "%s | Relief Point Therapy",
