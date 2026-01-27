@@ -77,10 +77,10 @@ export const metadata: Metadata = {
     description: 'Non-invasive, nurse-led pain relief in the East Bay. NFPM treatments covered by Medicare. In-home care for chronic pain, knee pain, back pain, and nerve-related conditions.',
     images: [
       {
-        url: '/assets/images/rpt-logo.png',
-        width: 180,
-        height: 60,
-        alt: 'Relief Point Therapy Logo',
+        url: '/assets/thumb-share.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Relief Point Therapy - Non-Invasive Pain Relief',
       },
     ],
   },
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Relief Point Therapy | Non-Invasive Pain Relief',
     description: 'Non-invasive, nurse-led pain relief in the East Bay. NFPM treatments covered by Medicare.',
-    images: ['/assets/images/rpt-logo.png'],
+    images: ['/assets/thumb-share.jpg'],
   },
   robots: {
     index: true,

@@ -45,9 +45,11 @@ export function Hero() {
           </div>
 
           <div className="flex flex-row gap-2 sm:gap-4 justify-center lg:justify-start pt-4">
-            <ShimmerButton className="h-11 sm:h-14 px-4 sm:px-8 text-sm sm:text-lg font-semibold shadow-xl shadow-teal-900/10" background="#0F8B8D" shimmerColor="#ffffff">
-              <Link href="/nfpm">Learn About NFPM</Link>
-            </ShimmerButton>
+            <Link href="/nfpm">
+              <ShimmerButton className="h-11 sm:h-14 px-4 sm:px-8 text-sm sm:text-lg font-semibold shadow-xl shadow-teal-900/10" background="#0F8B8D" shimmerColor="#ffffff">
+                Learn About NFPM
+              </ShimmerButton>
+            </Link>
             
             <Button asChild variant="outline" size="lg" className="bg-white/80 backdrop-blur-sm border-slate-200 text-slate-900 hover:bg-white text-xs sm:text-lg h-11 sm:h-14 px-4 sm:px-8 rounded-full transition-all shadow-sm hover:shadow-md">
               <Link href="/nrf2">Start My Cellular Healing</Link>

@@ -32,17 +32,17 @@ export const metadata: Metadata = {
     url: "/",
     images: [
       {
-        url: "/assets/images/genis-homepage-hero.png",
+        url: "/assets/thumb-share.jpg",
         width: 1200,
         height: 630,
-        alt: "Genis Matel, RN - Relief Point Therapy",
+        alt: "Relief Point Therapy - Non-Invasive Pain Relief",
       },
     ],
   },
   twitter: {
     title: "Pain Relief That Helps You Heal Not Just Cope",
     description: "Non-invasive, drug-free pain relief covered by Medicare, provided in the comfort of your home.",
-    images: ["/assets/images/genis-homepage-hero.png"],
+    images: ["/assets/thumb-share.jpg"],
   },
 };
 
