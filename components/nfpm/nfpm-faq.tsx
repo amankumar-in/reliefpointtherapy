@@ -53,12 +53,8 @@ const faqs = [
     ),
   },
   {
-    question: "Is it safe?",
-    answer: "Yes. The device is FDA-cleared and safe for most people. Your clinician will review your health history to ensure it's appropriate for you. EA should not be used over open wounds, certain implanted devices, or during pregnancy unless specifically approved.",
-  },
-  {
     question: "Is NFPM safe?",
-    answer: "Yes. NFPM uses FDA-cleared electroanalgesia. It's non-invasive, drug-free, and safe for a wide range of patients. A provider will review your medical history to ensure there are no contraindications.",
+    answer: "Yes. The device is FDA-cleared and safe for most people. Your clinician will review your health history to ensure it's appropriate for you. EA should not be used over open wounds, certain implanted devices, or during pregnancy unless specifically approved.",
   },
   {
     question: "Is NFPM covered by insurance?",
