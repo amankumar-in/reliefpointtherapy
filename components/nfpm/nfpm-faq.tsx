@@ -17,6 +17,46 @@ const faqs = [
     answer: "Some people notice improvements after a few sessions. Most begin experiencing meaningful changes during the 8-week program as mobility increases and pain decreases.",
   },
   {
+    question: "What is Electroanalgesia (EA)?",
+    answer: "Electroanalgesia is a gentle treatment that uses safe, controlled electrical pulses to help calm nerves, reduce pain, and relax the body. These pulses are not harmful; they help the nervous system reset and release natural feel-good chemicals.",
+  },
+  {
+    question: "How does it help with pain?",
+    answer: (
+      <>
+        EA supports pain relief in several ways:
+        <ol className="list-decimal pl-6 mt-3 space-y-4">
+          <li>
+            <strong>Calms overactive nerves through sustained depolarization</strong>
+            <p className="mt-1">Depolarization reduces the nerve&apos;s ability to continuously send pain signals to the brain. This helps interrupt the chronic pain and inflammation cycle often seen in long-standing conditions. When nerves have been irritated for extended periods, they may continue signaling pain even when no active injury is present.</p>
+          </li>
+          <li>
+            <strong>Boosts the body&apos;s natural pain relievers</strong>
+            <p className="mt-1">During treatment, the body releases:</p>
+            <ul className="list-disc pl-6 mt-1 space-y-1">
+              <li>Endorphins (natural &quot;feel-good&quot; chemicals)</li>
+              <li>Enkephalins and dynorphins (built-in pain relievers)</li>
+              <li>GABA (promotes relaxation)</li>
+            </ul>
+            <p className="mt-1">Many patients report feeling lighter, calmer, or less tense afterward.</p>
+          </li>
+          <li>
+            <strong>Increases local blood flow</strong>
+            <p className="mt-1">Improved circulation brings oxygen and nutrients to affected areas while helping clear inflammatory byproducts.</p>
+          </li>
+          <li>
+            <strong>Supports healthier muscle movement</strong>
+            <p className="mt-1">Certain settings can gently activate muscles, helping prevent stiffness and weakness.</p>
+          </li>
+        </ol>
+      </>
+    ),
+  },
+  {
+    question: "Is it safe?",
+    answer: "Yes. The device is FDA-cleared and safe for most people. Your clinician will review your health history to ensure it's appropriate for you. EA should not be used over open wounds, certain implanted devices, or during pregnancy unless specifically approved.",
+  },
+  {
     question: "Is NFPM safe?",
     answer: "Yes. NFPM uses FDA-cleared electroanalgesia. It's non-invasive, drug-free, and safe for a wide range of patients. A provider will review your medical history to ensure there are no contraindications.",
   },
@@ -38,11 +78,37 @@ const faqs = [
   },
   {
     question: "What conditions does NFPM help?",
-    answer: "NFPM commonly helps: Knee pain, Back pain, Neuropathy, Sciatica, Arthritis, Muscle tightness, Post-surgical pain, Slow-healing wounds …and more. If you don't see your condition listed, feel free to message me to see if NFPM may help.",
+    answer: (
+      <>
+        Patients often use electroanalgesia for:
+        <ul className="list-disc pl-6 mt-3 space-y-1">
+          <li>Chronic pain</li>
+          <li>Joint pain</li>
+          <li>Nerve pain</li>
+          <li>Muscle tension</li>
+          <li>Post-surgical or injury-related pain</li>
+          <li>Conditions involving inflammation or hypersensitivity</li>
+        </ul>
+        <p className="mt-3">Your clinician will select the appropriate settings based on your condition.</p>
+      </>
+    ),
   },
   {
-    question: "What should I expect after a session?",
-    answer: "Most patients feel relaxed afterward. Some may experience temporary soreness or increased circulation. Hydration and light movement are encouraged to support recovery.",
+    question: "What will I feel after?",
+    answer: (
+      <>
+        Many patients report:
+        <ul className="list-disc pl-6 mt-3 space-y-1">
+          <li>Less pain</li>
+          <li>Greater relaxation</li>
+          <li>Looser muscles</li>
+          <li>Improved movement</li>
+          <li>A sense of calm</li>
+        </ul>
+        <p className="mt-3">Relief may be immediate or may build gradually over multiple sessions.</p>
+        <p className="mt-3">In some cases, patients experience a brief return of symptoms a few days later, sometimes referred to as &quot;relearning of pain signals.&quot; This can occur as the brain recalibrates after a long-standing pain pattern is interrupted. While uncommon, it is a known part of the healing process and typically resolves as the body adjusts.</p>
+      </>
+    ),
   },
   {
     question: "How long do results last?",

@@ -20,10 +20,13 @@ export function Nrf2Hero() {
             
             {/* Left Content */}
             <div className="text-center lg:text-left space-y-8 order-last lg:order-first">
-                <div className="hidden lg:inline-block animate-fade-in-up">
+                <div className="hidden lg:flex items-center gap-2 animate-fade-in-up">
                     <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-50 border border-teal-100 text-teal-700 text-sm font-medium tracking-wide shadow-sm">
                         <span className="h-2 w-2 rounded-full bg-teal-500 animate-pulse" />
                         Daily Wellness Support
+                    </span>
+                    <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-slate-600 text-sm font-medium tracking-wide shadow-sm">
+                        No insurance required
                     </span>
                 </div>
                 
